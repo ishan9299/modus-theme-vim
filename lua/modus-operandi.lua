@@ -381,10 +381,10 @@ Group.new("DiffDelete" , colors.fg_diff_removed , colors.bg_diff_removed        
 Group.new("DiffText"   , colors.fg_diff_changed , colors.bg_diff_changed , styles.none)
 
 -- built_in LSP
-Group.new("LSPDiagnosticsWarning" , colors.yellow_intense_bg , colors.none)
-Group.new("LSPDiagnosticsError"   , colors.red_intense_bg    , colors.none)
-Group.new("LSPDiagnosticsHint"    , colors.green_intense_bg  , colors.none)
-
+Group.new("lspdiagnosticswarning"     , colors.yellow_active , colors.bg_active , styles.NONE)
+Group.new("lspdiagnosticserror"       , colors.red_active      , colors.bg_active , styles.NONE)
+Group.new("lspdiagnosticshint"        , colors.green_active    , colors.bg_active , styles.NONE)
+Group.new("LSPDiagnosticsInformation" , colors.blue_active     , colors.bg_active , styles.NONE)
 
 -- Spellings
 Group.new("SpellBad" , colors.fg_lang_error , colors.none , styles.none)
