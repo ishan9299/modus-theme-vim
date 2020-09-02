@@ -358,6 +358,11 @@ Group.new('SignColumn'     , colors.none              , colors.bg_inactive)
 Group.new('VertSplit'      , colors.fg                , colors.none)
 Group.new('luaStatement'   , groups.Statement         , colors.none)
 
+-- Lua
+Group.new('luaStatement'    , groups.Statement , colors.none)
+Group.new('luafunctioncall' , groups.Function  , colors.none)
+Group.new('luaemmyfluff'    , groups.Comment   , colors.none)
+
 -- vim/nvim
 Group.new('vimcommand'            , groups.Statement         , colors.none)
 Group.new('vimLet'                , groups.vimcommand        , colors.none)
