@@ -35,13 +35,13 @@ Color.new("fg_inactive" , "#bebebe")
 -- fg_* or bg_* cannot or should not be used (to avoid confusion)
 -- must be combined with: {fg,bg}_{main,alt,dim}
 
-Color.new("bg_special_cold" , "#203448") 
+Color.new("bg_special_cold" , "#203448")
 Color.new("fg_special_cold" , "#c6eaff")
-Color.new("bg_special_mild" , "#00322e") 
+Color.new("bg_special_mild" , "#00322e")
 Color.new("fg_special_mild" , "#bfebe0")
-Color.new("bg_special_warm" , "#382f27") 
+Color.new("bg_special_warm" , "#382f27")
 Color.new("fg_special_warm" , "#f8dec0")
-Color.new("bg_special_calm" , "#392a48") 
+Color.new("bg_special_calm" , "#392a48")
 Color.new("fg_special_calm" , "#fbd6f4")
 
 -- styles for the main constructs
@@ -260,10 +260,10 @@ Color.new("fg_window_divider_outer" , "#969696")
 
 Color.new("fg_unfocused" , "#93959b")
 
-Color.new("bg_header" , "#212121") 
+Color.new("bg_header" , "#212121")
 Color.new("fg_header" , "#dddddd")
 
-Color.new("bg_whitespace" , "#170016") 
+Color.new("bg_whitespace" , "#170016")
 Color.new("fg_whitespace" , "#a4959f")
 
 Color.new("bg_diff_heading" , "#304466")
@@ -283,11 +283,11 @@ Color.new("fg_diff_removed" , "#c6adaa")
 -- Color.new("bg_diff_focus_removed" , "#5e2526")
 -- Color.new("fg_diff_focus_removed" , "#eebdba")
 
-Color.new("bg_mark_sel" , "#002f2f") 
+Color.new("bg_mark_sel" , "#002f2f")
 Color.new("fg_mark_sel" , "#60cfa2")
-Color.new("bg_mark_del" , "#5a0000") 
+Color.new("bg_mark_del" , "#5a0000")
 Color.new("fg_mark_del" , "#ff99aa")
-Color.new("bg_mark_alt" , "#3f2210") 
+Color.new("bg_mark_alt" , "#3f2210")
 Color.new("fg_mark_alt" , "#f0aa20")
 
 
