@@ -7,10 +7,12 @@ local api = vim.api
 api.nvim_set_option('bg','dark')
 
 api.nvim_command('highlight clear')
-api.nvim_command('syntax reset')
+
+if vim.fn.exists('syntax_on') then
+	api.nvim_command('syntax clear')
+end
 
 local Color, colors, Group, groups, styles = require("colorbuddy").setup()
-
 
 
 Color.new("bg"     , "#000000")
