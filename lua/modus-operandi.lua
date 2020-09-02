@@ -294,6 +294,7 @@ Color.new("bg_mark_alt" , "#f5d88f")
 Color.new("fg_mark_alt" , "#782900")
 
 Group.new('Normal'         , colors.fg                , colors.bg)
+Group.new('NormalNC'	   , colors.fg_inactive	      , colors.bg_inactive)
 Group.new('Folded'	   , colors.fg_special_calm   , colors.bg_special_calm     , styles.none)
 Group.new('Function'       , colors.magenta           , colors.none)
 Group.new('Error'          , colors.fg                , colors.red_intense_bg      , styles.bold)
