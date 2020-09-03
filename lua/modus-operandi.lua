@@ -3,6 +3,9 @@
 --The pandoc syntax also conflicts with it.
 ]]--
 
+-- vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker
+
+local vim = vim
 local api = vim.api
 api.nvim_set_option('bg','light')
 
@@ -203,8 +206,6 @@ Color.new("blue_fringe_bg" , "#82afff")
 Color.new("magenta_fringe_bg" , "#f0a3ff")
 Color.new("cyan_fringe_bg" , "#00d6e0")
 
--- styles reserved for specific faces
-
 
 -- styles reserved for specific faces
 --
@@ -240,7 +241,7 @@ Color.new("cyan_fringe_bg" , "#00d6e0")
 -- the window divider colours apply to faces with just an fg value
 --
 -- all pairs are combinable with themselves
-
+--- {{{1
 Color.new("bg_hl_line" , "#f2eff3")
 Color.new("bg_paren_match" , "#e0af82")
 Color.new("bg_paren_match_intense" , "#70af9f")
@@ -293,6 +294,8 @@ Color.new("fg_mark_del" , "#840040")
 Color.new("bg_mark_alt" , "#f5d88f")
 Color.new("fg_mark_alt" , "#782900")
 
+-- }}}
+
 Group.new('Normal'         , colors.fg                , colors.bg)
 Group.new('NormalNC'	   , colors.fg_inactive	      , colors.bg_inactive)
 Group.new('Folded'	   , colors.fg_special_mild   , colors.bg_special_mild     , styles.none)
@@ -316,26 +319,12 @@ Group.new("Identifier"     , colors.blue_alt_other    , colors.none             
 Group.new("Include"        , colors.red_alt_other     , colors.none                , styles.NONE)
 Group.new('Keyword'        , colors.magenta_alt_other , colors.none)
 Group.new("Label"          , colors.cyan              , colors.none                , styles.NONE)
--- Parenthesis
-Group.new('MatchParen'     , colors.fg                , colors.bg_paren_match)
-Group.new('Number'         , colors.fg                , colors.none)
-Group.new("Operator"       , groups.Normal            , colors.none                , styles.NONE)
-
--- Completion(Pmenu)
-Group.new('Pmenu'          , colors.fg_active         , colors.bg_active)
-Group.new('PmenuSel'       , colors.fg_dim            , colors.bg_dim)
-Group.new('PmenuSbar'      , colors.none              , colors.bg_inactive)
-Group.new('PmenuThumb'     , colors.none              , colors.fg)
 Group.new('PreProc'        , colors.red_alt_other     , colors.none)
 Group.new("Repeat"         , colors.magenta_alt_other , colors.none                , styles.NONE)
 Group.new("Special"        , colors.fg                , colors.none                , styles.NONE) --change
 Group.new("SpecialChar"    , colors.blue_alt_other    , colors.none                , styles.NONE)
 Group.new("SpecialComment" , colors.fg_alt            , colors.none                , styles.NONE)
 Group.new("Statement"      , colors.magenta_alt_other , colors.none                , styles.NONE)
-
--- Statusline
-Group.new('StatusLine'   , colors.fg_alt            , colors.bg_active)
-Group.new('StatusLineNC' , colors.bg_region         , colors.bg_active)
 Group.new("StorageClass" , colors.magenta_alt_other , colors.none                , styles.NONE)
 Group.new("String"       , colors.blue_alt          , colors.none                , styles.NONE)
 Group.new("Structure"    , colors.magenta_alt_other , colors.none                , styles.NONE)
@@ -351,6 +340,24 @@ Group.new('TabLine'      , colors.fg_dim            , colors.bg_tab_inactive)
 Group.new('TabLineSel'   , colors.fg                , colors.bg_tab_active)
 Group.new('Search'       , colors.fg                , colors.green_intense_bg)
 Group.new('EndOfBuffer'  , colors.fg_inactive       , colors.none)
+
+
+-- Parenthesis
+Group.new('MatchParen'     , colors.fg                , colors.bg_paren_match)
+Group.new('Number'         , colors.fg                , colors.none)
+Group.new("Operator"       , groups.Normal            , colors.none                , styles.NONE)
+
+-- Completion(Pmenu)
+Group.new('Pmenu'          , colors.fg_active         , colors.bg_active)
+Group.new('PmenuSel'       , colors.fg_dim            , colors.bg_dim)
+Group.new('PmenuSbar'      , colors.none              , colors.bg_inactive)
+Group.new('PmenuThumb'     , colors.none              , colors.fg)
+
+
+-- Statusline {{{1
+Group.new('StatusLine'   , colors.fg_alt            , colors.bg_active)
+Group.new('StatusLineNC' , colors.bg_region         , colors.bg_active)
+
 
 -- Line Numbers
 Group.new('LineNr'         , colors.fg_alt            , colors.bg_dim)
@@ -408,24 +415,17 @@ Group.new("markdownh4"                 , colors.fg_special_mild , colors.cyan_nu
 Group.new("markdownh5"                 , colors.fg_special_calm , colors.none               , styles.bold)
 Group.new("markdownh6"                 , colors.yellow_nuanced  , colors.none               , styles.bold)
 Group.new("markdownRule"               , groups.markdownH2      , colors.none               , styles.bold)
--- Italics and Bold
 Group.new("markdownItalic"             , colors.fg_special_cold , colors.none               , styles.italic)
 Group.new("markdownBold"               , colors.fg              , colors.none               , styles.bold)
 Group.new("markdownBoldItalic"         , colors.fg              , colors.none               , styles.bold + styles.italic)
--- Code
 Group.new("markdownCodeDelimiter"      , colors.green_alt_other , colors.none               , styles.bold)
 Group.new("markdownCode"               , colors.fg_special_mild , colors.bg_dim             , styles.none)
 Group.new("markdownCodeBlock"          , colors.fg_special_mild , colors.bg_dim             , styles.none)
--- Link
 Group.new("markdownLinkText"           , colors.blue            , colors.none               , styles.italic)
 --[[Not using the underline as I have not figured out how to apply it correctly]]--
 Group.new("markdownUrl"                , colors.blue            , colors.none               , styles.none)
 Group.new("markdownFootnote"           , colors.cyan_alt        , colors.none               , styles.italic)
 Group.new("markdownFootnoteDefinition" , colors.fg              , colors.none               , styles.italic)
--- Lists
 Group.new("markdownListMarker"         , colors.fg_alt          , colors.none               , styles.bold)
--- Quotes
 Group.new("markdownBlockquote"         , colors.magenta         , colors.none               , styles.bold)
--- Line Break
--- Underline is you want you can disable it
 Group.new("markdownLineBreak"          , colors.cyan_refine_fg  , colors.cyan_refine_bg     , styles.underline)
