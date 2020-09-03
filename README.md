@@ -44,7 +44,7 @@ packadd! modus-theme-vim
 To set the current theme.
 
 ```viml
-lua require('modus-operandi')
+lua require('colorbuddy').colorscheme('modus-operandi')
 ```
 
 NOTE
