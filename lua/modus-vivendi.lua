@@ -351,18 +351,38 @@ Group.new('TabLineSel'   , colors.fg                , colors.bg_tab_active)
 Group.new('Search'       , colors.fg                , colors.green_intense_bg)
 Group.new('EndOfBuffer'  , colors.fg_inactive       , colors.none)
 
+
+-- Parenthesis
+Group.new('MatchParen'     , colors.fg                , colors.bg_paren_match)
+Group.new('Number'         , colors.fg                , colors.none)
+Group.new("Operator"       , groups.Normal            , colors.none                , styles.NONE)
+
+-- Completion(Pmenu)
+Group.new('Pmenu'          , colors.fg_active         , colors.bg_active)
+Group.new('PmenuSel'       , colors.fg_dim            , colors.bg_dim)
+Group.new('PmenuSbar'      , colors.none              , colors.bg_inactive)
+Group.new('PmenuThumb'     , colors.none              , colors.fg)
+
+
+-- Statusline {{{1
+Group.new('StatusLine'   , colors.fg_alt            , colors.bg_active)
+Group.new('StatusLineNC' , colors.bg_region         , colors.bg_active)
+
+
 -- Line Numbers
 Group.new('LineNr'         , colors.fg_alt            , colors.bg_dim)
 Group.new('CursorLineNr'   , colors.fg_active         , colors.bg_active           , styles.bold)
 Group.new('CursorLine'     , colors.none              , colors.bg_inactive)
 Group.new('SignColumn'     , colors.none              , colors.bg_inactive)
 Group.new('VertSplit'      , colors.fg                , colors.none)
-Group.new('luaStatement'   , groups.Statement         , colors.none)
 
 -- Lua
 Group.new('luaStatement'    , groups.Statement , colors.none)
 Group.new('luafunctioncall' , groups.Function  , colors.none)
 Group.new('luaemmyfluff'    , groups.Comment   , colors.none)
+
+-- Python
+Group.new('pythonoperator'  , groups.Operator , groups.Operator , styles.none)
 
 -- vim/nvim
 Group.new('vimcommand'            , groups.Statement         , colors.none)

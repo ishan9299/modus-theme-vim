@@ -364,6 +364,9 @@ Group.new('luaStatement'    , groups.Statement , colors.none)
 Group.new('luafunctioncall' , groups.Function  , colors.none)
 Group.new('luaemmyfluff'    , groups.Comment   , colors.none)
 
+-- Python
+Group.new('pythonoperator'  , groups.Operator , groups.operator , styles.none)
+
 -- vim/nvim
 Group.new('vimcommand'            , groups.Statement         , colors.none)
 Group.new('vimLet'                , groups.vimcommand        , colors.none)
