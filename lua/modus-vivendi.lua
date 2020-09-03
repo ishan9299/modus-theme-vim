@@ -1,8 +1,9 @@
 --[[
 --Note that the colorscheme set for markdown here conflicts with the plasticboy-markdown plugin
---The pandoc syntac also conflicts with it.
+--The pandoc syntax also conflicts with it.
 ]]--
 
+local vim = vim
 local api = vim.api
 api.nvim_set_option('bg','dark')
 
@@ -402,7 +403,7 @@ Group.new("markdownh3"                 , colors.fg_special_cold , colors.blue_nu
 Group.new("markdownh4"                 , colors.fg_special_mild , colors.cyan_nuanced_bg    , styles.bold)
 Group.new("markdownh5"                 , colors.fg_special_calm , colors.none               , styles.bold)
 Group.new("markdownh6"                 , colors.yellow_nuanced  , colors.none               , styles.bold)
-Group.new("markdownRule"               , groups.markdownH2      , groups.markdownH2         , styles.bold)
+Group.new("markdownRule"               , groups.markdownH2      , colors.none               , styles.bold)
 -- Italics and Bold
 Group.new("markdownItalic"             , colors.fg_special_cold , colors.none               , styles.italic)
 Group.new("markdownBold"               , colors.fg              , colors.none               , styles.bold)
