@@ -335,6 +335,7 @@ Group.new("Type"         , colors.magenta_alt       , colors.none               
 Group.new("Typedef"      , colors.magenta_alt       , colors.none                , styles.NONE)
 Group.new("Underlined"   , colors.none              , colors.blue_nuanced_bg     , styles.underline)
 Group.new('Visual'       , colors.fg                , colors.magenta_intense_bg)
+Group.new('Whitespace'	 , colors.fg								, colors.none								 , styles.bold)
 Group.new('Type'         , colors.magenta_alt       , colors.none)
 Group.new('TabLine'      , colors.fg_dim            , colors.bg_tab_inactive)
 Group.new('TabLineSel'   , colors.fg                , colors.bg_tab_active)
@@ -367,9 +368,11 @@ Group.new('SignColumn'     , colors.none              , colors.bg_inactive)
 Group.new('VertSplit'      , colors.fg                , colors.none)
 
 -- Lua
+Group.new('luaConstant'     , groups.Constant  , colors.none  , styles.bold)
 Group.new('luaStatement'    , groups.Statement , colors.none)
 Group.new('luafunctioncall' , groups.Function  , colors.none)
 Group.new('luaemmyfluff'    , groups.Comment   , colors.none)
+Group.new('luaVarName'	    , colors.cyan	     , colors.none)
 
 -- Python
 Group.new('pythonoperator'  , groups.Operator , groups.operator , styles.none)
