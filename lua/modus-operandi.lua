@@ -3,7 +3,7 @@
 --The pandoc syntax also conflicts with it.
 ]]--
 
--- vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker
+-- vim: fdm=marker
 
 local vim = vim
 local api = vim.api
@@ -12,7 +12,7 @@ api.nvim_set_option('bg','light')
 api.nvim_command('highlight clear')
 
 if vim.fn.exists('syntax_on') then
-	api.nvim_command('syntax clear')
+  api.nvim_command('syntax clear')
 end
 
 local Color, colors, Group, groups, styles = require("colorbuddy").setup()
@@ -51,60 +51,60 @@ Color.new("fg_special_calm" , "#61284f")
 --
 -- must be combined with: `bg', `bg_alt', `bg_dim'
 
-Color.new("red" , "#a60000")
-Color.new("green" , "#005e00")
-Color.new("yellow" , "#813e00")
-Color.new("blue" , "#0030a6")
+Color.new("red"     , "#a60000")
+Color.new("green"   , "#005e00")
+Color.new("yellow"  , "#813e00")
+Color.new("blue"    , "#0030a6")
 Color.new("magenta" , "#721045")
-Color.new("cyan" , "#00538b")
+Color.new("cyan"    , "#00538b")
 
 -- styles for common, but still specialised constructs
 --
 -- must be combined with: `bg_main', `bg_alt', `bg_dim'
 
-Color.new("red_alt" , "#972500")
-Color.new("green_alt" , "#315b00")
-Color.new("yellow_alt" , "#70480f")
-Color.new("blue_alt" , "#223fbf")
+Color.new("red_alt"     , "#972500")
+Color.new("green_alt"   , "#315b00")
+Color.new("yellow_alt"  , "#70480f")
+Color.new("blue_alt"    , "#223fbf")
 Color.new("magenta_alt" , "#8f0075")
-Color.new("cyan_alt" , "#30517f")
+Color.new("cyan_alt"    , "#30517f")
 
 -- same purpose as above, just slight differences
 --
 -- must be combined with: `bg_main', `bg_alt', `bg_dim'
 
-Color.new("red_alt_other" , "#a0132f")
-Color.new("green_alt_other" , "#145c33")
-Color.new("yellow_alt_other" , "#863927")
-Color.new("blue_alt_other" , "#0000bb")
+Color.new("red_alt_other"     , "#a0132f")
+Color.new("green_alt_other"   , "#145c33")
+Color.new("yellow_alt_other"  , "#863927")
+Color.new("blue_alt_other"    , "#0000bb")
 Color.new("magenta_alt_other" , "#5317ac")
-Color.new("cyan_alt_other" , "#005a5f")
+Color.new("cyan_alt_other"    , "#005a5f")
 
 -- styles for desaturated foreground text, intended for use with
 -- the `modus_operandi_theme_faint_syntax' option
 --
 -- must be combined with: `bg_main', `bg_alt', `bg_dim'
 
-Color.new("red_faint" , "#7f1010")
-Color.new("green_faint" , "#104410")
-Color.new("yellow_faint" , "#5f4400")
-Color.new("blue_faint" , "#002f88")
+Color.new("red_faint"     , "#7f1010")
+Color.new("green_faint"   , "#104410")
+Color.new("yellow_faint"  , "#5f4400")
+Color.new("blue_faint"    , "#002f88")
 Color.new("magenta_faint" , "#752f50")
-Color.new("cyan_faint" , "#12506f")
+Color.new("cyan_faint"    , "#12506f")
 
-Color.new("red_alt_faint" , "#702f00")
-Color.new("green_alt_faint" , "#30440f")
-Color.new("yellow_alt_faint" , "#5d5000")
-Color.new("blue_alt_faint" , "#003f78")
+Color.new("red_alt_faint"     , "#702f00")
+Color.new("green_alt_faint"   , "#30440f")
+Color.new("yellow_alt_faint"  , "#5d5000")
+Color.new("blue_alt_faint"    , "#003f78")
 Color.new("magenta_alt_faint" , "#702565")
-Color.new("cyan_alt_faint" , "#354f6f")
+Color.new("cyan_alt_faint"    , "#354f6f")
 
-Color.new("red_alt_other_faint" , "#7f002f")
-Color.new("green_alt_other_faint" , "#0f443f")
-Color.new("yellow_alt_other_faint" , "#5e3a20")
-Color.new("blue_alt_other_faint" , "#1f2f6f")
+Color.new("red_alt_other_faint"     , "#7f002f")
+Color.new("green_alt_other_faint"   , "#0f443f")
+Color.new("yellow_alt_other_faint"  , "#5e3a20")
+Color.new("blue_alt_other_faint"    , "#1f2f6f")
 Color.new("magenta_alt_other_faint" , "#5f3f7f")
-Color.new("cyan_alt_other_faint" , "#2e584f")
+Color.new("cyan_alt_other_faint"    , "#2e584f")
 
 -- styles for elements that should be very subtle, yet accented
 --
@@ -122,47 +122,47 @@ Color.new("cyan_nuanced" , "#0f3360")
 --
 -- must be combined with any of the above foreground values
 
-Color.new("red_nuanced_bg" , "#fff1f0")
-Color.new("green_nuanced_bg" , "#ecf7ed")
-Color.new("yellow_nuanced_bg" , "#fff3da")
-Color.new("blue_nuanced_bg" , "#f3f3ff")
+Color.new("red_nuanced_bg"     , "#fff1f0")
+Color.new("green_nuanced_bg"   , "#ecf7ed")
+Color.new("yellow_nuanced_bg"  , "#fff3da")
+Color.new("blue_nuanced_bg"    , "#f3f3ff")
 Color.new("magenta_nuanced_bg" , "#fdf0ff")
-Color.new("cyan_nuanced_bg" , "#ebf6fa")
+Color.new("cyan_nuanced_bg"    , "#ebf6fa")
 
 -- styles for elements that should draw attention to themselves
 --
 -- must be combined with: `bg_main'
 
-Color.new("red_intense" , "#b60000")
-Color.new("green_intense" , "#006800")
-Color.new("yellow_intense" , "#904200")
-Color.new("blue_intense" , "#1111ee")
+Color.new("red_intense"     , "#b60000")
+Color.new("green_intense"   , "#006800")
+Color.new("yellow_intense"  , "#904200")
+Color.new("blue_intense"    , "#1111ee")
 Color.new("magenta_intense" , "#7000e0")
-Color.new("cyan_intense" , "#205b93")
+Color.new("cyan_intense"    , "#205b93")
 
 -- styles for background elements that should be visible yet
 -- subtle
 --
 -- must be combined with: `fg_dim'
 
-Color.new("red_subtle_bg" , "#f2b0a2")
-Color.new("green_subtle_bg" , "#aecf90")
-Color.new("yellow_subtle_bg" , "#e4c340")
-Color.new("blue_subtle_bg" , "#b5d0ff")
+Color.new("red_subtle_bg"     , "#f2b0a2")
+Color.new("green_subtle_bg"   , "#aecf90")
+Color.new("yellow_subtle_bg"  , "#e4c340")
+Color.new("blue_subtle_bg"    , "#b5d0ff")
 Color.new("magenta_subtle_bg" , "#f0d3ff")
-Color.new("cyan_subtle_bg" , "#c0efff")
+Color.new("cyan_subtle_bg"    , "#c0efff")
 
 -- styles for background elements that should be visible and
 -- distinguishable
 --
 -- must be combined with: `fg_main'
 
-Color.new("red_intense_bg" , "#ff8892")
-Color.new("green_intense_bg" , "#5ada88")
-Color.new("yellow_intense_bg" , "#f5df23")
-Color.new("blue_intense_bg" , "#6aaeff")
+Color.new("red_intense_bg"     , "#ff8892")
+Color.new("green_intense_bg"   , "#5ada88")
+Color.new("yellow_intense_bg"  , "#f5df23")
+Color.new("blue_intense_bg"    , "#6aaeff")
 Color.new("magenta_intense_bg" , "#d5baff")
-Color.new("cyan_intense_bg" , "#42cbd4")
+Color.new("cyan_intense_bg"    , "#42cbd4")
 
 -- styles for refined contexts where both the foreground and the
 -- background need to have the same/similar hue
@@ -170,18 +170,18 @@ Color.new("cyan_intense_bg" , "#42cbd4")
 -- must be combined with themselves OR the foregrounds can be
 -- combined with any of the base backgrounds
 
-Color.new("red_refine_bg" , "#ffcccc")
-Color.new("red_refine_fg" , "#780000")
-Color.new("green_refine_bg" , "#aceaac")
-Color.new("green_refine_fg" , "#004c00")
-Color.new("yellow_refine_bg" , "#fff29a")
-Color.new("yellow_refine_fg" , "#604000")
-Color.new("blue_refine_bg" , "#8ac7ff")
-Color.new("blue_refine_fg" , "#002288")
+Color.new("red_refine_bg"     , "#ffcccc")
+Color.new("red_refine_fg"     , "#780000")
+Color.new("green_refine_bg"   , "#aceaac")
+Color.new("green_refine_fg"   , "#004c00")
+Color.new("yellow_refine_bg"  , "#fff29a")
+Color.new("yellow_refine_fg"  , "#604000")
+Color.new("blue_refine_bg"    , "#8ac7ff")
+Color.new("blue_refine_fg"    , "#002288")
 Color.new("magenta_refine_bg" , "#ffccff")
 Color.new("magenta_refine_fg" , "#770077")
-Color.new("cyan_refine_bg" , "#8eecf4")
-Color.new("cyan_refine_fg" , "#004850")
+Color.new("cyan_refine_bg"    , "#8eecf4")
+Color.new("cyan_refine_fg"    , "#004850")
 
 -- styles that are meant exclusively for the mode line
 --
@@ -209,32 +209,32 @@ Color.new("cyan_fringe_bg" , "#00d6e0")
 
 -- styles reserved for specific faces
 --
--- `bg_hl_line' is between `bg_dim' and `bg_alt', so it should
--- work with all accents that cover those two, plus `bg_main'
+-- `bg_hl_line' is between `bg_dim' and `bg_alt'                     , so it should
+-- work with all accents that cover those two                        , plus `bg_main'
 --
--- `bg_header' is between `bg_active' and `bg_inactive', so it
--- can be combined with any of the "active" values, plus the
+-- `bg_header' is between `bg_active' and `bg_inactive'              , so it
+-- can be combined with any of the "active" values                   , plus the
 -- "special" and base foreground colours
 --
--- `bg_paren_match', `bg_paren_match_intense', `bg_region' and
--- `bg_tab_active' must be combined with `fg_main', while
+-- `bg_paren_match'                                                  , `bg_paren_match_intense' , `bg_region' and
+-- `bg_tab_active' must be combined with `fg_main'                   , while
 -- `bg_tab_inactive' should be combined with `fg_dim'
 --
 -- `bg_tab_bar' is only intended for the bar that holds the tabs and
 -- can only be combined with `fg_main'
 --
--- `fg_tab_active' is meant to be combined with `bg_tab_active',
--- though only for styling special elements, such as underlining
+-- `fg_tab_active' is meant to be combined with `bg_tab_active'      ,
+-- though only for styling special elements                          , such as underlining
 -- the current tab
 --
 -- `fg_escape_char_construct' and `fg_escape_char_backslash' can
--- be combined `bg_main', `bg_dim', `bg_alt'
+-- be combined `bg_main'                                             , `bg_dim'                 , `bg_alt'
 --
--- `fg_lang_error', `fg_lang_warning', `fg_lang_note' can be
--- combined with `bg_main', `bg_dim', `bg_alt'
+-- `fg_lang_error'                                                   , `fg_lang_warning'        , `fg_lang_note' can be
+-- combined with `bg_main'                                           , `bg_dim'                 , `bg_alt'
 --
--- `fg_mark_sel', `fg_mark_del', `fg_mark_alt' can be combined
--- with `bg_main', `bg_dim', `bg_alt', `bg_hl_line'
+-- `fg_mark_sel'                                                     , `fg_mark_del'            , `fg_mark_alt' can be combined
+-- with `bg_main'                                                    , `bg_dim'                 , `bg_alt'                      , `bg_hl_line'
 --
 -- `fg_unfocused' must be combined with `fg_main'
 --
@@ -242,22 +242,22 @@ Color.new("cyan_fringe_bg" , "#00d6e0")
 --
 -- all pairs are combinable with themselves
 --- {{{1
-Color.new("bg_hl_line" , "#f2eff3")
-Color.new("bg_paren_match" , "#e0af82")
-Color.new("bg_paren_match_intense" , "#70af9f")
-Color.new("bg_region" , "#bcbcbc")
+Color.new("bg_hl_line"                                               , "#f2eff3")
+Color.new("bg_paren_match"                                           , "#e0af82")
+Color.new("bg_paren_match_intense"                                   , "#70af9f")
+Color.new("bg_region"                                                , "#bcbcbc")
 
-Color.new("bg_tab_bar" , "#d5d5d5")
-Color.new("bg_tab_active" , "#f6f6f6")
+Color.new("bg_tab_bar"      , "#d5d5d5")
+Color.new("bg_tab_active"   , "#f6f6f6")
 Color.new("bg_tab_inactive" , "#bdbdbd")
-Color.new("fg_tab_active" , "#30169e")
+Color.new("fg_tab_active"   , "#30169e")
 
 Color.new("fg_escape_char_construct" , "#8b1030")
 Color.new("fg_escape_char_backslash" , "#654d0f")
 
-Color.new("fg_lang_error" , "#9f004f")
+Color.new("fg_lang_error"   , "#9f004f")
 Color.new("fg_lang_warning" , "#604f0f")
-Color.new("fg_lang_note" , "#4040ae")
+Color.new("fg_lang_note"    , "#4040ae")
 
 Color.new("fg_window_divider_inner" , "#888888")
 Color.new("fg_window_divider_outer" , "#585858")
@@ -272,8 +272,8 @@ Color.new("fg_whitespace" , "#645060")
 
 Color.new("bg_diff_heading" , "#b7c2dd")
 Color.new("fg_diff_heading" , "#043355")
-Color.new("bg_diff_added" , "#d4fad4")
-Color.new("fg_diff_added" , "#004500")
+Color.new("bg_diff_added"   , "#d4fad4")
+Color.new("fg_diff_added"   , "#004500")
 Color.new("bg_diff_changed" , "#fcefcf")
 Color.new("fg_diff_changed" , "#524200")
 Color.new("bg_diff_removed" , "#ffe8ef")
