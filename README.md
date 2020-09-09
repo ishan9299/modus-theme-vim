@@ -3,7 +3,7 @@ Modus Color Schemes
 
 This is a color scheme developed by *Protesilaos Stavrou* for emacs. I have attempted to port it to neovim using lua.  
 
-There are 2 color schemes
+There are 2 color schemes 
 
 - modus-operandi ( the light theme )
 - modus-vivendi ( the dark theme )
@@ -46,10 +46,7 @@ To set the current theme.
 ```viml
 lua require('colorbuddy').colorscheme('modus-operandi')
 ```
-or
-```
-colorscheme modus-vivendi
-```
+
 NOTE
 ----
 
