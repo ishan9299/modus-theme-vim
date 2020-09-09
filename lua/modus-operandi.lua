@@ -372,6 +372,7 @@ Group.new('luaConstant'         , groups.Constant  , colors.none  , styles.bold)
 Group.new('luaStatement'        , groups.Statement , colors.none)
 Group.new('luafunctioncall'     , groups.Function  , colors.none)
 Group.new('luaemmyfluff'        , groups.Comment   , colors.none)
+Group.new('luaTodo'             , groups.Todo      , colors.none  , styles.bold)
 Group.new('luaVarName'          , colors.cyan      , colors.none)
 Group.new('luaTableConstructor' , groups.Typedef   , colors.none)
 
