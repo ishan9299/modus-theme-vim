@@ -21,14 +21,14 @@ Only `termguicolors` are supported and that will not change.
 
 ```
 Plug 'tjdevries/colorbuddy.vim'
-Plug 'ishan9299/modus-themes-vim'
+Plug 'ishan9299/modus-theme-vim'
 ```
 
 ### Minpac
 
 ```viml
 call minpac#add('tjdevries/colorbuddy.vim')
-call minpac#add('ishan9299/modus-themes-vim')
+call minpac#add('ishan9299/modus-theme-vim')
 ```
 
 ### Vim Packages
