@@ -5,8 +5,7 @@
 
 -- vim: fdm=marker
 
-local vim = vim
-local api = vim.api
+local vim,api = vim,vim.api
 api.nvim_set_option('bg','light')
 
 api.nvim_command('highlight clear')
@@ -209,38 +208,39 @@ Color.new("cyan_fringe_bg"    , "#00d6e0")
 
 -- styles reserved for specific faces
 --
--- `bg_hl_line' is between `bg_dim' and `bg_alt'                     , so it should
--- work with all accents that cover those two                        , plus `bg_main'
+-- `bg_hl_line' is between `bg_dim' and `bg_alt' , so it should
+-- work with all accents that cover those two, plus `bg_main'
 --
--- `bg_header' is between `bg_active' and `bg_inactive'              , so it
--- can be combined with any of the "active" values                   , plus the
+-- `bg_header' is between `bg_active' and `bg_inactive', so it
+-- can be combined with any of the "active" values, plus the
 -- "special" and base foreground colours
 --
--- `bg_paren_match'                                                  , `bg_paren_match_intense' , `bg_region' and
--- `bg_tab_active' must be combined with `fg_main'                   , while
+-- `bg_paren_match', `bg_paren_match_intense' , `bg_region' and
+-- `bg_tab_active' must be combined with `fg_main', while
 -- `bg_tab_inactive' should be combined with `fg_dim'
 --
 -- `bg_tab_bar' is only intended for the bar that holds the tabs and
 -- can only be combined with `fg_main'
 --
--- `fg_tab_active' is meant to be combined with `bg_tab_active'      ,
--- though only for styling special elements                          , such as underlining
+-- `fg_tab_active' is meant to be combined with `bg_tab_active',
+-- though only for styling special elements, such as underlining
 -- the current tab
 --
 -- `fg_escape_char_construct' and `fg_escape_char_backslash' can
--- be combined `bg_main'                                             , `bg_dim'                 , `bg_alt'
+-- be combined `bg_main', `bg_dim', `bg_alt'
 --
--- `fg_lang_error'                                                   , `fg_lang_warning'        , `fg_lang_note' can be
--- combined with `bg_main'                                           , `bg_dim'                 , `bg_alt'
+-- `fg_lang_error', `fg_lang_warning', `fg_lang_note' can be
+-- combined with `bg_main', `bg_dim', `bg_alt'
 --
--- `fg_mark_sel'                                                     , `fg_mark_del'            , `fg_mark_alt' can be combined
--- with `bg_main'                                                    , `bg_dim'                 , `bg_alt'                      , `bg_hl_line'
+-- `fg_mark_sel', `fg_mark_del', `fg_mark_alt' can be combined
+-- with `bg_main', `bg_dim', `bg_alt', `bg_hl_line'
 --
 -- `fg_unfocused' must be combined with `fg_main'
 --
 -- the window divider colours apply to faces with just an fg value
 --
 -- all pairs are combinable with themselves
+
 --- {{{1
 Color.new("bg_hl_line"                                               , "#f2eff3")
 Color.new("bg_paren_match"                                           , "#e0af82")
@@ -437,46 +437,46 @@ Group.new("markdownBlockquote"         , colors.magenta         , colors.none   
 Group.new("markdownLineBreak"          , colors.cyan_refine_fg  , colors.cyan_refine_bg     , styles.underline)
 
 -- TreeSitter
-Group.new("TSError"              , groups.Error             , groups.Error        , styles.bold)
-Group.new("TSPunctDelimiter"     , colors.fg                , colors.bg)
-Group.new("TSPunctBracket"       , colors.fg                , colors.bg)
-Group.new("TSConstant"           , groups.Constant          , groups.Constant)
-Group.new("TSConstBuiltin"       , groups.Constant          , groups.Constant)
-Group.new("TSConstMacro"         , groups.Constant          , groups.Constant)
-Group.new("TSString"             , groups.String            , groups.String)
-Group.new("TSStringRegex"        , groups.String            , groups.String)
-Group.new("TSStringEscape"       , groups.String            , groups.String)
-Group.new("TSCharacter"          , groups.Character         , groups.Character)
-Group.new("TSNumber"             , groups.Number            , groups.Number)
-Group.new("TSBoolean"            , groups.Boolean           , groups.Boolean)
-Group.new("TSFloat"              , groups.Number            , groups.Number)
-Group.new("TSFunction"           , groups.Function          , groups.Function)
-Group.new("TSFuncBuiltin"        , groups.Function          , groups.Function)
-Group.new("TSFuncMacro"          , groups.Function          , groups.Function)
-Group.new("TSParameter"          , colors.cyan              , colors.none         , styles.none)
-Group.new("TSParameterReference" , groups.TSParameter       , groups.TSParameter)
--- Group.new("TSMethod"             , groups.Function          , groups.Function)
+Group.new("TSError"              , groups.Error                    , groups.Error        , styles.bold)
+Group.new("TSPunctDelimiter"     , colors.fg                       , colors.bg)
+Group.new("TSPunctBracket"       , colors.fg                       , colors.bg)
+Group.new("TSConstant"           , groups.Constant                 , groups.Constant)
+Group.new("TSConstBuiltin"       , groups.Constant                 , groups.Constant)
+Group.new("TSConstMacro"         , groups.Constant                 , groups.Constant)
+Group.new("TSString"             , groups.String                   , groups.String)
+Group.new("TSStringRegex"        , colors.fg_escape_char_construct , colors.none)
+Group.new("TSStringEscape"       , colors.fg_escape_char_backslash , colors.none)
+Group.new("TSCharacter"          , groups.Character                , groups.Character)
+Group.new("TSNumber"             , groups.Number                   , groups.Number)
+Group.new("TSBoolean"            , groups.Boolean                  , groups.Boolean)
+Group.new("TSFloat"              , groups.Number                   , groups.Number)
+Group.new("TSFunction"           , groups.Function                 , groups.Function)
+Group.new("TSFuncBuiltin"        , groups.Function                 , groups.Function)
+Group.new("TSFuncMacro"          , groups.Function                 , groups.Function)
+Group.new("TSParameter"          , colors.cyan                     , colors.none         , styles.none)
+Group.new("TSParameterReference" , groups.TSParameter              , groups.TSParameter)
+Group.new("TSMethod"             , groups.Function                 , groups.Function)
 -- Group.new("TSField")
 -- Group.new("TSProperty")
-Group.new("TSConstructor"        , colors.magenta_alt       , colors.none)
-Group.new("TSConditional"        , groups.Conditional       , groups.Conditional)
-Group.new("TSRepeat"             , groups.Repeat            , groups.Repeat)
-Group.new("TSLabel"              , groups.Label             , groups.Label)
-Group.new("TSOperator"           , groups.Operator          , groups.Operator)
-Group.new("TSKeyword"            , groups.Keyword           , groups.Keyword)
-Group.new("TSKeywordFunction"    , colors.magenta_alt       , colors.none         , styles.none)
-Group.new("TSException"          , groups.Exception         , groups.Exception)
-Group.new("TSType"               , groups.Type              , groups.Type         , styles.none)
--- Group.new("TSTypeBuiltin")
-Group.new("TSStructure"          , groups.Structure         , groups.Structure)
-Group.new("TSInclude"            , groups.Include           , groups.Include)
--- Group.new("TSAnnotation")
+Group.new("TSConstructor"        , colors.magenta_alt              , colors.none)
+Group.new("TSConditional"        , groups.Conditional              , groups.Conditional)
+Group.new("TSRepeat"             , groups.Repeat                   , groups.Repeat)
+Group.new("TSLabel"              , groups.Label                    , groups.Label)
+Group.new("TSOperator"           , groups.Operator                 , groups.Operator)
+Group.new("TSKeyword"            , groups.Keyword                  , groups.Keyword)
+Group.new("TSKeywordFunction"    , colors.magenta_alt              , colors.none         , styles.none)
+Group.new("TSException"          , groups.Exception                , groups.Exception)
+Group.new("TSType"               , groups.Type                     , groups.Type         , styles.none)
+Group.new("TSTypeBuiltin"        , groups.Type                     , groups.Type         , styles.none)
+Group.new("TSStructure"          , groups.Structure                , groups.Structure)
+Group.new("TSInclude"            , groups.Include                  , groups.Include)
+Group.new("TSAnnotation"         , colors.blue_nuanced_bg          , colors.none)
 -- Group.new("TSText")
--- Group.new("TSStrong")
+Group.new("TSStrong"             , colors.fg                       , colors.bg           , styles.bold)
 -- Group.new("TSEmphasis")
 -- Group.new("TSUnderline")
--- Group.new("TSTitle")
--- Group.new("TSLiteral")
+Group.new("TSTitle"              , colors.cyan_nuanced             , colors.none)
+Group.new("TSLiteral"            , colors.blue_alt                 , colors.none         , styles.bold)
 -- Group.new("TSURI")
-Group.new("TSVariable"           , colors.cyan          , colors.none     , styles.none)
-Group.new("TSVariableBuiltin"    , colors.magenta_alt_other , colors.none         , styles.none)
+Group.new("TSVariable"           , colors.cyan                     , colors.none         , styles.none)
+Group.new("TSVariableBuiltin"    , colors.magenta_alt_other        , colors.none         , styles.none)
