@@ -183,7 +183,7 @@ Color.new("magenta_refine_fg" , "#ffcaf0")
 Color.new("cyan_refine_bg"    , "#004065")
 Color.new("cyan_refine_fg"    , "#8ae4f2")
 
--- styles that are meant exclusively for the mode line
+-- styles that are meant exclusively for the statusline
 --
 -- must be combined with: `bg_active', `bg_inactive'
 
@@ -341,7 +341,7 @@ Group.new('Search'         , colors.fg                , colors.green_intense_bg)
 Group.new('EndOfBuffer'    , colors.fg_inactive       , colors.none)
 
 
--- Parenthesis
+-- Parenthesis {{{
 Group.new('MatchParen'     , colors.fg                , colors.bg_paren_match)
 Group.new('Number'         , colors.fg                , colors.none)
 Group.new("Operator"       , groups.Normal            , colors.none                , styles.NONE)
@@ -353,7 +353,7 @@ Group.new('PmenuSbar'      , colors.none              , colors.bg_inactive)
 Group.new('PmenuThumb'     , colors.none              , colors.fg)
 
 
--- Statusline {{{1
+-- Statusline
 Group.new('StatusLine'   , colors.fg_alt            , colors.bg_active)
 Group.new('StatusLineNC' , colors.bg_region         , colors.bg_active)
 
@@ -366,18 +366,19 @@ Group.new('SignColumn'     , colors.none              , colors.bg_inactive)
 Group.new('VertSplit'      , colors.fg                , colors.none)
 
 -- Lua
-Group.new('luaConstant'     , groups.Constant  , colors.none  , styles.bold)
-Group.new('luaStatement'    , groups.Statement , colors.none)
-Group.new('luafunctioncall' , groups.Function  , colors.none)
-Group.new('luaemmyfluff'    , groups.Comment   , colors.none)
+Group.new('luaConstant'         , groups.Constant  , colors.none  , styles.bold)
+Group.new('luaStatement'        , groups.Statement , colors.none)
+Group.new('luafunctioncall'     , groups.Function  , colors.none)
+Group.new('luaemmyfluff'        , groups.Comment   , colors.none)
 Group.new('luaTodo'             , groups.Todo      , colors.none  , styles.bold)
-Group.new('luaVarName'      , colors.cyan      , colors.none)
+Group.new('luaVarName'          , colors.cyan      , colors.none)
 Group.new('luaTableConstructor' , groups.Typedef   , colors.none)
 
 -- Python
 Group.new('pythonoperator'  , groups.Operator , groups.Operator , styles.none)
+-- }}}
 
--- vim/nvim
+-- vim/nvim {{{
 Group.new('vimcommand'          , groups.Statement   , colors.none)
 Group.new('vimLet'              , groups.vimcommand  , colors.none)
 Group.new('vimFuncVar'          , groups.identifier  , colors.none)
@@ -394,8 +395,9 @@ Group.new('vimnotfunc'          , groups.Conditional , colors.none)
 Group.new('nvimMap'             , groups.vimMap      , colors.none)
 Group.new('NvimPlainAssignment' , colors.magenta_alt , colors.none)
 Group.new('NvimIdentifier'      , colors.cyan_alt    , colors.none)
+--- }}}
 
--- Diff
+-- Diff {{{
 Group.new("DiffAdd"    , colors.fg_diff_added   , colors.bg_diff_added          , styles.none)
 Group.new("DiffChange" , colors.fg_diff_changed , colors.bg_diff_changed        , styles.none)
 Group.new("DiffDelete" , colors.fg_diff_removed , colors.bg_diff_removed        , styles.none)
@@ -411,7 +413,9 @@ Group.new("LSPDiagnosticsInformation" , colors.blue_active     , colors.bg_activ
 Group.new("SpellBad" , colors.fg_lang_error , colors.none , styles.none)
 Group.new("SpellCap" , colors.fg_lang_error , colors.none , styles.none)
 
--- Markdown
+-- }}}
+
+-- Markdown {{{
 Group.new("markdownh1"                 , colors.fg              , colors.magenta_nuanced_bg , styles.bold)
 Group.new("markdownh2"                 , colors.fg_special_warm , colors.red_nuanced_bg     , styles.bold)
 Group.new("markdownh3"                 , colors.fg_special_cold , colors.blue_nuanced_bg    , styles.bold)
@@ -433,13 +437,49 @@ Group.new("markdownFootnoteDefinition" , colors.fg              , colors.none   
 Group.new("markdownListMarker"         , colors.fg_alt          , colors.none               , styles.bold)
 Group.new("markdownBlockquote"         , colors.magenta         , colors.none               , styles.bold)
 Group.new("markdownLineBreak"          , colors.cyan_refine_fg  , colors.cyan_refine_bg     , styles.underline)
-
+-- }}}
 
 -- TreeSitter
-Group.new('TSConstBuiltin'    , groups.Constant    , colors.none , styles.none)
-Group.new('TSContructor'      , groups.Typedef     , colors.none , styles.none)
-Group.new('TSFuncBuiltin'     , groups.Function    , colors.none , styles.none)
-Group.new('TSStringEscape'    , groups.Character   , colors.none , styles.none)
-Group.new('TSStringRegex'     , groups.SpecialChar , colors.none , styles.none)
-Group.new('TSURI'             , groups.Tag         , colors.none , styles.none)
-Group.new('TSVariableBuiltin' , groups.Identifier  , colors.none , styles.none)
+Group.new("TSError"              , groups.Error             , groups.Error        , styles.bold)
+Group.new("TSPunctDelimiter"     , colors.fg                , colors.bg)
+Group.new("TSPunctBracket"       , colors.fg                , colors.bg)
+Group.new("TSConstant"           , groups.Constant          , groups.Constant)
+Group.new("TSConstBuiltin"       , groups.Constant          , groups.Constant)
+Group.new("TSConstMacro"         , groups.Constant          , groups.Constant)
+Group.new("TSString"             , groups.String            , groups.String)
+Group.new("TSStringRegex"        , groups.String            , groups.String)
+Group.new("TSStringEscape"       , groups.String            , groups.String)
+Group.new("TSCharacter"          , groups.Character         , groups.Character)
+Group.new("TSNumber"             , groups.Number            , groups.Number)
+Group.new("TSBoolean"            , groups.Boolean           , groups.Boolean)
+Group.new("TSFloat"              , groups.Number            , groups.Number)
+Group.new("TSFunction"           , groups.Function          , groups.Function)
+Group.new("TSFuncBuiltin"        , groups.Function          , groups.Function)
+Group.new("TSFuncMacro"          , groups.Function          , groups.Function)
+Group.new("TSParameter"          , colors.cyan              , colors.none         , styles.none)
+Group.new("TSParameterReference" , groups.TSParameter       , groups.TSParameter)
+-- Group.new("TSMethod"             , groups.Function          , groups.Function)
+-- Group.new("TSField")
+-- Group.new("TSProperty")
+Group.new("TSConstructor"        , colors.magenta_alt       , colors.none)
+Group.new("TSConditional"        , groups.Conditional       , groups.Conditional)
+Group.new("TSRepeat"             , groups.Repeat            , groups.Repeat)
+Group.new("TSLabel"              , groups.Label             , groups.Label)
+Group.new("TSOperator"           , groups.Operator          , groups.Operator)
+Group.new("TSKeyword"            , groups.Keyword           , groups.Keyword)
+Group.new("TSKeywordFunction"    , colors.magenta_alt       , colors.none         , styles.none)
+Group.new("TSException"          , groups.Exception         , groups.Exception)
+Group.new("TSType"               , groups.Type              , groups.Type         , styles.none)
+-- Group.new("TSTypeBuiltin")
+Group.new("TSStructure"          , groups.Structure         , groups.Structure)
+Group.new("TSInclude"            , groups.Include           , groups.Include)
+-- Group.new("TSAnnotation")
+-- Group.new("TSText")
+-- Group.new("TSStrong")
+-- Group.new("TSEmphasis")
+-- Group.new("TSUnderline")
+-- Group.new("TSTitle")
+-- Group.new("TSLiteral")
+-- Group.new("TSURI")
+Group.new("TSVariable"           , colors.cyan          , colors.none     , styles.none)
+Group.new("TSVariableBuiltin"    , colors.magenta_alt_other , colors.none         , styles.none)

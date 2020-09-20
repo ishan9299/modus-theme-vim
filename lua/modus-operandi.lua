@@ -111,12 +111,12 @@ Color.new("cyan_alt_other_faint"    , "#2e584f")
 -- must be combined with: `bg_main', `bg_alt', `bg_dim' or any of
 -- the "nuanced" backgrounds
 
-Color.new("red_nuanced" , "#5f0000")
-Color.new("green_nuanced" , "#004000")
-Color.new("yellow_nuanced" , "#3f3000")
-Color.new("blue_nuanced" , "#201f55")
+Color.new("red_nuanced"     , "#5f0000")
+Color.new("green_nuanced"   , "#004000")
+Color.new("yellow_nuanced"  , "#3f3000")
+Color.new("blue_nuanced"    , "#201f55")
 Color.new("magenta_nuanced" , "#541f4f")
-Color.new("cyan_nuanced" , "#0f3360")
+Color.new("cyan_nuanced"    , "#0f3360")
 
 -- styles for slightly accented background
 --
@@ -183,28 +183,28 @@ Color.new("magenta_refine_fg" , "#770077")
 Color.new("cyan_refine_bg"    , "#8eecf4")
 Color.new("cyan_refine_fg"    , "#004850")
 
--- styles that are meant exclusively for the mode line
+-- styles that are meant exclusively for the statusline
 --
 -- must be combined with: `bg_active', `bg_inactive'
 
-Color.new("red_active" , "#930000")
-Color.new("green_active" , "#005300")
-Color.new("yellow_active" , "#703700")
-Color.new("blue_active" , "#0033c0")
+Color.new("red_active"     , "#930000")
+Color.new("green_active"   , "#005300")
+Color.new("yellow_active"  , "#703700")
+Color.new("blue_active"    , "#0033c0")
 Color.new("magenta_active" , "#6320a0")
-Color.new("cyan_active" , "#004882")
+Color.new("cyan_active"    , "#004882")
 
 -- styles that are meant exclusively for the fringes
 --
 -- must have a minimum contrast ratio of 1.5:1 with `bg_inactive'
 -- and be combined with `fg_main' or `fg_dim'
 
-Color.new("red_fringe_bg" , "#ff9a9a")
-Color.new("green_fringe_bg" , "#86cf86")
-Color.new("yellow_fringe_bg" , "#e0c050")
-Color.new("blue_fringe_bg" , "#82afff")
+Color.new("red_fringe_bg"     , "#ff9a9a")
+Color.new("green_fringe_bg"   , "#86cf86")
+Color.new("yellow_fringe_bg"  , "#e0c050")
+Color.new("blue_fringe_bg"    , "#82afff")
 Color.new("magenta_fringe_bg" , "#f0a3ff")
-Color.new("cyan_fringe_bg" , "#00d6e0")
+Color.new("cyan_fringe_bg"    , "#00d6e0")
 
 
 -- styles reserved for specific faces
@@ -437,10 +437,46 @@ Group.new("markdownBlockquote"         , colors.magenta         , colors.none   
 Group.new("markdownLineBreak"          , colors.cyan_refine_fg  , colors.cyan_refine_bg     , styles.underline)
 
 -- TreeSitter
-Group.new('TSConstBuiltin'    , groups.Constant    , colors.none , styles.none)
-Group.new('TSContructor'      , groups.Typedef     , colors.none , styles.none)
-Group.new('TSFuncBuiltin'     , groups.Function    , colors.none , styles.none)
-Group.new('TSStringEscape'    , groups.Character   , colors.none , styles.none)
-Group.new('TSStringRegex'     , groups.SpecialChar , colors.none , styles.none)
-Group.new('TSURI'             , groups.Tag         , colors.none , styles.none)
-Group.new('TSVariableBuiltin' , groups.Identifier  , colors.none , styles.none)
+Group.new("TSError"              , groups.Error             , groups.Error        , styles.bold)
+Group.new("TSPunctDelimiter"     , colors.fg                , colors.bg)
+Group.new("TSPunctBracket"       , colors.fg                , colors.bg)
+Group.new("TSConstant"           , groups.Constant          , groups.Constant)
+Group.new("TSConstBuiltin"       , groups.Constant          , groups.Constant)
+Group.new("TSConstMacro"         , groups.Constant          , groups.Constant)
+Group.new("TSString"             , groups.String            , groups.String)
+Group.new("TSStringRegex"        , groups.String            , groups.String)
+Group.new("TSStringEscape"       , groups.String            , groups.String)
+Group.new("TSCharacter"          , groups.Character         , groups.Character)
+Group.new("TSNumber"             , groups.Number            , groups.Number)
+Group.new("TSBoolean"            , groups.Boolean           , groups.Boolean)
+Group.new("TSFloat"              , groups.Number            , groups.Number)
+Group.new("TSFunction"           , groups.Function          , groups.Function)
+Group.new("TSFuncBuiltin"        , groups.Function          , groups.Function)
+Group.new("TSFuncMacro"          , groups.Function          , groups.Function)
+Group.new("TSParameter"          , colors.cyan              , colors.none         , styles.none)
+Group.new("TSParameterReference" , groups.TSParameter       , groups.TSParameter)
+-- Group.new("TSMethod"             , groups.Function          , groups.Function)
+-- Group.new("TSField")
+-- Group.new("TSProperty")
+Group.new("TSConstructor"        , colors.magenta_alt       , colors.none)
+Group.new("TSConditional"        , groups.Conditional       , groups.Conditional)
+Group.new("TSRepeat"             , groups.Repeat            , groups.Repeat)
+Group.new("TSLabel"              , groups.Label             , groups.Label)
+Group.new("TSOperator"           , groups.Operator          , groups.Operator)
+Group.new("TSKeyword"            , groups.Keyword           , groups.Keyword)
+Group.new("TSKeywordFunction"    , colors.magenta_alt       , colors.none         , styles.none)
+Group.new("TSException"          , groups.Exception         , groups.Exception)
+Group.new("TSType"               , groups.Type              , groups.Type         , styles.none)
+-- Group.new("TSTypeBuiltin")
+Group.new("TSStructure"          , groups.Structure         , groups.Structure)
+Group.new("TSInclude"            , groups.Include           , groups.Include)
+-- Group.new("TSAnnotation")
+-- Group.new("TSText")
+-- Group.new("TSStrong")
+-- Group.new("TSEmphasis")
+-- Group.new("TSUnderline")
+-- Group.new("TSTitle")
+-- Group.new("TSLiteral")
+-- Group.new("TSURI")
+Group.new("TSVariable"           , colors.cyan          , colors.none     , styles.none)
+Group.new("TSVariableBuiltin"    , colors.magenta_alt_other , colors.none         , styles.none)
