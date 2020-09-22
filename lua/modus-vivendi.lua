@@ -304,7 +304,7 @@ Group.new('TabLineSel'     , colors.fg              , colors.bg_tab_active)
 Group.new('Search'         , colors.fg              , colors.green_intense_bg)
 Group.new('EndOfBuffer'    , colors.fg_inactive     , colors.none)
 
-if vim.g.modus_faint_syntax == 1 then
+if vim.g.modus_faint_syntax == 0 then
   Group.new('Function'       , colors.magenta           , colors.none)
   Group.new('Warning'        , colors.yellow_alt        , colors.none)
   Group.new('Boolean'        , colors.blue              , colors.none                , styles.bold)
