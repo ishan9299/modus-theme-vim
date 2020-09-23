@@ -9,8 +9,6 @@ let g:colors_name='modus-vivendi'
 
 if !exists('g:modus_faint_syntax')
   let g:modus_faint_syntax = 0
-else
-  let g:modus_faint_syntax = 1
 endif
 
 lua require('modus-vivendi')
