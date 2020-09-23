@@ -11,4 +11,5 @@ if !exists('g:modus_faint_syntax')
   let g:modus_faint_syntax = 0
 endif
 
+lua for k in pairs(package.loaded) do if k:match("^modus%-vivendi") then package.loaded[k] = nil end end
 lua require('modus-vivendi')
