@@ -335,7 +335,7 @@ else
   Group.new('Warning'        , colors.yellow_alt_faint        , colors.none)
   Group.new('Boolean'        , colors.blue_faint              , colors.none                , styles.bold)
   Group.new('Character'      , colors.blue_alt_faint          , colors.none)
-  Group.new('Conditional'    , colors.magenta_alt_other       , colors.none)
+  Group.new('Conditional'    , colors.magenta_alt_other_faint , colors.none)
   Group.new('Constant'       , colors.blue_alt_other_faint    , colors.none)
   Group.new('CursorLine'     , colors.bg_hl_line              , colors.none                , styles.NONE)
   Group.new("Directory"      , colors.blue_faint              , colors.none                , styles.none)
