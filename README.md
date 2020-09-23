@@ -3,13 +3,14 @@ Modus Color Schemes
 
 This is a color scheme developed by *Protesilaos Stavrou* for emacs. I have attempted to port it to neovim using lua.  
 
-There are 2 color schemes 
+There are 2 color schemes
 
-- modus-operandi ( the light theme )
-- modus-vivendi ( the dark theme )
 
-![modus-operandi](./screenshots/Screenshot%20from%202020-09-02%2009-10-24.png)  
-![modus-vivendi](./screenshots/Screenshot%20from%202020-09-02%2009-11-47.png)
+![modus-operandi](./screenshots/modus.png)
+modus-operandi ( the light theme )  
+
+![modus-vivendi](./screenshots/vivendi.png)
+modus-vivendi ( the dark theme )  
 
 Getting Started
 ---------------
@@ -34,7 +35,8 @@ call minpac#add('ishan9299/modus-theme-vim')
 ### Vim Packages
 In the terminal execute this command.
 ```sh
-cd ~/.config/nvim && git submodule add --name modus-theme-vim pack/packages/opt/modus-theme-vim
+cd ~/.config/nvim && git submodule add --name colorbuddy https://github.com/tjdevries/colorbuddy.nvim pack/packages/opt/colorbuddy.nvim
+cd ~/.config/nvim && git submodule add --name modus-theme-vim https://github.com/ishan9299/modus-theme-vim pack/packages/opt/modus-theme-vim
 ```
 In your `init.vim` add the following
 ```
@@ -46,15 +48,27 @@ To set the current theme.
 ```viml
 lua require('colorbuddy').colorscheme('modus-operandi')
 ```
+or
+```viml
+colorscheme modus-operandi
+```
 
+Configuration
+--------------
+The theme has a faint syntax options which dims the colors if you find the default distracting.
+```lua
+vim.g.modus_faint_syntax = 1
+```
+or
+```viml
+let g:modus_faint_syntax = 1
+```
+  
+![modus-faint-operandi](./screenshots/modus-faint.png)
+![modus-faint-vivendi](./screenshots/vivendi-faint.png)
 NOTE
 ----
 
 - Vim is not supported because the theme is written in lua.
 - If you use the plasticboy's markdown plug-in or vim-pandoc-syntax you can't get the different background color for markdown headings.
 - I have not tested the stable release (i.e 0.4.4) if you encounter some problems open an issue.
-
-TODO
-----
-
-- Faint syntax highlight mode
