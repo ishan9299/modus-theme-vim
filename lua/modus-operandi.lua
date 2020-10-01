@@ -4,9 +4,28 @@
 ]]--
 
 -- vim: fdm=marker
+vim.cmd('hi clear')
+
+if vim.fn.exists('syntax_on') then
+  vim.cmd('syntax reset')
+end
+
+vim.o.bg = 'light'
+
+vim.g.colors_name = 'modus-operandi'
+
+local faint_syntax = vim.fn.exists('g:modus_faint_syntax')
+
+if faint_syntax == 0 then
+  vim.g.modus_faint_syntax = 0
+elseif vim.g.modus_faint_syntax == 0 then
+  vim.g.modus_faint_syntax = 0
+else
+  vim.g.modus_faint_syntax = 1
+end
+
 
 local Color, colors, Group, groups, styles = require("colorbuddy").setup()
-
 
 Color.new("bg"     , "#ffffff")
 Color.new("fg"     , "#000000")
