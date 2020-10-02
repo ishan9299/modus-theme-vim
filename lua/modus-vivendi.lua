@@ -501,6 +501,11 @@ end
 
 -- }}}
 
+-- Nix
+Group.new("nixAttributeDefinition" , groups.Label      , groups.Label      , styles.none)
+Group.new("nixAttribute"           , groups.Identifier , groups.Identifier , styles.none)
+Group.new("nixFunctionCall"        , groups.Function   , groups.Function   , styles.none)
+
 -- TreeSitter
 
 Group.new("TSError"              , groups.Error                    , groups.Error        , styles.bold)
