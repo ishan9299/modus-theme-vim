@@ -72,3 +72,4 @@ NOTE
 - Vim is not supported because the theme is written in lua.
 - If you use the plasticboy's markdown plug-in or vim-pandoc-syntax you can't get the different background color for markdown headings.
 - I have not tested the stable release (i.e 0.4.4) if you encounter some problems open an issue.
+- There is an issue with the modus-operandi-theme(the light version) where the cursor is not visible in empty line. To fix that enable the cursorline in neovim.
