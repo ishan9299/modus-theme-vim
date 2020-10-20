@@ -38,8 +38,8 @@ Color.new("fg_dim" , "#282828")
 --
 -- must be combined with themselves
 
-Color.new("bg_active" , "#e0e0e0")
-Color.new("fg_active" , "#191919")
+Color.new("bg_active"   , "#e0e0e0")
+Color.new("fg_active"   , "#191919")
 Color.new("bg_inactive" , "#efedef")
 Color.new("fg_inactive" , "#424242")
 
@@ -252,10 +252,10 @@ Color.new("cyan_fringe_bg"    , "#00d6e0")
 -- all pairs are combinable with themselves
 
 --- {{{1
-Color.new("bg_hl_line"                                               , "#f2eff3")
-Color.new("bg_paren_match"                                           , "#e0af82")
-Color.new("bg_paren_match_intense"                                   , "#70af9f")
-Color.new("bg_region"                                                , "#bcbcbc")
+Color.new("bg_hl_line"             , "#f2eff3")
+Color.new("bg_paren_match"         , "#e0af82")
+Color.new("bg_paren_match_intense" , "#70af9f")
+Color.new("bg_region"              , "#bcbcbc")
 
 Color.new("bg_tab_bar"      , "#d5d5d5")
 Color.new("bg_tab_active"   , "#f6f6f6")
@@ -314,6 +314,7 @@ Group.new('Error'          , colors.fg              , colors.red_intense_bg     
 Group.new('ErrorMsg'       , colors.fg              , colors.red_intense_bg)
 Group.new('Comment'        , colors.fg_alt          , colors.none                , styles.italic)
 Group.new('Conceal'        , colors.fg_special_warm , colors.bg_dim              , styles.bold)
+Group.new('Cursor'         , groups.Normal.bg       , groups.Normal.fg           , styles.NONE)
 Group.new('CursorLine'     , colors.bg_hl_line      , colors.none                , styles.NONE)
 Group.new("Define"         , colors.fg              , colors.none                , styles.NONE)
 Group.new("Delimiter"      , colors.fg              , colors.none                , styles.NONE)

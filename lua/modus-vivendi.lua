@@ -310,6 +310,7 @@ Group.new('Error'          , colors.fg              , colors.red_intense_bg     
 Group.new('ErrorMsg'       , colors.fg              , colors.red_intense_bg)
 Group.new('Comment'        , colors.fg_alt          , colors.none                , styles.italic)
 Group.new('Conceal'        , colors.fg_special_warm , colors.bg_dim              , styles.bold)
+Group.new('Cursor'         , groups.Normal.bg       , groups.Normal.fg           , styles.NONE)
 Group.new('CursorLine'     , colors.bg_hl_line      , colors.none                , styles.NONE)
 Group.new("Define"         , colors.fg              , colors.none                , styles.NONE)
 Group.new("Delimiter"      , colors.fg              , colors.none                , styles.NONE)
