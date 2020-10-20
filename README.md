@@ -15,28 +15,28 @@ modus-vivendi ( the dark theme )
 Getting Started
 ---------------
 
-You have to make sure you install [`tjdevries/colorbuddy.vim`](https://github.com/tjdevries/colorbuddy.vim)
+You have to make sure you install [`tjdevries/colorbuddy.nvim`](https://github.com/tjdevries/colorbuddy.vim)
 Only `termguicolors` are supported and that will not change.  
 
 ### Vim Plug
 
 ```
-Plug 'tjdevries/colorbuddy.vim'
+Plug 'tjdevries/colorbuddy.nvim'
 Plug 'ishan9299/modus-theme-vim'
 ```
 
 ### Minpac
 
 ```viml
-call minpac#add('tjdevries/colorbuddy.vim')
+call minpac#add('tjdevries/colorbuddy.nvim')
 call minpac#add('ishan9299/modus-theme-vim')
 ```
 
 ### Vim Packages
-In the terminal execute this command.
+In the terminal execute this command. Read `:h packages`
 ```sh
-cd ~/.config/nvim && git submodule add --name colorbuddy https://github.com/tjdevries/colorbuddy.nvim pack/packages/opt/colorbuddy.nvim
-cd ~/.config/nvim && git submodule add --name modus-theme-vim https://github.com/ishan9299/modus-theme-vim pack/packages/opt/modus-theme-vim
+git submodule add --name colorbuddy https://github.com/tjdevries/colorbuddy.nvim pack/packages/opt/colorbuddy.nvim
+git submodule add --name modus-theme-vim https://github.com/ishan9299/modus-theme-vim pack/packages/opt/modus-theme-vim
 ```
 In your `init.vim` add the following
 ```
