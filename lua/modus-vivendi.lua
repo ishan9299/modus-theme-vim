@@ -394,9 +394,8 @@ Group.new('PmenuThumb' , colors.none      , colors.fg)
 
 
 -- Statusline
-Group.new('StatusLine'   , colors.fg_alt            , colors.bg_active)
-Group.new('StatusLineNC' , colors.bg_region         , colors.bg_active)
-
+Group.new('StatusLine'   , colors.bg          , colors.blue_active)
+Group.new('StatusLineNC' , colors.fg_inactive , colors.bg)
 
 -- Line Numbers
 Group.new('LineNr'       , colors.fg_alt    , colors.bg_dim)
