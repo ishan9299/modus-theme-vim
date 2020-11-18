@@ -26,13 +26,13 @@ local faint_syntax = vim.fn.exists('g:modus_faint_syntax')
 
 if faint_syntax == 0 then
   -- vim.g.modus_faint_syntax = 0
-  vim.api.nvim_win_set_var('modus_faint_syntax', 0)
+  vim.api.nvim_set_var('modus_faint_syntax', 0)
 elseif vim.g.modus_faint_syntax == 0 then
   -- vim.g.modus_faint_syntax = 0
-  vim.api.nvim_win_set_var('modus_faint_syntax', 0)
+  vim.api.nvim_set_var('modus_faint_syntax', 0)
 else
   -- vim.g.modus_faint_syntax = 1
-  vim.api.nvim_win_set_var('modus_faint_syntax', 1)
+  vim.api.nvim_set_var('modus_faint_syntax', 1)
 end
 
 
