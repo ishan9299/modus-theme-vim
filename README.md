@@ -83,6 +83,7 @@ Syntax Highlighting Configured for these languages
 - python
 - nix
 - lua
+
 TreeSitter is supported if there is a language that isn't properly highlighted please open an issue.
 
 ## NOTE
