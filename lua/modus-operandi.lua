@@ -22,19 +22,7 @@ vim.api.nvim_set_var('colors_name', 'modus-operandi')
 -- Only for 0.5
 -- vim.g.colors_name = 'modus-operandi'
 
-local faint_syntax = vim.fn.exists('g:modus_faint_syntax')
-
-if faint_syntax == 0 then
-  -- vim.g.modus_faint_syntax = 0
-  vim.api.nvim_set_var('modus_faint_syntax', 0)
-elseif vim.g.modus_faint_syntax == 0 then
-  -- vim.g.modus_faint_syntax = 0
-  vim.api.nvim_set_var('modus_faint_syntax', 0)
-else
-  -- vim.g.modus_faint_syntax = 1
-  vim.api.nvim_set_var('modus_faint_syntax', 1)
-end
-
+local faint = vim.api.nvim_get_var('modus_faint_syntax')
 
 local Color, colors, Group, groups, styles = require("colorbuddy").setup()
 
@@ -340,7 +328,7 @@ Group.new('TabLineSel'     , colors.fg              , colors.bg_tab_active)
 Group.new('Search'         , colors.fg              , colors.green_intense_bg)
 Group.new('EndOfBuffer'    , colors.fg_inactive     , colors.none)
 
-if vim.g.modus_faint_syntax == 0 then
+if faint == 0 then
   Group.new('Function'       , colors.magenta           , colors.none)
   Group.new('Warning'        , colors.yellow_alt        , colors.none)
   Group.new('Boolean'        , colors.blue              , colors.none                , styles.bold)
@@ -427,7 +415,7 @@ Group.new('luafunctioncall' , groups.Function  , colors.none)
 Group.new('luaemmyfluff'    , groups.Comment   , colors.none)
 Group.new('luaTodo'         , groups.Todo      , colors.none  , styles.bold)
 
-if vim.g.modus_faint_syntax == 0 then
+if faint == 0 then
   Group.new('luaVarName'  , colors.cyan       , colors.none)
 else
   Group.new('luaVarName'  , colors.cyan_faint , colors.none)
@@ -455,7 +443,7 @@ Group.new('vimMap'           , groups.vimcommand  , colors.none)
 Group.new('vimnotfunc'       , groups.Conditional , colors.none)
 Group.new('nvimMap'          , groups.vimMap      , colors.none)
 
-if vim.g.modus_faint_syntax == 0 then
+if faint == 0 then
   Group.new('NvimPlainAssignment' , colors.magenta_alt , colors.none)
   Group.new('NvimIdentifier'      , colors.cyan_alt    , colors.none)
 else
@@ -503,7 +491,7 @@ Group.new("markdownFootnoteDefinition" , colors.fg              , colors.none   
 Group.new("markdownListMarker"         , colors.fg_alt          , colors.none               , styles.bold)
 Group.new("markdownLineBreak"          , colors.cyan_refine_fg  , colors.cyan_refine_bg     , styles.underline)
 
-if vim.g.modus_faint_syntax == 0 then
+if faint == 0 then
   Group.new("markdownUrl"        , colors.blue     , colors.none , styles.none)
   Group.new("markdownFootnote"   , colors.cyan_alt , colors.none , styles.italic)
   Group.new("markdownBlockquote" , colors.magenta  , colors.none , styles.bold)
@@ -542,7 +530,7 @@ Group.new("TSFunction"       , groups.Function                 , groups.Function
 Group.new("TSFuncBuiltin"    , groups.Function                 , groups.Function  , groups.Function)
 Group.new("TSFuncMacro"      , groups.Function                 , groups.Function  , groups.Function)
 
-if vim.g.modus_faint_syntax == 0 then
+if faint == 0 then
   Group.new("TSParameter"       , colors.cyan              , colors.none  , styles.none)
   Group.new("TSConstructor"     , colors.magenta_alt       , colors.none)
   Group.new("TSKeywordFunction" , colors.magenta_alt       , colors.none  , styles.none)
