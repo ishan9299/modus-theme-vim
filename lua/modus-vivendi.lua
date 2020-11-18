@@ -4,24 +4,35 @@
 ]]--
 
 -- vim: fdm=marker
-vim.cmd('hi clear')
+
+-- This only works on 0.5
+-- vim.cmd('hi clear')
+
+vim.api.nvim_command('hi clear')
 
 if vim.fn.exists('syntax_on') then
-  vim.cmd('syntax reset')
+  vim.api.nvim_command('syntax reset')
 end
 
-vim.o.bg = 'dark'
+-- Only for 0.5
+-- vim.o.bg = 'dark'
+vim.api.nvim_set_option('bg', 'dark')
 
-vim.g.colors_name = 'modus-vivendi'
+vim.api.nvim_set_var('colors_name', 'modus-vivendi')
+-- Only for 0.5
+-- vim.g.colors_name = 'modus-vivendi'
 
 local faint_syntax = vim.fn.exists('g:modus_faint_syntax')
 
 if faint_syntax == 0 then
-  vim.g.modus_faint_syntax = 0
+  -- vim.g.modus_faint_syntax = 0
+  vim.api.nvim_win_set_var('modus_faint_syntax', 0)
 elseif vim.g.modus_faint_syntax == 0 then
-  vim.g.modus_faint_syntax = 0
+  -- vim.g.modus_faint_syntax = 0
+  vim.api.nvim_win_set_var('modus_faint_syntax', 0)
 else
-  vim.g.modus_faint_syntax = 1
+  -- vim.g.modus_faint_syntax = 1
+  vim.api.nvim_win_set_var('modus_faint_syntax', 1)
 end
 
 
