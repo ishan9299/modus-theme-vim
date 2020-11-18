@@ -408,16 +408,19 @@ Group.new('SignColumn'   , colors.none      , colors.bg_inactive)
 Group.new('VertSplit'    , colors.fg        , colors.none)
 
 -- Lua
-Group.new('luaConstant'     , groups.Constant  , colors.none  , styles.bold)
+Group.new('luaConstant'     , groups.Constant  , colors.none    , styles.bold)
+Group.new('luaComment'      , groups.Comment   , groups.Comment , groups.Comment)
 Group.new('luaStatement'    , groups.Statement , colors.none)
 Group.new('luafunctioncall' , groups.Function  , colors.none)
 Group.new('luaemmyfluff'    , groups.Comment   , colors.none)
 Group.new('luaTodo'         , groups.Todo      , colors.none  , styles.bold)
 
 if faint == 0 then
-  Group.new('luaVarName'  , colors.cyan       , colors.none)
+  Group.new('luaVarName' , colors.cyan     , colors.none)
+  Group.new('luaFunc'    , groups.Function , colors.none)
 else
   Group.new('luaVarName'  , colors.cyan_faint , colors.none)
+  Group.new('luaFunc'    , groups.Function , colors.none)
 end
 
 Group.new('luaTableConstructor' , groups.Typedef , colors.none)
