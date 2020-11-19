@@ -81,5 +81,3 @@ TreeSitter is supported if there is a language that isn't properly highlighted p
 - vim is not supported.
 - It is not well tested with the stable neovim (version 0.4.4) please open an issue or consider using nightly.
 
-# Breaking Changes
-- using `colorscheme modus-operandi` is not supported anymore.
