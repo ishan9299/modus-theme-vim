@@ -21,7 +21,7 @@ if flag == 0 then
 end
 --]]
 
-local faint = vim.api.nvim_get_var('modus_faint_syntax')
+-- local faint = vim.api.nvim_get_var('modus_faint_syntax')
 
 local Color, colors, Group, groups, styles = require("colorbuddy").setup()
 

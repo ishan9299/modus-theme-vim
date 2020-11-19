@@ -448,9 +448,11 @@ Group.new('nvimMap'          , groups.vimMap      , colors.none)
 if faint == 0 then
   Group.new('NvimPlainAssignment' , colors.magenta_alt , colors.none)
   Group.new('NvimIdentifier'      , colors.cyan_alt    , colors.none)
+  Group.new('vimVar'              , colors.cyan        , colors.none)
 else
   Group.new('NvimPlainAssignment' , colors.magenta_alt_faint , colors.none)
   Group.new('NvimIdentifier'      , colors.cyan_alt_faint    , colors.none)
+  Group.new('vimVar'              , colors.cyan_faint        , colors.none)
 end
 
 --- }}}
