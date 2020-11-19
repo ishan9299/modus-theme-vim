@@ -50,10 +50,6 @@ To set the current theme.
 ```viml
 lua require('colorbuddy').colorscheme('modus-operandi')
 ```
-or
-```viml
-colorscheme modus-operandi
-```
 
 Configuration
 --------------
@@ -61,11 +57,6 @@ The theme has a faint syntax options which dims the colors if you find the defau
 ```lua
 vim.g.modus_faint_syntax = 1
 lua require('colorbuddy').colorscheme('modus-operandi')
-```
-or
-```viml
-let g:modus_faint_syntax = 1
-colorscheme modus-operandi
 ```
   
 ![modus-faint-operandi](./screenshots/modus-operandi-faint.png)
@@ -89,3 +80,6 @@ TreeSitter is supported if there is a language that isn't properly highlighted p
 ## NOTE
 - vim is not supported.
 - It is not well tested with the stable neovim (version 0.4.4) please open an issue or consider using nightly.
+
+# Breaking Changes
+- using `colorscheme modus-operandi` is not supported anymore.
