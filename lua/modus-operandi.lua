@@ -6,26 +6,20 @@
 -- vim: fdm=marker
 
 -- This only works on 0.5
--- vim.cmd('hi clear')
-
-vim.api.nvim_command('hi clear')
-
+--[[
+vim.cmd('hi clear')
 if vim.fn.exists('syntax_on') then
   vim.api.nvim_command('syntax reset')
 end
+vim.o.bg = 'light'
+vim.g.colors_name = 'modus-operandi'
 
--- Only for 0.5
--- vim.o.bg = 'light'
-vim.api.nvim_set_option('bg', 'light')
-
-vim.api.nvim_set_var('colors_name', 'modus-operandi')
--- Only for 0.5
--- vim.g.colors_name = 'modus-operandi'
-
+-- Set the faint off by default
 local flag = vim.fn.exists('g:modus_faint_syntax')
 if flag == 0 then
   vim.api.nvim_set_var('modus_faint_syntax', 0)
 end
+--]]
 
 local faint = vim.api.nvim_get_var('modus_faint_syntax')
 
