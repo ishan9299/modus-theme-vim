@@ -563,3 +563,7 @@ Group.new("TSInclude"            , groups.Include         , groups.Include     ,
 Group.new("TSAnnotation"         , colors.blue_nuanced_bg , colors.none)
 Group.new("TSStrong"             , colors.fg              , colors.bg          , styles.bold)
 Group.new("TSTitle"              , colors.cyan_nuanced    , colors.none)
+
+
+-- Telescope
+Group.new("TelescopeMatching" , colors.fg , colors.green_intense_bg , styles.bold)
