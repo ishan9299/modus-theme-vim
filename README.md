@@ -46,13 +46,8 @@ packadd! modus-theme-vim
 ```
 
 To set the current theme.
-
 ```viml
 lua require('colorbuddy').colorscheme('modus-operandi')
-```
-or
-```viml
-colorscheme modus-operandi
 ```
 
 Configuration
@@ -61,11 +56,6 @@ The theme has a faint syntax options which dims the colors if you find the defau
 ```lua
 vim.g.modus_faint_syntax = 1
 lua require('colorbuddy').colorscheme('modus-operandi')
-```
-or
-```viml
-let g:modus_faint_syntax = 1
-colorscheme modus-operandi
 ```
   
 ![modus-faint-operandi](./screenshots/modus-operandi-faint.png)
