@@ -64,6 +64,8 @@ lua require('colorbuddy').colorscheme('modus-operandi')
 Plugins Explicitly Configured
 -----------------------------
 - TreeSitter
+- Telescope
+- Startify
 
 Please feel free to open an issue if you want other plugins to be included.
 

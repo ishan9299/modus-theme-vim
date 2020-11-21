@@ -569,3 +569,13 @@ Group.new("TSTitle"              , colors.cyan_nuanced    , colors.none)
 
 -- Telescope
 Group.new("TelescopeMatching" , colors.fg , colors.green_intense_bg , styles.bold)
+
+-- Startify
+Group.new("StartifyHeader"  , colors.fg_special_cold , colors.none , styles.bold)
+Group.new("StartifySpecial" , colors.fg_special_warm , colors.none , styles.bold)
+Group.new("StartifySection" , colors.fg_special_warm , colors.none , styles.bold)
+Group.new("StartifyPath"    , colors.fg              , colors.none , styles.none)
+Group.new("StartifyFile"    , colors.fg              , colors.none , styles.none)
+Group.new("StartifyBracket" , colors.fg              , colors.none , styles.none)
+Group.new("StartifySlash"   , colors.fg              , colors.none , styles.none)
+Group.new("StartifyFooter"  , colors.fg_special_mild , colors.none , styles.none)
