@@ -36,10 +36,10 @@ Color.new("fg_dim" , "#282828")
 --
 -- must be combined with themselves
 
-Color.new("bg_active"   , "#e0e0e0")
-Color.new("fg_active"   , "#191919")
-Color.new("bg_inactive" , "#efedef")
-Color.new("fg_inactive" , "#424242")
+Color.new("bg_active"   , "#d7d7d7")
+Color.new("fg_active"   , "#0a0a0a")
+Color.new("bg_inactive" , "#efefef")
+Color.new("fg_inactive" , "#404148")
 
 -- special base values, used only for cases where the above
 -- fg_* or bg_* cannot or should not be used (to avoid confusion)
@@ -579,3 +579,7 @@ Group.new("StartifyFile"    , colors.fg              , colors.none , styles.none
 Group.new("StartifyBracket" , colors.fg              , colors.none , styles.none)
 Group.new("StartifySlash"   , colors.fg              , colors.none , styles.none)
 Group.new("StartifyFooter"  , colors.fg_special_mild , colors.none , styles.none)
+
+-- Galaxyline
+require('galaxyline.moody')
+-- require('galaxyline.spaceline')
