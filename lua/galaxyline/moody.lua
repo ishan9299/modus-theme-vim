@@ -80,7 +80,7 @@ gls.left[2] = {
     separator = '',
     separator_highlight = {colors.bg_active,function()
       if not buffer_not_empty() then
-        return colors.magenta_active
+        return colors.bg_main
       end
       return colors.bg_main
     end},
@@ -156,8 +156,7 @@ gls.left[9] = {
 gls.left[10] = {
   LeftEnd = {
     provider = function() return '' end,
-    -- separator = '',
-    -- separator_highlight = {colors.bg,colors.bg_main},
+    condition = buffer_not_empty,
     highlight = {colors.bg_active,colors.bg_main}
   }
 }
