@@ -582,4 +582,3 @@ Group.new("StartifyFooter"  , colors.fg_special_mild , colors.none , styles.none
 
 -- Galaxyline
 require('galaxyline.moody')
--- require('galaxyline.spaceline')

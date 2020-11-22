@@ -571,3 +571,6 @@ Group.new("StartifyFile"    , colors.fg              , colors.none , styles.none
 Group.new("StartifyBracket" , colors.fg              , colors.none , styles.none)
 Group.new("StartifySlash"   , colors.fg              , colors.none , styles.none)
 Group.new("StartifyFooter"  , colors.fg_special_mild , colors.none , styles.none)
+
+-- Galaxyline
+require('galaxyline.moody')
