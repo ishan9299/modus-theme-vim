@@ -11,6 +11,8 @@ if background == 'light' then
     bg_main         = '#ffffff',
     bg_active       = '#d7d7d7',
     fg_active       = '#0a0a0a',
+    bg_inactive     = '#efefef',
+    fg_inactive     = '#404148',
 
     red_active      = '#930000',
     green_active    = '#005300',
@@ -22,9 +24,11 @@ if background == 'light' then
   colors = palette
 elseif background == 'dark' then
   local palette = {
-    bg_main   = '#000000',
-    bg_active = '#2f2f2f',
-    fg_active = '#f5f5f5',
+    bg_main     = '#000000',
+    bg_active   = '#2f2f2f',
+    fg_active   = '#f5f5f5',
+    bg_inactive = '#202020',
+    fg_inactive = '#bebebe',
 
     red_active     = '#ffa49e',
     green_active   = '#70e030',
@@ -213,7 +217,7 @@ gls.right[4] = {
 
 gls.short_line_left[1] = {
   BufferType = {
-    provider = 'FileTypeName',
+    provider = { 'FileName' },
     separator = '',
     separator_highlight = {colors.bg_active,colors.bg_main},
     highlight = {colors.fg_active,colors.bg_active}
