@@ -1,27 +1,29 @@
---[[
---Note that the colorscheme set for markdown here conflicts with the plasticboy-markdown plugin
---The pandoc syntax also conflicts with it.
-]]--
-
--- vim: fdm=marker
-
--- This only works on 0.5
---[[
-vim.cmd('hi clear')
+local vim = vim
+vim.api.nvim_command('hi clear')
 if vim.fn.exists('syntax_on') then
   vim.api.nvim_command('syntax reset')
 end
 vim.o.bg = 'dark'
 vim.g.colors_name = 'modus-vivendi'
 
--- Sets the faint off by default
-local flag = vim.fn.exists('g:modus_faint_syntax')
-if flag == 0 then
-  vim.api.nvim_set_var('modus_faint_syntax', 0)
-end
---]]
+-- Set the faint off by default
+local faint_syntax_flag = vim.fn.exists('g:modus_faint_syntax')
 
--- local faint = vim.api.nvim_get_var('modus_faint_syntax')
+if faint_syntax_flag == 0 then
+  vim.g.modus_faint_syntax = 0
+end
+
+local faint = vim.g.modus_faint_syntax
+
+-- GalaxyLine Integration
+local statusline_flag = vim.fn.exists('g:galaxy_moody_enable')
+
+if statusline_flag == 0 then
+  vim.g.statusline_flag = 0
+end
+
+local statusline = vim.g.galaxy_moody_enable
+
 
 local Color, colors, Group, groups, styles = require("colorbuddy").setup()
 
@@ -571,3 +573,8 @@ Group.new("StartifyFile"    , colors.fg              , colors.none , styles.none
 Group.new("StartifyBracket" , colors.fg              , colors.none , styles.none)
 Group.new("StartifySlash"   , colors.fg              , colors.none , styles.none)
 Group.new("StartifyFooter"  , colors.fg_special_mild , colors.none , styles.none)
+
+-- Galaxyline
+if statusline == 1 then
+  require('galaxyline.moody')
+end

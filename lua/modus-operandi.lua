@@ -1,13 +1,5 @@
---[[
---Note that the colorscheme set for markdown here conflicts with the plasticboy-markdown plugin
---The pandoc syntax also conflicts with it.
-]]--
-
--- vim: fdm=marker
-
--- This only works on 0.5
---[[
-vim.cmd('hi clear')
+local vim = vim
+vim.api.nvim_command('hi clear')
 if vim.fn.exists('syntax_on') then
   vim.api.nvim_command('syntax reset')
 end
@@ -15,13 +7,23 @@ vim.o.bg = 'light'
 vim.g.colors_name = 'modus-operandi'
 
 -- Set the faint off by default
-local flag = vim.fn.exists('g:modus_faint_syntax')
-if flag == 0 then
-  vim.api.nvim_set_var('modus_faint_syntax', 0)
-end
---]]
+local faint_syntax_flag = vim.fn.exists('g:modus_faint_syntax')
 
-local faint = vim.api.nvim_get_var('modus_faint_syntax')
+if faint_syntax_flag == 0 then
+  vim.g.modus_faint_syntax = 0
+end
+
+local faint = vim.g.modus_faint_syntax
+
+-- GalaxyLine Integration
+local statusline_flag = vim.fn.exists('g:galaxy_moody_enable')
+
+if statusline_flag == 0 then
+  vim.g.statusline_flag = 0
+end
+
+local statusline = vim.g.galaxy_moody_enable
+
 
 local Color, colors, Group, groups, styles = require("colorbuddy").setup()
 
@@ -36,10 +38,10 @@ Color.new("fg_dim" , "#282828")
 --
 -- must be combined with themselves
 
-Color.new("bg_active"   , "#e0e0e0")
-Color.new("fg_active"   , "#191919")
-Color.new("bg_inactive" , "#efedef")
-Color.new("fg_inactive" , "#424242")
+Color.new("bg_active"   , "#d7d7d7")
+Color.new("fg_active"   , "#0a0a0a")
+Color.new("bg_inactive" , "#efefef")
+Color.new("fg_inactive" , "#404148")
 
 -- special base values, used only for cases where the above
 -- fg_* or bg_* cannot or should not be used (to avoid confusion)
@@ -579,3 +581,8 @@ Group.new("StartifyFile"    , colors.fg              , colors.none , styles.none
 Group.new("StartifyBracket" , colors.fg              , colors.none , styles.none)
 Group.new("StartifySlash"   , colors.fg              , colors.none , styles.none)
 Group.new("StartifyFooter"  , colors.fg_special_mild , colors.none , styles.none)
+
+-- Galaxyline
+if statusline == 1 then
+  require('galaxyline.moody')
+end
