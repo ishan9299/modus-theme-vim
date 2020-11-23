@@ -21,14 +21,14 @@ Also make sure to enable termguicolors
 
 ```
 Plug 'tjdevries/colorbuddy.nvim'
-Plug 'ishan9299/modus-theme-vim'
+Plug 'ishan9299/modus-theme-vim', {'branch': 'stable'} -- only if you are not using nightly
 ```
 
 ### Minpac
 
 ```viml
 call minpac#add('tjdevries/colorbuddy.nvim')
-call minpac#add('ishan9299/modus-theme-vim')
+call minpac#add('ishan9299/modus-theme-vim', {'branch': 'stable'}) -- only if you are not using nightly
 ```
 
 ### Vim Packages
@@ -44,11 +44,22 @@ In your `init.vim` add the following
 ```
 packadd! modus-theme-vim
 ```
+If you are using stable remember to switch to the branch if you use the vim package manager.
 
 To set the current theme.
 ```viml
 lua require('colorbuddy').colorscheme('modus-operandi')
 ```
+
+Plugins Explicitly Configured
+-----------------------------
+- TreeSitter
+- Telescope
+- Startify
+- gitsigns
+- GalaxyLine
+
+Please feel free to open an issue if you want other plugins to be included.
 
 Configuration
 --------------
@@ -61,13 +72,16 @@ lua require('colorbuddy').colorscheme('modus-operandi')
 ![modus-faint-operandi](./screenshots/modus-operandi-faint.png)
 ![modus-faint-vivendi](./screenshots/modus-vivendi-faint.png)
 
-Plugins Explicitly Configured
------------------------------
-- TreeSitter
-- Telescope
-- Startify
+It also provides a by default configured statusline using galaxyline plugin.
+To use it
+```lua
+vim.g.galaxy_moody_enable = 1
+```
+or
+```viml
+let g:galaxy_moody_enable = 1
+```
 
-Please feel free to open an issue if you want other plugins to be included.
 
 Syntax Highlighting Configured for these languages
 --------------------------------------------------
