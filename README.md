@@ -75,11 +75,11 @@ lua require('colorbuddy').colorscheme('modus-operandi')
 It also provides a by default configured statusline using galaxyline plugin.
 To use it
 ```lua
-vim.g.galaxy_moody_enable = 1
+vim.g.modus_moody_enable = 1
 ```
 or
 ```viml
-let g:galaxy_moody_enable = 1
+let g:modus_moody_enable = 1
 ```
 
 

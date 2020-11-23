@@ -6,24 +6,21 @@ end
 vim.o.bg = 'light'
 vim.g.colors_name = 'modus-operandi'
 
--- Set the faint off by default
-local faint_syntax_flag = vim.fn.exists('g:modus_faint_syntax')
+-- Settings
+local settings = {
+  faint_syntax = 0,
+  moody_enable = 0,
+}
 
-if faint_syntax_flag == 0 then
-  vim.g.modus_faint_syntax = 0
+for k,val in pairs(settings) do
+  local key = "modus_" .. k
+  if vim.g[key] == nil then
+    vim.g[key] = val
+  end
 end
 
 local faint = vim.g.modus_faint_syntax
-
--- GalaxyLine Integration
-local statusline_flag = vim.fn.exists('g:galaxy_moody_enable')
-
-if statusline_flag == 0 then
-  vim.g.statusline_flag = 0
-end
-
-local statusline = vim.g.galaxy_moody_enable
-
+local statusline = vim.g.modus_moody_enable
 
 local Color, colors, Group, groups, styles = require("colorbuddy").setup()
 
@@ -581,6 +578,9 @@ Group.new("StartifyFile"    , colors.fg              , colors.none , styles.none
 Group.new("StartifyBracket" , colors.fg              , colors.none , styles.none)
 Group.new("StartifySlash"   , colors.fg              , colors.none , styles.none)
 Group.new("StartifyFooter"  , colors.fg_special_mild , colors.none , styles.none)
+
+-- LuaTree
+Group.new("LuaTreeFolderIcon" , colors.blue , colors.none , styles.NONE)
 
 -- Galaxyline
 if statusline == 1 then

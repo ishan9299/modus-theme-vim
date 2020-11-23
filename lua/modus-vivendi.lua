@@ -6,24 +6,21 @@ end
 vim.o.bg = 'dark'
 vim.g.colors_name = 'modus-vivendi'
 
--- Set the faint off by default
-local faint_syntax_flag = vim.fn.exists('g:modus_faint_syntax')
+-- Settings
+local settings = {
+  faint_syntax = 0,
+  moody_enable = 0,
+}
 
-if faint_syntax_flag == 0 then
-  vim.g.modus_faint_syntax = 0
+for k,val in pairs(settings) do
+  local key = "modus_" .. k
+  if vim.g[key] == nil then
+    vim.g[key] = val
+  end
 end
 
 local faint = vim.g.modus_faint_syntax
-
--- GalaxyLine Integration
-local statusline_flag = vim.fn.exists('g:galaxy_moody_enable')
-
-if statusline_flag == 0 then
-  vim.g.statusline_flag = 0
-end
-
 local statusline = vim.g.galaxy_moody_enable
-
 
 local Color, colors, Group, groups, styles = require("colorbuddy").setup()
 
@@ -34,7 +31,7 @@ Color.new("fg_alt" , "#a8a8a8")
 Color.new("bg_dim" , "#110b11")
 Color.new("fg_dim" , "#e0e6f0")
 
--- specifically for on/off states (e.g. `mode_line')
+-- specifically for on/off states (e.g. `statusline')
 --
 -- must be combined with themselves
 
