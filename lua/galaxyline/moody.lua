@@ -65,8 +65,10 @@ gls.left[2] = {
         [''] = colors.cyan_active,
         V      = colors.cyan_active,
         c      = colors.red_active,
-        R      = colors.purple_active,
-        Rv     = colors.purple_active,
+        R      = colors.red_active,
+        Rv     = colors.red_active,
+        t      = colors.blue_active,
+        ['!']  = colors.blue_active,
       }
       local alias = {
         n      = 'NORMAL',
@@ -77,6 +79,8 @@ gls.left[2] = {
         c      = 'COMMAND',
         R      = 'REPLACE',
         Rv     = 'V·REPLACE',
+        t      =  'TERM',
+        ['!']  =  'SHELL'
       }
       vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color[vim.fn.mode()])
       return alias[vim.fn.mode()]
