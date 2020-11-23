@@ -20,7 +20,7 @@ for k,val in pairs(settings) do
 end
 
 local faint = vim.g.modus_faint_syntax
-local statusline = vim.g.galaxy_moody_enable
+local statusline = vim.g.modus_moody_enable
 
 local Color, colors, Group, groups, styles = require("colorbuddy").setup()
 
