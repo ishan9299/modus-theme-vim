@@ -317,8 +317,9 @@ Group.new("SpecialComment" , colors.fg_alt          , colors.none               
 Group.new("Title"          , colors.fg_special_cold , colors.none                , styles.bold)
 Group.new('Visual'         , colors.fg              , colors.magenta_intense_bg)
 Group.new('Whitespace'     , colors.fg              , colors.none                , styles.bold)
-Group.new('TabLine'        , colors.fg_dim          , colors.bg_tab_inactive)
-Group.new('TabLineSel'     , colors.fg              , colors.bg_tab_active)
+Group.new('TabLine'        , colors.fg              , colors.bg_tab_inactive)
+Group.new('TabLineSel'     , colors.fg_tab_active   , colors.bg_tab_active)
+Group.new('TabLineFill'    , colors.none            , colors.bg_tab_bar)
 Group.new('Search'         , colors.fg              , colors.green_intense_bg)
 Group.new('EndOfBuffer'    , colors.fg_inactive     , colors.none)
 
