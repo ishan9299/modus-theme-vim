@@ -572,6 +572,26 @@ Group.new("StartifyBracket" , colors.fg              , colors.none , styles.none
 Group.new("StartifySlash"   , colors.fg              , colors.none , styles.none)
 Group.new("StartifyFooter"  , colors.fg_special_mild , colors.none , styles.none)
 
+-- LuaTree
+Group.new("LuaTreeFolderIcon" , colors.blue , colors.none , styles.NONE)
+
+-- BarBar
+
+Group.new("BufferCurrent"       , colors.fg_tab_active  , colors.bg_tab_active , styles.none)
+Group.new("BufferCurrentMod"    , colors.yellow_active  , colors.bg_tab_active , styles.none)
+Group.new("BufferCurrentSign"   , colors.fg_tab_active  , colors.bg_tab_active , styles.bold)
+Group.new("BufferCurrentTarget" , colors.magenta_active , colors.bg_tab_active , styles.bold)
+
+Group.new("BufferVisible"       , colors.fg             , colors.bg_tab_active , styles.none)
+Group.new("BufferVisibleMod"    , colors.green_active   , colors.bg_tab_active , styles.none)
+Group.new("BufferVisibleSign"   , colors.fg_tab_active  , colors.bg_tab_active , styles.bold)
+Group.new("BufferVisibleTarget" , colors.magenta_active , colors.bg_tab_active , styles.bold)
+
+Group.new("BufferInactive"       , colors.fg             , colors.bg_tab_inactive , styles.none)
+Group.new("BufferInactiveMod"    , colors.green_active   , colors.bg_tab_inactive , styles.none)
+Group.new("BufferInactiveSign"   , colors.fg_tab_active  , colors.bg_tab_inactive , styles.bold)
+Group.new("BufferInactiveTarget" , colors.magenta_active , colors.bg_tab_inactive , styles.bold)
+
 -- Galaxyline
 if statusline == 1 then
   require('galaxyline.moody')
