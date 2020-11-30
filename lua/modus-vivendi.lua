@@ -281,6 +281,28 @@ Color.new("fg_mark_del" , "#ff99aa")
 Color.new("bg_mark_alt" , "#3f2210")
 Color.new("fg_mark_alt" , "#f0aa20")
 
+
+
+
+-- Terminal colors
+vim.g.terminal_color_0  = "#555555"
+vim.g.terminal_color_8  = "#222222"
+vim.g.terminal_color_1  = "#ffa0a0"
+vim.g.terminal_color_9  = "#fb6859"
+vim.g.terminal_color_2  = "#88cf88"
+vim.g.terminal_color_10 = "#00fc50"
+vim.g.terminal_color_3  = "#d2b580"
+vim.g.terminal_color_11 = "#ffdd00"
+vim.g.terminal_color_4  = "#92baff"
+vim.g.terminal_color_12 = "#00a2ff"
+vim.g.terminal_color_5  = "#e0b2d6"
+vim.g.terminal_color_13 = "#ff8bd4"
+vim.g.terminal_color_6  = "#a0bfdf"
+vim.g.terminal_color_14 = "#30ffc0"
+vim.g.terminal_color_7  = "#ffffff"
+vim.g.terminal_color_15 = "#dddddd"
+
+
 -- base colors {{{
 Group.new('Normal'         , colors.fg              , colors.bg)
 Group.new('NormalNC'       , colors.fg_inactive     , colors.bg_inactive)

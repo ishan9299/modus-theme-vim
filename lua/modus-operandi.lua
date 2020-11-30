@@ -281,9 +281,29 @@ Color.new("fg_mark_del" , "#840040")
 Color.new("bg_mark_alt" , "#f5d88f")
 Color.new("fg_mark_alt" , "#782900")
 
--- }}}
 
--- base colors {{{
+
+
+-- Terminal colors
+vim.g.terminal_color_0  = "#555555"
+vim.g.terminal_color_8  = "#222222"
+vim.g.terminal_color_1  = "#7f1010"
+vim.g.terminal_color_9  = "#b60000"
+vim.g.terminal_color_2  = "#104410"
+vim.g.terminal_color_10 = "#006800"
+vim.g.terminal_color_3  = "#5f4400"
+vim.g.terminal_color_11 = "#904200"
+vim.g.terminal_color_4  = "#002f88"
+vim.g.terminal_color_12 = "#1111ee"
+vim.g.terminal_color_5  = "#752f50"
+vim.g.terminal_color_13 = "#7000e0"
+vim.g.terminal_color_6  = "#12506f"
+vim.g.terminal_color_14 = "#205b93"
+vim.g.terminal_color_7  = "#ffffff"
+vim.g.terminal_color_15 = "#dddddd"
+
+
+-- base colors
 Group.new('Normal'         , colors.fg              , colors.bg)
 Group.new('NormalNC'       , colors.fg_inactive     , colors.bg_inactive)
 Group.new('Folded'         , colors.fg_special_mild , colors.bg_special_mild     , styles.none)
