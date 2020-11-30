@@ -32,7 +32,6 @@ Color.new("bg_dim" , "#110b11")
 Color.new("fg_dim" , "#e0e6f0")
 
 -- specifically for on/off states (e.g. `statusline')
---
 -- must be combined with themselves
 
 Color.new("bg_active"   , "#2f2f2f")
@@ -54,7 +53,6 @@ Color.new("bg_special_calm" , "#392a48")
 Color.new("fg_special_calm" , "#fbd6f4")
 
 -- styles for the main constructs
---
 -- must be combined with: `bg_main', `bg_alt', `bg_dim'
 
 Color.new("red"     , "#ff8059")
@@ -65,7 +63,6 @@ Color.new("magenta" , "#feacd0")
 Color.new("cyan"    , "#00d3d0")
 
 -- styles for common, but still specialised constructs
---
 -- must be combined with: `bg_main', `bg_alt', `bg_dim'
 
 Color.new("red_alt"     , "#f4923b")
@@ -76,7 +73,6 @@ Color.new("magenta_alt" , "#f78fe7")
 Color.new("cyan_alt"    , "#4ae8fc")
 
 -- same purpose as above, just slight differences
---
 -- must be combined with: `bg_main', `bg_alt', `bg_dim'
 
 Color.new("red_alt_other"     , "#ff9977")
@@ -88,7 +84,6 @@ Color.new("cyan_alt_other"    , "#6ae4b9")
 
 -- styles for desaturated foreground text, intended for use with
 -- the `modus_vivendi_theme_faint_syntax' option
---
 -- must be combined with: `bg_main', `bg_alt', `bg_dim'
 
 Color.new("red_faint"               , "#ffa0a0")
@@ -113,7 +108,6 @@ Color.new("magenta_alt_other_faint" , "#d0b4ff")
 Color.new("cyan_alt_other_faint"    , "#a4d0bb")
 
 -- styles for elements that should be very subtle, yet accented
---
 -- must be combined with: `bg_main', `bg_alt', `bg_dim' or any of
 -- the "nuanced" backgrounds
 
@@ -125,7 +119,6 @@ Color.new("magenta_nuanced" , "#e5cfef")
 Color.new("cyan_nuanced"    , "#a8e5e5")
 
 -- styles for slightly accented background
---
 -- must be combined with any of the above foreground values
 
 Color.new("red_nuanced_bg"     , "#2c0614")
@@ -136,7 +129,6 @@ Color.new("magenta_nuanced_bg" , "#230631")
 Color.new("cyan_nuanced_bg"    , "#041529")
 
 -- styles for elements that should draw attention to themselves
---
 -- must be combined with: `bg_main'
 
 Color.new("red_intense"     , "#fb6859")
@@ -148,7 +140,6 @@ Color.new("cyan_intense"    , "#30ffc0")
 
 -- styles for background elements that should be visible yet
 -- subtle
---
 -- must be combined with: `fg_dim'
 
 Color.new("red_subtle_bg"     , "#762422")
@@ -160,7 +151,6 @@ Color.new("cyan_subtle_bg"    , "#00415e")
 
 -- styles for background elements that should be visible and
 -- distinguishable
---
 -- must be combined with: `fg_main'
 
 Color.new("red_intense_bg"     , "#a4202a")
@@ -172,7 +162,6 @@ Color.new("cyan_intense_bg"    , "#005f88")
 
 -- styles for refined contexts where both the foreground and the
 -- background need to have the same/similar hue
---
 -- must be combined with themselves OR the foregrounds can be
 -- combined with any of the base backgrounds
 
@@ -190,7 +179,6 @@ Color.new("cyan_refine_bg"    , "#004065")
 Color.new("cyan_refine_fg"    , "#8ae4f2")
 
 -- styles that are meant exclusively for the statusline
---
 -- must be combined with: `bg_active', `bg_inactive'
 
 Color.new("red_active"     , "#ffa49e")
@@ -201,7 +189,6 @@ Color.new("magenta_active" , "#d0acff")
 Color.new("cyan_active"    , "#00ddc0")
 
 -- styles that are meant exclusively for the fringes
---
 -- must have a minimum contrast ratio of 1.5:1 with `bg_inactive'
 -- and be combined with `fg_main' or `fg_dim'
 
@@ -212,40 +199,43 @@ Color.new("blue_fringe_bg"    , "#3a30ab")
 Color.new("magenta_fringe_bg" , "#692089")
 Color.new("cyan_fringe_bg"    , "#0068a0")
 
--- styles reserved for specific faces
---
--- `bg_hl_line' is between `bg_dim' and `bg_alt', so it should
--- work with all accents that cover those two, plus `bg_main'
---
--- `bg_header' is between `bg_active' and `bg_inactive', so it
--- can be combined with any of the "active" values, plus the
--- "special" and base foreground colours
---
--- `bg_paren_match', `bg_paren_match_intense', `bg_region' and
--- `bg_tab_active' must be combined with `fg_main', while
--- `bg_tab_inactive' should be combined with `fg_dim'
---
--- `bg_tab_bar' is only intended for the bar that holds the tabs and
--- can only be combined with `fg_main'
---
--- `fg_tab_active' is meant to be combined with `bg_tab_active',
--- though only for styling special elements, such as underlining
--- the current tab
---
--- `fg_escape_char_construct' and `fg_escape_char_backslash' can
--- be combined `bg_main', `bg_dim', `bg_alt'
---
--- `fg_lang_error', `fg_lang_warning', `fg_lang_note' can be
--- combined with `bg_main', `bg_dim', `bg_alt'
---
--- `fg_mark_sel', `fg_mark_del', `fg_mark_alt' can be combined
--- with `bg_main', `bg_dim', `bg_alt', `bg_hl_line'
---
--- `fg_unfocused' must be combined with `fg_main'
---
--- the window divider colours apply to faces with just an fg value
---
--- all pairs are combinable with themselves
+
+--[[
+styles reserved for specific faces
+
+`bg_hl_line' is between `bg_dim' and `bg_alt', so it should
+work with all accents that cover those two, plus `bg_main'
+
+`bg_header' is between `bg_active' and `bg_inactive', so it
+can be combined with any of the "active" values, plus the
+"special" and base foreground colours
+
+`bg_paren_match', `bg_paren_match_intense', `bg_region' and
+`bg_tab_active' must be combined with `fg_main', while
+`bg_tab_inactive' should be combined with `fg_dim'
+
+`bg_tab_bar' is only intended for the bar that holds the tabs and
+can only be combined with `fg_main'
+
+`fg_tab_active' is meant to be combined with `bg_tab_active',
+though only for styling special elements, such as underlining
+the current tab
+
+`fg_escape_char_construct' and `fg_escape_char_backslash' can
+be combined `bg_main', `bg_dim', `bg_alt'
+
+`fg_lang_error', `fg_lang_warning', `fg_lang_note' can be
+combined with `bg_main', `bg_dim', `bg_alt'
+
+`fg_mark_sel', `fg_mark_del', `fg_mark_alt' can be combined
+with `bg_main', `bg_dim', `bg_alt', `bg_hl_line'
+
+`fg_unfocused' must be combined with `fg_main'
+
+the window divider colours apply to faces with just an fg value
+
+all pairs are combinable with themselves
+--]]
 
 Color.new("bg_hl_line"             , "#151823")
 Color.new("bg_paren_match"         , "#5f362f")
@@ -284,14 +274,6 @@ Color.new("fg_diff_changed" , "#b0ba9f")
 Color.new("bg_diff_removed" , "#40160f")
 Color.new("fg_diff_removed" , "#c6adaa")
 
--- Might added if there is a plugin
--- Color.new("bg_diff_focus_added"   , "#203d20")
--- Color.new("fg_diff_focus_added"   , "#b4ddb4")
--- Color.new("bg_diff_focus_changed" , "#4a3a10")
--- Color.new("fg_diff_focus_changed" , "#d0daaf")
--- Color.new("bg_diff_focus_removed" , "#5e2526")
--- Color.new("fg_diff_focus_removed" , "#eebdba")
-
 Color.new("bg_mark_sel" , "#002f2f")
 Color.new("fg_mark_sel" , "#60cfa2")
 Color.new("bg_mark_del" , "#5a0000")
@@ -322,7 +304,6 @@ Group.new('TabLineSel'     , colors.fg_tab_active   , colors.bg_tab_active)
 Group.new('TabLineFill'    , colors.none            , colors.bg_tab_bar)
 Group.new('Search'         , colors.fg              , colors.green_intense_bg)
 Group.new('EndOfBuffer'    , colors.fg_inactive     , colors.none)
-
 if faint == 0 then
   Group.new('Function'       , colors.magenta           , colors.none)
   Group.new('Warning'        , colors.yellow_alt        , colors.none)
@@ -377,7 +358,6 @@ else
   Group.new("Underlined"     , colors.none                    , colors.blue_nuanced_bg     , styles.underline)
   Group.new('Type'           , colors.magenta_alt_faint       , colors.none)
 end
--- }}}
 
 -- Parenthesis {{{
 Group.new('MatchParen' , colors.fg     , colors.bg_paren_match)
@@ -409,7 +389,6 @@ Group.new('luaStatement'    , groups.Statement , colors.none)
 Group.new('luafunctioncall' , groups.Function  , colors.none)
 Group.new('luaemmyfluff'    , groups.Comment   , colors.none)
 Group.new('luaTodo'         , groups.Todo      , colors.none  , styles.bold)
-
 if faint == 0 then
   Group.new('luaVarName' , colors.cyan     , colors.none)
   Group.new('luaFunc'    , groups.Function , colors.none)
@@ -417,12 +396,10 @@ else
   Group.new('luaVarName'  , colors.cyan_faint , colors.none)
   Group.new('luaFunc'    , groups.Function , colors.none)
 end
-
 Group.new('luaTableConstructor' , groups.Typedef , colors.none)
 
 -- Python
 Group.new('pythonoperator'  , groups.Operator , groups.Operator , styles.none)
--- }}}
 
 -- vim/nvim {{{
 Group.new('vimcommand'       , groups.Statement   , colors.none)
@@ -448,8 +425,6 @@ else
   Group.new('NvimIdentifier'      , colors.cyan_alt_faint    , colors.none)
 end
 
---- }}}
-
 -- Diff {{{
 Group.new("DiffAdd"    , colors.fg_diff_added   , colors.bg_diff_added          , styles.none)
 Group.new("DiffChange" , colors.fg_diff_changed , colors.bg_diff_changed        , styles.none)
@@ -466,7 +441,6 @@ Group.new("LspDiagnosticsSignInformation" , colors.blue_active   , colors.bg_act
 Group.new("SpellBad" , colors.fg_lang_error , colors.none , styles.none)
 Group.new("SpellCap" , colors.fg_lang_error , colors.none , styles.none)
 
--- }}}
 
 -- Markdown {{{
 --[[Not using the underline as I have not figured out how to apply it correctly]]--
@@ -499,8 +473,6 @@ else
   Group.new("markdownBlockquote" , colors.magenta_faint  , colors.none , styles.bold)
   Group.new("markdownLinkText"   , colors.blue_faint     , colors.none , styles.italic)
 end
-
--- }}}
 
 -- Nix
 Group.new("nixAttributeDefinition" , groups.Label      , groups.Label      , styles.none)
