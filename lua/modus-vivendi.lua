@@ -504,8 +504,8 @@ Group.new("nixFunctionCall"        , groups.Function   , groups.Function   , sty
 -- TreeSitter
 
 Group.new("TSError"          , groups.Error                    , groups.Error     , styles.bold)
-Group.new("TSPunctDelimiter" , colors.fg                       , colors.bg)
-Group.new("TSPunctBracket"   , colors.fg                       , colors.bg)
+Group.new("TSPunctDelimiter" , colors.fg                       , colors.none)
+Group.new("TSPunctBracket"   , colors.fg                       , colors.none)
 Group.new("TSConstant"       , groups.Constant                 , groups.Constant  , groups.Constant)
 Group.new("TSConstBuiltin"   , groups.Constant                 , groups.Constant  , groups.Constant)
 Group.new("TSConstMacro"     , groups.Constant                 , groups.Constant  , groups.Constant)
