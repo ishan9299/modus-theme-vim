@@ -427,22 +427,4 @@ Color.new("fg_mark_del" , dark_palette.fg_mark_del)
 Color.new("bg_mark_alt" , dark_palette.bg_mark_alt)
 Color.new("fg_mark_alt" , dark_palette.fg_mark_alt)
 
--- Terminal colors
-vim.g.terminal_color_0  = "#555555"
-vim.g.terminal_color_8  = "#222222"
-vim.g.terminal_color_1  = "#ffa0a0"
-vim.g.terminal_color_9  = "#fb6859"
-vim.g.terminal_color_2  = "#88cf88"
-vim.g.terminal_color_10 = "#00fc50"
-vim.g.terminal_color_3  = "#d2b580"
-vim.g.terminal_color_11 = "#ffdd00"
-vim.g.terminal_color_4  = "#92baff"
-vim.g.terminal_color_12 = "#00a2ff"
-vim.g.terminal_color_5  = "#e0b2d6"
-vim.g.terminal_color_13 = "#ff8bd4"
-vim.g.terminal_color_6  = "#a0bfdf"
-vim.g.terminal_color_14 = "#30ffc0"
-vim.g.terminal_color_7  = "#ffffff"
-vim.g.terminal_color_15 = "#dddddd"
-
 require('highlights').init(colors, Group, groups, styles, dark_palette)

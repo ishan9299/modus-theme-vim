@@ -318,6 +318,24 @@ function M.init(colors, Group, groups, styles, palette)
     Group.new("BufferInactiveSign"   , colors.fg_tab_active  , colors.bg_tab_inactive , styles.bold)
     Group.new("BufferInactiveTarget" , colors.magenta_active , colors.bg_tab_inactive , styles.bold)
 
+    -- Terminal colors
+    vim.g.terminal_color_0  = "#555555"
+    vim.g.terminal_color_8  = "#222222"
+    vim.g.terminal_color_1  = palette.red_faint
+    vim.g.terminal_color_9  = palette.red_intense
+    vim.g.terminal_color_2  = palette.green_faint
+    vim.g.terminal_color_10 = palette.green_intense
+    vim.g.terminal_color_3  = palette.yellow_faint
+    vim.g.terminal_color_11 = palette.yellow_intense
+    vim.g.terminal_color_4  = palette.blue_faint
+    vim.g.terminal_color_12 = palette.blue_intense
+    vim.g.terminal_color_5  = palette.magenta_faint
+    vim.g.terminal_color_13 = palette.magenta_intense
+    vim.g.terminal_color_6  = palette.cyan_faint
+    vim.g.terminal_color_14 = palette.cyan_intense
+    vim.g.terminal_color_7  = "#ffffff"
+    vim.g.terminal_color_15 = "#dddddd"
+
     -- Galaxyline
 
     if statusline == 1 then
