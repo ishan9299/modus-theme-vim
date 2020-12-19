@@ -40,15 +40,20 @@ mkdir -p pack/packages/{opt,start}
 git submodule add --name colorbuddy https://github.com/tjdevries/colorbuddy.nvim pack/packages/opt/colorbuddy.nvim
 git submodule add --name modus-theme-vim https://github.com/ishan9299/modus-theme-vim pack/packages/opt/modus-theme-vim
 ```
-In your `init.vim` add the following
+In your `init.lua` add the following
 ```
-packadd! modus-theme-vim
+-- if using nightly
+vim.cmd(packadd! colorbuddy)
+vim.cmd(packadd! modus-theme-vim)
+-- if using stable
+lua vim.api.nvim_command(packadd! colorbuddy)
+lua vim.api.nvim_command(packadd! modus-theme-vim)
 ```
 If you are using stable remember to switch to the branch if you use the vim package manager.
 
-To set the current theme.
-```viml
-lua require('colorbuddy').colorscheme('modus-operandi')
+###To set the current theme.
+```lua
+require('colorbuddy').colorscheme('modus-operandi')
 ```
 
 Plugins Explicitly Configured
