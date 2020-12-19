@@ -51,7 +51,7 @@ lua vim.api.nvim_command(packadd! modus-theme-vim)
 ```
 If you are using stable remember to switch to the branch if you use the vim package manager.
 
-###To set the current theme.
+### To set the current theme.
 ```lua
 require('colorbuddy').colorscheme('modus-operandi')
 ```
