@@ -339,7 +339,6 @@ function M.init(colors, Group, groups, styles, palette)
     -- Galaxyline
 
     if statusline == 1 then
-        local vim = vim
         local gl = require('galaxyline')
         local gls = gl.section
         gl.short_line_list = {'LuaTree','vista','dbui'}
