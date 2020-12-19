@@ -1,5 +1,7 @@
 local M= {}
 local cmd = vim.cmd
+local vim = vim
+
 local settings = {
   faint_syntax = 0,
   moody_enable = 0,
@@ -16,6 +18,11 @@ local faint = vim.g.modus_faint_syntax
 local statusline = vim.g.modus_moody_enable
 
 function M.init(colors, Group, groups, styles, palette)
+    cmd('hi clear')
+    if vim.fn.exists('syntax_on') then
+        cmd('syntax reset')
+    end
+
     Group.new('Normal'         , colors.fg_main              , colors.bg_main)
     Group.new('NormalNC'       , colors.fg_inactive     , colors.bg_inactive)
     Group.new('Folded'         , colors.fg_special_mild , colors.bg_special_mild     , styles.none)
