@@ -1,6 +1,6 @@
 local Color,colors, Group, groups, styles = require("colorbuddy").setup()
 
-local light_palette = {
+local palette = {
 
     bg_main     = "#ffffff",
     fg_main     = "#000000",
@@ -173,180 +173,180 @@ local light_palette = {
 
 }
 
-Color.new("bg_main" , light_palette.bg_main)
-Color.new("fg_main" , light_palette.fg_main)
-Color.new("bg_alt"  , light_palette.bg_alt)
-Color.new("fg_alt"  , light_palette.fg_alt)
-Color.new("bg_dim"  , light_palette.bg_dim)
-Color.new("fg_dim"  , light_palette.fg_dim)
+Color.new("bg_main" , palette.bg_main)
+Color.new("fg_main" , palette.fg_main)
+Color.new("bg_alt"  , palette.bg_alt)
+Color.new("fg_alt"  , palette.fg_alt)
+Color.new("bg_dim"  , palette.bg_dim)
+Color.new("fg_dim"  , palette.fg_dim)
 
 -- specifically for on/off states (e.g. `statusline`)
 -- must be combined with themselves
 
-Color.new("bg_active"   , light_palette.bg_active)
-Color.new("fg_active"   , light_palette.fg_active)
-Color.new("bg_inactive" , light_palette.bg_inactive)
-Color.new("fg_inactive" , light_palette.fg_inactive)
+Color.new("bg_active"   , palette.bg_active)
+Color.new("fg_active"   , palette.fg_active)
+Color.new("bg_inactive" , palette.bg_inactive)
+Color.new("fg_inactive" , palette.fg_inactive)
 
 -- special base values, used only for cases where the above
 -- fg_* or bg_* cannot or should not be used (to avoid confusion)
 -- must be combined with: {fg_main,bg_main}_{alt,dim}
 
-Color.new("bg_special_cold" ,light_palette.bg_special_cold)
-Color.new("fg_special_cold" ,light_palette.fg_special_cold)
-Color.new("bg_special_mild" ,light_palette.bg_special_mild)
-Color.new("fg_special_mild" ,light_palette.fg_special_mild)
-Color.new("bg_special_warm" ,light_palette.bg_special_warm)
-Color.new("fg_special_warm" ,light_palette.fg_special_warm)
-Color.new("bg_special_calm" ,light_palette.bg_special_calm)
-Color.new("fg_special_calm" ,light_palette.fg_special_calm)
+Color.new("bg_special_cold" ,palette.bg_special_cold)
+Color.new("fg_special_cold" ,palette.fg_special_cold)
+Color.new("bg_special_mild" ,palette.bg_special_mild)
+Color.new("fg_special_mild" ,palette.fg_special_mild)
+Color.new("bg_special_warm" ,palette.bg_special_warm)
+Color.new("fg_special_warm" ,palette.fg_special_warm)
+Color.new("bg_special_calm" ,palette.bg_special_calm)
+Color.new("fg_special_calm" ,palette.fg_special_calm)
 
 -- styles for the main constructs
 -- must be combined with: `bg_main', `bg_alt', `bg_dim'
 
-Color.new("red"     , light_palette.red)
-Color.new("green"   , light_palette.green)
-Color.new("yellow"  , light_palette.yellow)
-Color.new("blue"    , light_palette.blue)
-Color.new("magenta" , light_palette.magenta)
-Color.new("cyan"    , light_palette.cyan)
+Color.new("red"     , palette.red)
+Color.new("green"   , palette.green)
+Color.new("yellow"  , palette.yellow)
+Color.new("blue"    , palette.blue)
+Color.new("magenta" , palette.magenta)
+Color.new("cyan"    , palette.cyan)
 
 -- styles for common, but still specialised constructs
 -- must be combined with: `bg_main', `bg_alt', `bg_dim'
 
-Color.new("red_alt"     , light_palette.red_alt)
-Color.new("green_alt"   , light_palette.green_alt)
-Color.new("yellow_alt"  , light_palette.yellow_alt)
-Color.new("blue_alt"    , light_palette.blue_alt)
-Color.new("magenta_alt" , light_palette.magenta_alt)
-Color.new("cyan_alt"    , light_palette.cyan_alt)
+Color.new("red_alt"     , palette.red_alt)
+Color.new("green_alt"   , palette.green_alt)
+Color.new("yellow_alt"  , palette.yellow_alt)
+Color.new("blue_alt"    , palette.blue_alt)
+Color.new("magenta_alt" , palette.magenta_alt)
+Color.new("cyan_alt"    , palette.cyan_alt)
 
 -- same purpose as above, just slight differences
 -- must be combined with: `bg_main', `bg_alt', `bg_dim'
 
-Color.new("red_alt_other"     , light_palette.red_alt_other)
-Color.new("green_alt_other"   , light_palette.green_alt_other)
-Color.new("yellow_alt_other"  , light_palette.yellow_alt_other)
-Color.new("blue_alt_other"    , light_palette.blue_alt_other)
-Color.new("magenta_alt_other" , light_palette.magenta_alt_other)
-Color.new("cyan_alt_other"    , light_palette.cyan_alt_other)
+Color.new("red_alt_other"     , palette.red_alt_other)
+Color.new("green_alt_other"   , palette.green_alt_other)
+Color.new("yellow_alt_other"  , palette.yellow_alt_other)
+Color.new("blue_alt_other"    , palette.blue_alt_other)
+Color.new("magenta_alt_other" , palette.magenta_alt_other)
+Color.new("cyan_alt_other"    , palette.cyan_alt_other)
 
 -- styles for desaturated foreground text, intended for use with
 -- the `modus_operandi_theme_faint_syntax' option
 -- must be combined with: `bg_main', `bg_alt', `bg_dim'
 
-Color.new("red_faint"     , light_palette.red_faint)
-Color.new("green_faint"   , light_palette.green_faint)
-Color.new("yellow_faint"  , light_palette.yellow_faint)
-Color.new("blue_faint"    , light_palette.blue_faint)
-Color.new("magenta_faint" , light_palette.magenta_faint)
-Color.new("cyan_faint"    , light_palette.cyan_faint)
+Color.new("red_faint"     , palette.red_faint)
+Color.new("green_faint"   , palette.green_faint)
+Color.new("yellow_faint"  , palette.yellow_faint)
+Color.new("blue_faint"    , palette.blue_faint)
+Color.new("magenta_faint" , palette.magenta_faint)
+Color.new("cyan_faint"    , palette.cyan_faint)
 
-Color.new("red_alt_faint"     , light_palette.red_alt_faint)
-Color.new("green_alt_faint"   , light_palette.green_alt_faint)
-Color.new("yellow_alt_faint"  , light_palette.yellow_alt_faint)
-Color.new("blue_alt_faint"    , light_palette.blue_alt_faint)
-Color.new("magenta_alt_faint" , light_palette.magenta_alt_faint)
-Color.new("cyan_alt_faint"    , light_palette.cyan_alt_faint)
+Color.new("red_alt_faint"     , palette.red_alt_faint)
+Color.new("green_alt_faint"   , palette.green_alt_faint)
+Color.new("yellow_alt_faint"  , palette.yellow_alt_faint)
+Color.new("blue_alt_faint"    , palette.blue_alt_faint)
+Color.new("magenta_alt_faint" , palette.magenta_alt_faint)
+Color.new("cyan_alt_faint"    , palette.cyan_alt_faint)
 
-Color.new("red_alt_other_faint"     , light_palette.red_alt_other_faint)
-Color.new("green_alt_other_faint"   , light_palette.green_alt_other_faint)
-Color.new("yellow_alt_other_faint"  , light_palette.yellow_alt_other_faint)
-Color.new("blue_alt_other_faint"    , light_palette.blue_alt_other_faint)
-Color.new("magenta_alt_other_faint" , light_palette.magenta_alt_other_faint)
-Color.new("cyan_alt_other_faint"    , light_palette.cyan_alt_other_faint)
+Color.new("red_alt_other_faint"     , palette.red_alt_other_faint)
+Color.new("green_alt_other_faint"   , palette.green_alt_other_faint)
+Color.new("yellow_alt_other_faint"  , palette.yellow_alt_other_faint)
+Color.new("blue_alt_other_faint"    , palette.blue_alt_other_faint)
+Color.new("magenta_alt_other_faint" , palette.magenta_alt_other_faint)
+Color.new("cyan_alt_other_faint"    , palette.cyan_alt_other_faint)
 
 -- styles for elements that should be very subtle, yet accented
 -- must be combined with: `bg_main', `bg_alt', `bg_dim' or any of
 -- the "nuanced" backgrounds
 
-Color.new("red_nuanced"     , light_palette.red_nuanced)
-Color.new("green_nuanced"   , light_palette.green_nuanced)
-Color.new("yellow_nuanced"  , light_palette.yellow_nuanced)
-Color.new("blue_nuanced"    , light_palette.blue_nuanced)
-Color.new("magenta_nuanced" , light_palette.magenta_nuanced)
-Color.new("cyan_nuanced"    , light_palette.cyan_nuanced)
+Color.new("red_nuanced"     , palette.red_nuanced)
+Color.new("green_nuanced"   , palette.green_nuanced)
+Color.new("yellow_nuanced"  , palette.yellow_nuanced)
+Color.new("blue_nuanced"    , palette.blue_nuanced)
+Color.new("magenta_nuanced" , palette.magenta_nuanced)
+Color.new("cyan_nuanced"    , palette.cyan_nuanced)
 
 -- styles for slightly accented background
 -- must be combined with any of the above foreground values
 
-Color.new("red_nuanced_bg"     , light_palette.red_nuanced_bg)
-Color.new("green_nuanced_bg"   , light_palette.green_nuanced_bg)
-Color.new("yellow_nuanced_bg"  , light_palette.yellow_nuanced_bg)
-Color.new("blue_nuanced_bg"    , light_palette.blue_nuanced_bg)
-Color.new("magenta_nuanced_bg" , light_palette.magenta_nuanced_bg)
-Color.new("cyan_nuanced_bg"    , light_palette.cyan_nuanced_bg)
+Color.new("red_nuanced_bg"     , palette.red_nuanced_bg)
+Color.new("green_nuanced_bg"   , palette.green_nuanced_bg)
+Color.new("yellow_nuanced_bg"  , palette.yellow_nuanced_bg)
+Color.new("blue_nuanced_bg"    , palette.blue_nuanced_bg)
+Color.new("magenta_nuanced_bg" , palette.magenta_nuanced_bg)
+Color.new("cyan_nuanced_bg"    , palette.cyan_nuanced_bg)
 
 -- styles for elements that should draw attention to themselves
 -- must be combined with: `bg_main'
 
-Color.new("red_intense"     , light_palette.red_intense)
-Color.new("green_intense"   , light_palette.green_intense)
-Color.new("yellow_intense"  , light_palette.yellow_intense)
-Color.new("blue_intense"    , light_palette.blue_intense)
-Color.new("magenta_intense" , light_palette.magenta_intense)
-Color.new("cyan_intense"    , light_palette.cyan_intense)
+Color.new("red_intense"     , palette.red_intense)
+Color.new("green_intense"   , palette.green_intense)
+Color.new("yellow_intense"  , palette.yellow_intense)
+Color.new("blue_intense"    , palette.blue_intense)
+Color.new("magenta_intense" , palette.magenta_intense)
+Color.new("cyan_intense"    , palette.cyan_intense)
 
 -- styles for background elements that should be visible yet
 -- subtle
 -- must be combined with: `fg_dim'
 
-Color.new("red_subtle_bg"     , light_palette.red_subtle_bg)
-Color.new("green_subtle_bg"   , light_palette.green_subtle_bg)
-Color.new("yellow_subtle_bg"  , light_palette.yellow_subtle_bg)
-Color.new("blue_subtle_bg"    , light_palette.blue_subtle_bg)
-Color.new("magenta_subtle_bg" , light_palette.magenta_subtle_bg)
-Color.new("cyan_subtle_bg"    , light_palette.cyan_subtle_bg)
+Color.new("red_subtle_bg"     , palette.red_subtle_bg)
+Color.new("green_subtle_bg"   , palette.green_subtle_bg)
+Color.new("yellow_subtle_bg"  , palette.yellow_subtle_bg)
+Color.new("blue_subtle_bg"    , palette.blue_subtle_bg)
+Color.new("magenta_subtle_bg" , palette.magenta_subtle_bg)
+Color.new("cyan_subtle_bg"    , palette.cyan_subtle_bg)
 
 -- styles for background elements that should be visible and
 -- distinguishable
 -- must be combined with: `fg_main'
 
-Color.new("red_intense_bg"     , light_palette.red_intense_bg)
-Color.new("green_intense_bg"   , light_palette.green_intense_bg)
-Color.new("yellow_intense_bg"  , light_palette.yellow_intense_bg)
-Color.new("blue_intense_bg"    , light_palette.blue_intense_bg)
-Color.new("magenta_intense_bg" , light_palette.magenta_intense_bg)
-Color.new("cyan_intense_bg"    , light_palette.cyan_intense_bg)
+Color.new("red_intense_bg"     , palette.red_intense_bg)
+Color.new("green_intense_bg"   , palette.green_intense_bg)
+Color.new("yellow_intense_bg"  , palette.yellow_intense_bg)
+Color.new("blue_intense_bg"    , palette.blue_intense_bg)
+Color.new("magenta_intense_bg" , palette.magenta_intense_bg)
+Color.new("cyan_intense_bg"    , palette.cyan_intense_bg)
 
 -- styles for refined contexts where both the foreground and the
 -- background need to have the same/similar hue
 -- must be combined with themselves OR the foregrounds can be
 -- combined with any of the base backgrounds
 
-Color.new("red_refine_bg"     , light_palette.red_refine_bg)
-Color.new("red_refine_fg"     , light_palette.red_refine_fg)
-Color.new("green_refine_bg"   , light_palette.green_refine_bg)
-Color.new("green_refine_fg"   , light_palette.green_refine_fg)
-Color.new("yellow_refine_bg"  , light_palette.yellow_refine_bg)
-Color.new("yellow_refine_fg"  , light_palette.yellow_refine_fg)
-Color.new("blue_refine_bg"    , light_palette.blue_refine_bg)
-Color.new("blue_refine_fg"    , light_palette.blue_refine_fg)
-Color.new("magenta_refine_bg" , light_palette.magenta_refine_bg)
-Color.new("magenta_refine_fg" , light_palette.magenta_refine_fg)
-Color.new("cyan_refine_bg"    , light_palette.cyan_refine_bg)
-Color.new("cyan_refine_fg"    , light_palette.cyan_refine_fg)
+Color.new("red_refine_bg"     , palette.red_refine_bg)
+Color.new("red_refine_fg"     , palette.red_refine_fg)
+Color.new("green_refine_bg"   , palette.green_refine_bg)
+Color.new("green_refine_fg"   , palette.green_refine_fg)
+Color.new("yellow_refine_bg"  , palette.yellow_refine_bg)
+Color.new("yellow_refine_fg"  , palette.yellow_refine_fg)
+Color.new("blue_refine_bg"    , palette.blue_refine_bg)
+Color.new("blue_refine_fg"    , palette.blue_refine_fg)
+Color.new("magenta_refine_bg" , palette.magenta_refine_bg)
+Color.new("magenta_refine_fg" , palette.magenta_refine_fg)
+Color.new("cyan_refine_bg"    , palette.cyan_refine_bg)
+Color.new("cyan_refine_fg"    , palette.cyan_refine_fg)
 
 -- styles that are meant exclusively for the statusline
 -- must be combined with: `bg_active', `bg_inactive'
 
-Color.new("red_active"     , light_palette.red_active)
-Color.new("green_active"   , light_palette.green_active)
-Color.new("yellow_active"  , light_palette.yellow_active)
-Color.new("blue_active"    , light_palette.blue_active)
-Color.new("magenta_active" , light_palette.magenta_active)
-Color.new("cyan_active"    , light_palette.cyan_active)
+Color.new("red_active"     , palette.red_active)
+Color.new("green_active"   , palette.green_active)
+Color.new("yellow_active"  , palette.yellow_active)
+Color.new("blue_active"    , palette.blue_active)
+Color.new("magenta_active" , palette.magenta_active)
+Color.new("cyan_active"    , palette.cyan_active)
 
 -- styles that are meant exclusively for the fringes
 -- must have a minimum contrast ratio of 1.5:1 with `bg_inactive'
 -- and be combined with `fg_main' or `fg_dim'
 
-Color.new("red_fringe_bg"     , light_palette.red_fringe_bg)
-Color.new("green_fringe_bg"   , light_palette.green_fringe_bg)
-Color.new("yellow_fringe_bg"  , light_palette.yellow_fringe_bg)
-Color.new("blue_fringe_bg"    , light_palette.blue_fringe_bg)
-Color.new("magenta_fringe_bg" , light_palette.magenta_fringe_bg)
-Color.new("cyan_fringe_bg"    , light_palette.cyan_fringe_bg)
+Color.new("red_fringe_bg"     , palette.red_fringe_bg)
+Color.new("green_fringe_bg"   , palette.green_fringe_bg)
+Color.new("yellow_fringe_bg"  , palette.yellow_fringe_bg)
+Color.new("blue_fringe_bg"    , palette.blue_fringe_bg)
+Color.new("magenta_fringe_bg" , palette.magenta_fringe_bg)
+Color.new("cyan_fringe_bg"    , palette.cyan_fringe_bg)
 
 --[[
 styles reserved for specific faces
@@ -385,48 +385,48 @@ the window divider colours apply to faces with just an fg_main value
 all pairs are combinable with themselves
 --]]
 
-Color.new("bg_hl_line"             , light_palette.bg_hl_line)
-Color.new("bg_paren_match"         , light_palette.bg_paren_match)
-Color.new("bg_paren_match_intense" , light_palette.bg_paren_match_intense)
-Color.new("bg_region"              , light_palette.bg_region)
+Color.new("bg_hl_line"             , palette.bg_hl_line)
+Color.new("bg_paren_match"         , palette.bg_paren_match)
+Color.new("bg_paren_match_intense" , palette.bg_paren_match_intense)
+Color.new("bg_region"              , palette.bg_region)
 
-Color.new("bg_tab_bar"      , light_palette.bg_tab_bar)
-Color.new("bg_tab_active"   , light_palette.bg_tab_active)
-Color.new("bg_tab_inactive" , light_palette.bg_tab_inactive)
-Color.new("fg_tab_active"   , light_palette.fg_tab_active)
+Color.new("bg_tab_bar"      , palette.bg_tab_bar)
+Color.new("bg_tab_active"   , palette.bg_tab_active)
+Color.new("bg_tab_inactive" , palette.bg_tab_inactive)
+Color.new("fg_tab_active"   , palette.fg_tab_active)
 
-Color.new("fg_escape_char_construct" , light_palette.fg_escape_char_construct)
-Color.new("fg_escape_char_backslash" , light_palette.fg_escape_char_backslash)
+Color.new("fg_escape_char_construct" , palette.fg_escape_char_construct)
+Color.new("fg_escape_char_backslash" , palette.fg_escape_char_backslash)
 
-Color.new("fg_lang_error"   , light_palette.fg_lang_error)
-Color.new("fg_lang_warning" , light_palette.fg_lang_warning)
-Color.new("fg_lang_note"    , light_palette.fg_lang_note)
+Color.new("fg_lang_error"   , palette.fg_lang_error)
+Color.new("fg_lang_warning" , palette.fg_lang_warning)
+Color.new("fg_lang_note"    , palette.fg_lang_note)
 
-Color.new("fg_window_divider_inner" , light_palette.fg_window_divider_inner)
-Color.new("fg_window_divider_outer" , light_palette.fg_window_divider_outer)
+Color.new("fg_window_divider_inner" , palette.fg_window_divider_inner)
+Color.new("fg_window_divider_outer" , palette.fg_window_divider_outer)
 
-Color.new("fg_unfocused" , light_palette.fg_unfocused)
+Color.new("fg_unfocused" , palette.fg_unfocused)
 
-Color.new("bg_header" , light_palette.bg_header)
-Color.new("fg_header" , light_palette.fg_header)
+Color.new("bg_header" , palette.bg_header)
+Color.new("fg_header" , palette.fg_header)
 
-Color.new("bg_whitespace" , light_palette.bg_whitespace)
-Color.new("fg_whitespace" , light_palette.fg_whitespace)
+Color.new("bg_whitespace" , palette.bg_whitespace)
+Color.new("fg_whitespace" , palette.fg_whitespace)
 
-Color.new("bg_diff_heading" , light_palette.bg_diff_heading)
-Color.new("fg_diff_heading" , light_palette.fg_diff_heading)
-Color.new("bg_diff_added"   , light_palette.bg_diff_added)
-Color.new("fg_diff_added"   , light_palette.fg_diff_added)
-Color.new("bg_diff_changed" , light_palette.bg_diff_changed)
-Color.new("fg_diff_changed" , light_palette.fg_diff_changed)
-Color.new("bg_diff_removed" , light_palette.bg_diff_removed)
-Color.new("fg_diff_removed" , light_palette.fg_diff_removed)
+Color.new("bg_diff_heading" , palette.bg_diff_heading)
+Color.new("fg_diff_heading" , palette.fg_diff_heading)
+Color.new("bg_diff_added"   , palette.bg_diff_added)
+Color.new("fg_diff_added"   , palette.fg_diff_added)
+Color.new("bg_diff_changed" , palette.bg_diff_changed)
+Color.new("fg_diff_changed" , palette.fg_diff_changed)
+Color.new("bg_diff_removed" , palette.bg_diff_removed)
+Color.new("fg_diff_removed" , palette.fg_diff_removed)
 
-Color.new("bg_mark_sel" , light_palette.bg_mark_sel)
-Color.new("fg_mark_sel" , light_palette.fg_mark_sel)
-Color.new("bg_mark_del" , light_palette.bg_mark_del)
-Color.new("fg_mark_del" , light_palette.fg_mark_del)
-Color.new("bg_mark_alt" , light_palette.bg_mark_alt)
-Color.new("fg_mark_alt" , light_palette.fg_mark_alt)
+Color.new("bg_mark_sel" , palette.bg_mark_sel)
+Color.new("fg_mark_sel" , palette.fg_mark_sel)
+Color.new("bg_mark_del" , palette.bg_mark_del)
+Color.new("fg_mark_del" , palette.fg_mark_del)
+Color.new("bg_mark_alt" , palette.bg_mark_alt)
+Color.new("fg_mark_alt" , palette.fg_mark_alt)
 
-require('highlights').init(colors, Group, groups, styles, light_palette)
+require('highlights').init(colors, Group, groups, styles, palette)

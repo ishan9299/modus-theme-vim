@@ -1,6 +1,7 @@
-local M= {}
 local cmd = vim.cmd
 local vim = vim
+local g = vim.g
+local fn = vim.fn
 
 local settings = {
   faint_syntax = 0,
@@ -9,41 +10,41 @@ local settings = {
 
 for k,val in pairs(settings) do
   local key = "modus_" .. k
-  if vim.g[key] == nil then
-    vim.g[key] = val
+  if g[key] == nil then
+    g[key] = val
   end
 end
 
-local faint = vim.g.modus_faint_syntax
-local statusline = vim.g.modus_moody_enable
+local faint = g.modus_faint_syntax
+local statusline = g.modus_moody_enable
 
-function M.init(colors, Group, groups, styles, palette)
+local function init(colors, Group, groups, styles, palette)
     cmd('hi clear')
-    if vim.fn.exists('syntax_on') then
+    if fn.exists('syntax_on') then
         cmd('syntax reset')
     end
 
-    Group.new('Normal'         , colors.fg_main              , colors.bg_main)
+    Group.new('Normal'         , colors.fg_main         , colors.bg_main)
     Group.new('NormalNC'       , colors.fg_inactive     , colors.bg_inactive)
     Group.new('Folded'         , colors.fg_special_mild , colors.bg_special_mild     , styles.none)
-    Group.new('Error'          , colors.fg_main              , colors.red_intense_bg      , styles.bold)
-    Group.new('ErrorMsg'       , colors.fg_main              , colors.red_intense_bg)
+    Group.new('Error'          , colors.fg_main         , colors.red_intense_bg      , styles.bold)
+    Group.new('ErrorMsg'       , colors.fg_main         , colors.red_intense_bg)
     Group.new('Comment'        , colors.fg_alt          , colors.none                , styles.italic)
     Group.new('Conceal'        , colors.fg_special_warm , colors.bg_dim              , styles.bold)
-    Group.new('Cursor'         , groups.Normal.bg_main       , groups.Normal.fg_main           , styles.NONE)
-    Group.new('CursorLine'     , colors.bg_hl_line      , colors.none                , styles.NONE)
-    Group.new("Define"         , colors.fg_main              , colors.none                , styles.NONE)
-    Group.new("Delimiter"      , colors.fg_main              , colors.none                , styles.NONE)
-    Group.new('Float'          , colors.fg_main              , colors.none)
-    Group.new("Special"        , colors.fg_main              , colors.none                , styles.NONE)
-    Group.new("SpecialComment" , colors.fg_alt          , colors.none                , styles.NONE)
+    Group.new('Cursor'         , groups.Normal.bg_main  , groups.Normal.fg_main      , styles.none)
+    Group.new('CursorLine'     , colors.bg_hl_line      , colors.none                , styles.none)
+    Group.new("Define"         , colors.fg_main         , colors.none                , styles.none)
+    Group.new("Delimiter"      , colors.fg_main         , colors.none                , styles.none)
+    Group.new('Float'          , colors.fg_main         , colors.none)
+    Group.new("Special"        , colors.fg_main         , colors.none                , styles.none)
+    Group.new("SpecialComment" , colors.fg_alt          , colors.none                , styles.none)
     Group.new("Title"          , colors.fg_special_cold , colors.none                , styles.bold)
-    Group.new('Visual'         , colors.fg_main              , colors.magenta_intense_bg)
-    Group.new('Whitespace'     , colors.fg_main              , colors.none                , styles.bold)
-    Group.new('TabLine'        , colors.fg_main              , colors.bg_tab_inactive)
+    Group.new('Visual'         , colors.fg_main         , colors.magenta_intense_bg)
+    Group.new('Whitespace'     , colors.fg_main         , colors.none                , styles.bold)
+    Group.new('TabLine'        , colors.fg_main         , colors.bg_tab_inactive)
     Group.new('TabLineSel'     , colors.fg_tab_active   , colors.bg_tab_active)
     Group.new('TabLineFill'    , colors.none            , colors.bg_tab_bar)
-    Group.new('Search'         , colors.fg_main              , colors.green_intense_bg)
+    Group.new('Search'         , colors.fg_main         , colors.green_intense_bg)
     Group.new('EndOfBuffer'    , colors.fg_inactive     , colors.none)
 
     if faint == 0 then
@@ -54,22 +55,22 @@ function M.init(colors, Group, groups, styles, palette)
         Group.new('Conditional'    , colors.magenta_alt_other , colors.none)
         Group.new('Constant'       , colors.blue_alt_other    , colors.none)
         Group.new("Directory"      , colors.blue              , colors.none                , styles.none)
-        Group.new("Exception"      , colors.magenta_alt_other , colors.none                , styles.NONE)
-        Group.new("Identifier"     , colors.blue_alt_other    , colors.none                , styles.NONE)
-        Group.new("Include"        , colors.red_alt_other     , colors.none                , styles.NONE)
+        Group.new("Exception"      , colors.magenta_alt_other , colors.none                , styles.none)
+        Group.new("Identifier"     , colors.blue_alt_other    , colors.none                , styles.none)
+        Group.new("Include"        , colors.red_alt_other     , colors.none                , styles.none)
         Group.new('Keyword'        , colors.magenta_alt_other , colors.none)
-        Group.new("Label"          , colors.cyan              , colors.none                , styles.NONE)
+        Group.new("Label"          , colors.cyan              , colors.none                , styles.none)
         Group.new('PreProc'        , colors.red_alt_other     , colors.none)
-        Group.new("Repeat"         , colors.magenta_alt_other , colors.none                , styles.NONE)
-        Group.new("SpecialChar"    , colors.blue_alt_other    , colors.none                , styles.NONE)
-        Group.new("Statement"      , colors.magenta_alt_other , colors.none                , styles.NONE)
-        Group.new("StorageClass"   , colors.magenta_alt_other , colors.none                , styles.NONE)
-        Group.new("String"         , colors.blue_alt          , colors.none                , styles.NONE)
-        Group.new("Structure"      , colors.magenta_alt_other , colors.none                , styles.NONE)
-        Group.new("Tag"            , colors.magenta_active    , colors.none                , styles.NONE)
+        Group.new("Repeat"         , colors.magenta_alt_other , colors.none                , styles.none)
+        Group.new("SpecialChar"    , colors.blue_alt_other    , colors.none                , styles.none)
+        Group.new("Statement"      , colors.magenta_alt_other , colors.none                , styles.none)
+        Group.new("StorageClass"   , colors.magenta_alt_other , colors.none                , styles.none)
+        Group.new("String"         , colors.blue_alt          , colors.none                , styles.none)
+        Group.new("Structure"      , colors.magenta_alt_other , colors.none                , styles.none)
+        Group.new("Tag"            , colors.magenta_active    , colors.none                , styles.none)
         Group.new("Todo"           , colors.magenta           , colors.none                , styles.bold)
-        Group.new("Type"           , colors.magenta_alt       , colors.none                , styles.NONE)
-        Group.new("Typedef"        , colors.magenta_alt       , colors.none                , styles.NONE)
+        Group.new("Type"           , colors.magenta_alt       , colors.none                , styles.none)
+        Group.new("Typedef"        , colors.magenta_alt       , colors.none                , styles.none)
         Group.new("Underlined"     , colors.none              , colors.blue_nuanced_bg     , styles.underline)
         Group.new('Type'           , colors.magenta_alt       , colors.none)
     else
@@ -79,24 +80,24 @@ function M.init(colors, Group, groups, styles, palette)
         Group.new('Character'      , colors.blue_alt_faint          , colors.none)
         Group.new('Conditional'    , colors.magenta_alt_other_faint , colors.none)
         Group.new('Constant'       , colors.blue_alt_other_faint    , colors.none)
-        Group.new('CursorLine'     , colors.bg_hl_line              , colors.none                , styles.NONE)
+        Group.new('CursorLine'     , colors.bg_hl_line              , colors.none                , styles.none)
         Group.new("Directory"      , colors.blue_faint              , colors.none                , styles.none)
-        Group.new("Exception"      , colors.magenta_alt_other_faint , colors.none                , styles.NONE)
-        Group.new("Identifier"     , colors.blue_alt_other_faint    , colors.none                , styles.NONE)
-        Group.new("Include"        , colors.red_alt_other_faint     , colors.none                , styles.NONE)
+        Group.new("Exception"      , colors.magenta_alt_other_faint , colors.none                , styles.none)
+        Group.new("Identifier"     , colors.blue_alt_other_faint    , colors.none                , styles.none)
+        Group.new("Include"        , colors.red_alt_other_faint     , colors.none                , styles.none)
         Group.new('Keyword'        , colors.magenta_alt_other_faint , colors.none)
-        Group.new("Label"          , colors.cyan_faint              , colors.none                , styles.NONE)
+        Group.new("Label"          , colors.cyan_faint              , colors.none                , styles.none)
         Group.new('PreProc'        , colors.red_alt_other_faint     , colors.none)
-        Group.new("Repeat"         , colors.magenta_alt_other_faint , colors.none                , styles.NONE)
-        Group.new("SpecialChar"    , colors.blue_alt_other_faint    , colors.none                , styles.NONE)
-        Group.new("Statement"      , colors.magenta_alt_other_faint , colors.none                , styles.NONE)
-        Group.new("StorageClass"   , colors.magenta_alt_other_faint , colors.none                , styles.NONE)
-        Group.new("String"         , colors.blue_alt_faint          , colors.none                , styles.NONE)
-        Group.new("Structure"      , colors.magenta_alt_other_faint , colors.none                , styles.NONE)
-        Group.new("Tag"            , colors.magenta_active          , colors.none                , styles.NONE)
+        Group.new("Repeat"         , colors.magenta_alt_other_faint , colors.none                , styles.none)
+        Group.new("SpecialChar"    , colors.blue_alt_other_faint    , colors.none                , styles.none)
+        Group.new("Statement"      , colors.magenta_alt_other_faint , colors.none                , styles.none)
+        Group.new("StorageClass"   , colors.magenta_alt_other_faint , colors.none                , styles.none)
+        Group.new("String"         , colors.blue_alt_faint          , colors.none                , styles.none)
+        Group.new("Structure"      , colors.magenta_alt_other_faint , colors.none                , styles.none)
+        Group.new("Tag"            , colors.magenta_active          , colors.none                , styles.none)
         Group.new("Todo"           , colors.magenta_faint           , colors.none                , styles.bold)
-        Group.new("Type"           , colors.magenta_alt_faint       , colors.none                , styles.NONE)
-        Group.new("Typedef"        , colors.magenta_alt_faint       , colors.none                , styles.NONE)
+        Group.new("Type"           , colors.magenta_alt_faint       , colors.none                , styles.none)
+        Group.new("Typedef"        , colors.magenta_alt_faint       , colors.none                , styles.none)
         Group.new("Underlined"     , colors.none                    , colors.blue_nuanced_bg     , styles.underline)
         Group.new('Type'           , colors.magenta_alt_faint       , colors.none)
     end
@@ -105,7 +106,7 @@ function M.init(colors, Group, groups, styles, palette)
     -- Parenthesis
     Group.new('MatchParen' , colors.fg_main     , colors.bg_paren_match)
     Group.new('Number'     , colors.fg_main     , colors.none)
-    Group.new("Operator"   , groups.Normal , colors.none            , styles.NONE)
+    Group.new("Operator"   , groups.Normal , colors.none            , styles.none)
 
     -- Completion(Pmenu)
     Group.new('Pmenu'      , colors.fg_active , colors.bg_active)
@@ -124,7 +125,7 @@ function M.init(colors, Group, groups, styles, palette)
     Group.new('CursorLineNr' , colors.fg_active , colors.bg_active    , styles.bold)
     Group.new('CursorLine'   , colors.none      , colors.bg_inactive)
     Group.new('SignColumn'   , colors.none      , colors.bg_inactive)
-    Group.new('VertSplit'    , colors.fg_main        , colors.none)
+    Group.new('VertSplit'    , colors.fg_main   , colors.none)
 
     -- Lua
     Group.new('luaConstant'     , groups.Constant  , colors.none    , styles.bold)
@@ -158,7 +159,7 @@ function M.init(colors, Group, groups, styles, palette)
     Group.new('vimCommentString' , groups.Comment     , colors.none)
     Group.new('vimMapModKey'     , groups.vimFuncSID  , colors.none)
     Group.new('vimMapLhs'        , colors.none        , colors.none)
-    Group.new('vimNotation'      , colors.fg_main          , colors.none)
+    Group.new('vimNotation'      , colors.fg_main     , colors.none)
     Group.new('vimBracket'       , groups.Delimiter   , colors.none)
     Group.new('vimMap'           , groups.vimcommand  , colors.none)
     Group.new('vimnotfunc'       , groups.Conditional , colors.none)
@@ -176,16 +177,16 @@ function M.init(colors, Group, groups, styles, palette)
 
 
     -- Diff
-    Group.new("DiffAdd"    , colors.fg_diff_added   , colors.bg_diff_added          , styles.none)
-    Group.new("DiffChange" , colors.fg_diff_changed , colors.bg_diff_changed        , styles.none)
-    Group.new("DiffDelete" , colors.fg_diff_removed , colors.bg_diff_removed        , styles.none)
+    Group.new("DiffAdd"    , colors.fg_diff_added   , colors.bg_diff_added   , styles.none)
+    Group.new("DiffChange" , colors.fg_diff_changed , colors.bg_diff_changed , styles.none)
+    Group.new("DiffDelete" , colors.fg_diff_removed , colors.bg_diff_removed , styles.none)
     Group.new("DiffText"   , colors.fg_diff_changed , colors.bg_diff_changed , styles.none)
 
     -- built_in LSP
-    Group.new("LspDiagnosticsSignError"       , colors.red_active    , colors.bg_active , styles.NONE)
-    Group.new("LspDiagnosticsSignWarning"     , colors.yellow_active , colors.bg_active , styles.NONE)
-    Group.new("LspDiagnosticsSignHint"        , colors.green_active  , colors.bg_active , styles.NONE)
-    Group.new("LspDiagnosticsSignInformation" , colors.blue_active   , colors.bg_active , styles.NONE)
+    Group.new("LspDiagnosticsSignError"       , colors.red_active    , colors.bg_active , styles.none)
+    Group.new("LspDiagnosticsSignWarning"     , colors.yellow_active , colors.bg_active , styles.none)
+    Group.new("LspDiagnosticsSignHint"        , colors.green_active  , colors.bg_active , styles.none)
+    Group.new("LspDiagnosticsSignInformation" , colors.blue_active   , colors.bg_active , styles.none)
 
     -- Spellings
     Group.new("SpellBad" , colors.fg_lang_error , colors.none , styles.none)
@@ -196,7 +197,7 @@ function M.init(colors, Group, groups, styles, palette)
     -- Markdown
     --[[Not using the underline as I have not figured out how to apply it correctly]]--
 
-    Group.new("markdownh1"                 , colors.fg_main              , colors.magenta_nuanced_bg , styles.bold)
+    Group.new("markdownh1"                 , colors.fg_main         , colors.magenta_nuanced_bg , styles.bold)
     Group.new("markdownh2"                 , colors.fg_special_warm , colors.red_nuanced_bg     , styles.bold)
     Group.new("markdownh3"                 , colors.fg_special_cold , colors.blue_nuanced_bg    , styles.bold)
     Group.new("markdownh4"                 , colors.fg_special_mild , colors.cyan_nuanced_bg    , styles.bold)
@@ -204,12 +205,12 @@ function M.init(colors, Group, groups, styles, palette)
     Group.new("markdownh6"                 , colors.yellow_nuanced  , colors.none               , styles.bold)
     Group.new("markdownRule"               , groups.markdownH2      , colors.none               , styles.bold)
     Group.new("markdownItalic"             , colors.fg_special_cold , colors.none               , styles.italic)
-    Group.new("markdownBold"               , colors.fg_main              , colors.none               , styles.bold)
-    Group.new("markdownBoldItalic"         , colors.fg_main              , colors.none               , styles.bold + styles.italic)
+    Group.new("markdownBold"               , colors.fg_main         , colors.none               , styles.bold)
+    Group.new("markdownBoldItalic"         , colors.fg_main         , colors.none               , styles.bold + styles.italic)
     Group.new("markdownCodeDelimiter"      , colors.green_alt_other , colors.none               , styles.bold)
     Group.new("markdownCode"               , colors.fg_special_mild , colors.bg_dim             , styles.none)
     Group.new("markdownCodeBlock"          , colors.fg_special_mild , colors.bg_dim             , styles.none)
-    Group.new("markdownFootnoteDefinition" , colors.fg_main              , colors.none               , styles.italic)
+    Group.new("markdownFootnoteDefinition" , colors.fg_main         , colors.none               , styles.italic)
     Group.new("markdownListMarker"         , colors.fg_alt          , colors.none               , styles.bold)
     Group.new("markdownLineBreak"          , colors.cyan_refine_fg  , colors.cyan_refine_bg     , styles.underline)
 
@@ -236,8 +237,8 @@ function M.init(colors, Group, groups, styles, palette)
     -- TreeSitter
 
     Group.new("TSError"          , groups.Error                    , groups.Error     , styles.bold)
-    Group.new("TSPunctDelimiter" , colors.fg_main                       , colors.none)
-    Group.new("TSPunctBracket"   , colors.fg_main                       , colors.none)
+    Group.new("TSPunctDelimiter" , colors.fg_main                  , colors.none)
+    Group.new("TSPunctBracket"   , colors.fg_main                  , colors.none)
     Group.new("TSConstant"       , groups.Constant                 , groups.Constant  , groups.Constant)
     Group.new("TSConstBuiltin"   , groups.Constant                 , groups.Constant  , groups.Constant)
     Group.new("TSConstMacro"     , groups.Constant                 , groups.Constant  , groups.Constant)
@@ -281,7 +282,7 @@ function M.init(colors, Group, groups, styles, palette)
     Group.new("TSStructure"          , groups.Structure       , groups.Structure   , groups.Structure)
     Group.new("TSInclude"            , groups.Include         , groups.Include     , groups.Include)
     Group.new("TSAnnotation"         , colors.blue_nuanced_bg , colors.none)
-    Group.new("TSStrong"             , colors.fg_main              , colors.bg_main          , styles.bold)
+    Group.new("TSStrong"             , colors.fg_main         , colors.bg_main     , styles.bold)
     Group.new("TSTitle"              , colors.cyan_nuanced    , colors.none)
 
 
@@ -292,14 +293,14 @@ function M.init(colors, Group, groups, styles, palette)
     Group.new("StartifyHeader"  , colors.fg_special_cold , colors.none , styles.bold)
     Group.new("StartifySpecial" , colors.fg_special_warm , colors.none , styles.bold)
     Group.new("StartifySection" , colors.fg_special_warm , colors.none , styles.bold)
-    Group.new("StartifyPath"    , colors.fg_main              , colors.none , styles.none)
-    Group.new("StartifyFile"    , colors.fg_main              , colors.none , styles.none)
-    Group.new("StartifyBracket" , colors.fg_main              , colors.none , styles.none)
-    Group.new("StartifySlash"   , colors.fg_main              , colors.none , styles.none)
+    Group.new("StartifyPath"    , colors.fg_main         , colors.none , styles.none)
+    Group.new("StartifyFile"    , colors.fg_main         , colors.none , styles.none)
+    Group.new("StartifyBracket" , colors.fg_main         , colors.none , styles.none)
+    Group.new("StartifySlash"   , colors.fg_main         , colors.none , styles.none)
     Group.new("StartifyFooter"  , colors.fg_special_mild , colors.none , styles.none)
 
     -- LuaTree
-    Group.new("LuaTreeFolderIcon" , colors.blue , colors.none , styles.NONE)
+    Group.new("LuaTreeFolderIcon" , colors.blue , colors.none , styles.none)
 
     -- BarBar
 
@@ -542,4 +543,6 @@ function M.init(colors, Group, groups, styles, palette)
     end
 end
 
-return M
+return {
+    init = init,
+}
