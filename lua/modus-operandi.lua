@@ -1,3 +1,4 @@
+local o = vim.o
 local Color,colors, Group, groups, styles = require("colorbuddy").setup()
 
 local palette = {
@@ -429,4 +430,5 @@ Color.new("fg_mark_del" , palette.fg_mark_del)
 Color.new("bg_mark_alt" , palette.bg_mark_alt)
 Color.new("fg_mark_alt" , palette.fg_mark_alt)
 
+o.bg = 'light'
 require('highlights').init(colors, Group, groups, styles, palette)
