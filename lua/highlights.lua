@@ -25,6 +25,7 @@ local function init(colors, Group, groups, styles, palette)
     end
 
     Group.new('Normal'         , colors.fg_main         , colors.bg_main)
+    Group.new('NonText'        , colors.fg_alt          , colors.bg_main)
     Group.new('NormalNC'       , colors.fg_inactive     , colors.bg_inactive)
     Group.new('Folded'         , colors.fg_special_mild , colors.bg_special_mild     , styles.none)
     Group.new('Error'          , colors.fg_main         , colors.red_intense_bg      , styles.bold)
