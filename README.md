@@ -101,5 +101,7 @@ TreeSitter is supported if there is a language that isn't properly highlighted p
 - vim is not supported.
 - It is not well tested with the stable neovim (version 0.4.4) please open an issue or consider using nightly.
 - For using these colorschemes in your terminal
-  + [Kitty](https://github.com/ishan9299/Nixos/tree/master/user/programs/kitty/themes)
-  + [Alacritty](https://github.com/ishan9299/Nixos/tree/master/user/programs/alacritty)
+  + Kitty
+    + [modus-operandi](https://github.com/ishan9299/Nixos/blob/d4bbb7536be95b59466bb9cca4d671be46e04e81/user/kitty/themes/modus-operandi.conf#L1-L47)
+    + [modus-vivendi](https://github.com/ishan9299/Nixos/blob/d4bbb7536be95b59466bb9cca4d671be46e04e81/user/kitty/themes/modus-vivendi.conf#L1-L48)
+  + [Alacritty](https://github.com/ishan9299/Nixos/blob/d4bbb7536be95b59466bb9cca4d671be46e04e81/user/alacritty/alacritty.yml#L30-L118)
