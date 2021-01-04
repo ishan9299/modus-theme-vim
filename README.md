@@ -19,7 +19,7 @@ Also make sure to enable termguicolors
 
 ### Vim Plug
 
-```
+```viml
 Plug 'tjdevries/colorbuddy.nvim'
 Plug 'ishan9299/modus-theme-vim', {'branch': 'stable'} -- only if you are not using nightly
 ```
@@ -41,7 +41,7 @@ git submodule add --name colorbuddy https://github.com/tjdevries/colorbuddy.nvim
 git submodule add --name modus-theme-vim https://github.com/ishan9299/modus-theme-vim pack/packages/opt/modus-theme-vim
 ```
 In your `init.lua` add the following
-```
+```lua
 -- if using nightly
 vim.cmd(packadd! colorbuddy)
 vim.cmd(packadd! modus-theme-vim)
@@ -50,6 +50,12 @@ lua vim.api.nvim_command(packadd! colorbuddy)
 lua vim.api.nvim_command(packadd! modus-theme-vim)
 ```
 If you are using stable remember to switch to the branch if you use the vim package manager.
+
+### Packer.nvim
+``` lua
+  use 'tjdevries/colorbuddy.nvim'
+  use '~/.config/nvim/modus-theme-vim'
+```
 
 ### To set the current theme.
 ```lua
