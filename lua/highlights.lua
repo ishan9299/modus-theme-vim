@@ -19,11 +19,6 @@ local faint = g.modus_faint_syntax
 local statusline = g.modus_moody_enable
 
 local function init(colors, Group, groups, styles, palette)
-    cmd('hi clear')
-    if fn.exists('syntax_on') then
-        cmd('syntax reset')
-    end
-
     Group.new('Normal'         , colors.fg_main         , colors.bg_main)
     Group.new('NonText'        , colors.fg_alt          , colors.bg_main)
     Group.new('NormalNC'       , colors.fg_inactive     , colors.bg_inactive)

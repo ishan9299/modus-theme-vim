@@ -1,3 +1,4 @@
-lua package.loaded['highlights'] = nil
-lua package.loaded['modus-vivendi'] = nil
-lua require('modus-operandi')
+augroup colors
+    au ColorScheme modus-operandi lua package.loaded['highlights'] = nil
+    au ColorScheme modus-operandi lua package.loaded['modus-vivendi'] = nil
+augroup end
