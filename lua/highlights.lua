@@ -302,7 +302,7 @@ local function init(colors, Group, groups, styles, palette)
     Group.new("StartifyFooter"  , colors.fg_special_mild , colors.none , styles.none)
 
     -- LuaTree
-    Group.new("LuaTreeFolderIcon" , colors.blue , colors.none , styles.none)
+    Group.new("NvimTreeFolderIcon" , colors.blue , colors.none , styles.none)
 
     -- BarBar
 
