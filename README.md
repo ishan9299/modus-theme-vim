@@ -69,6 +69,7 @@ Plugins Explicitly Configured
 - Startify
 - gitsigns
 - GalaxyLine
+- nvim-ts-rainbow
 
 Please feel free to open an issue if you want other plugins to be included.
 

@@ -324,6 +324,15 @@ local function init(colors, Group, groups, styles, palette)
     Group.new("BufferInactiveSign"   , colors.fg_tab_active  , colors.bg_tab_inactive , styles.bold)
     Group.new("BufferInactiveTarget" , colors.magenta_active , colors.bg_tab_inactive , styles.bold)
 
+    -- Nvim TreeSitter Rainbow
+    Group.new("rainbowcol1" , colors.green_alt_other   , colors.none , styles.none)
+    Group.new("rainbowcol2" , colors.magenta_alt_other , colors.none , styles.none)
+    Group.new("rainbowcol3" , colors.cyan_alt_other    , colors.none , styles.none)
+    Group.new("rainbowcol4" , colors.yellow_alt_other  , colors.none , styles.none)
+    Group.new("rainbowcol5" , colors.blue_alt_other    , colors.none , styles.none)
+    Group.new("rainbowcol6" , colors.green_alt         , colors.none , styles.none)
+    Group.new("rainbowcol7" , colors.magenta_alt_other , colors.none , styles.none)
+
     -- Terminal colors
     vim.g.terminal_color_0  = "#555555"
     vim.g.terminal_color_8  = "#222222"
