@@ -180,10 +180,18 @@ local function init(colors, Group, groups, styles, palette)
     Group.new("DiffText"   , colors.fg_diff_changed , colors.bg_diff_changed , styles.none)
 
     -- built_in LSP
-    Group.new("LspDiagnosticsSignError"       , colors.red_active    , colors.bg_active , styles.none)
-    Group.new("LspDiagnosticsSignWarning"     , colors.yellow_active , colors.bg_active , styles.none)
-    Group.new("LspDiagnosticsSignHint"        , colors.green_active  , colors.bg_active , styles.none)
-    Group.new("LspDiagnosticsSignInformation" , colors.blue_active   , colors.bg_active , styles.none)
+    Group.new("LspDiagnosticsSignError"            , colors.red_active    , colors.bg_active , styles.bold)
+    Group.new("LspDiagnosticsVirtualTextError"     , colors.red_active    , colors.bg_main   , styles.bold)
+    Group.new("LspDiagnosticsUnderlineError"       , colors.red_active    , colors.bg_main   , styles.underline)
+
+    Group.new("LspDiagnosticsSignWarning"          , colors.yellow_active , colors.bg_active , styles.bold)
+    Group.new("LspDiagnosticsVirtualTextWarning"   , colors.yellow_active , colors.bg_main   , styles.bold)
+    Group.new("LspDiagnosticsUnderlineWarning"     , colors.yellow_active , colors.bg_main   , styles.underline)
+
+    Group.new("LspDiagnosticsSignHint"             , colors.green_active  , colors.bg_active , styles.bold)
+    Group.new("LspDiagnosticsSignInformation"      , colors.green_active  , colors.bg_active , styles.bold)
+    Group.new("LspDiagnosticsVirtualTextHint"      , colors.green_active  , colors.bg_active , styles.bold)
+    Group.new("LspDiagnosticsUnderlineInformation" , colors.green_active  , colors.bg_main   , styles.underline)
 
     -- Spellings
     Group.new("SpellBad" , colors.fg_lang_error , colors.none , styles.none)
