@@ -1,7 +1,6 @@
 local cmd = vim.cmd
 local vim = vim
 local g = vim.g
-local fn = vim.fn
 
 local settings = {
   faint_syntax = 0,
@@ -37,7 +36,7 @@ local function init(colors, Group, groups, styles, palette)
     Group.new("SpecialComment" , colors.fg_alt          , colors.none                , styles.none)
     Group.new("Title"          , colors.fg_special_cold , colors.none                , styles.bold)
     Group.new('Visual'         , colors.fg_main         , colors.magenta_intense_bg)
-    Group.new('Whitespace'     , colors.fg_main         , colors.none                , styles.bold)
+    Group.new('Whitespace'     , colors.fg_alt          , colors.none                , styles.none)
     Group.new('TabLine'        , colors.fg_main         , colors.bg_tab_inactive)
     Group.new('TabLineSel'     , colors.fg_tab_active   , colors.bg_tab_active)
     Group.new('TabLineFill'    , colors.none            , colors.bg_tab_bar)
