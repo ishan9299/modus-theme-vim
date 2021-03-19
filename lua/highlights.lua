@@ -2,9 +2,13 @@ local cmd = vim.cmd
 local vim = vim
 local g = vim.g
 
+cmd('hi clear')
+
 local settings = {
   faint_syntax = 0,
   moody_enable = 0,
+  yellow_comments = 0,
+  green_strings = 0,
 }
 
 for k,val in pairs(settings) do
@@ -240,55 +244,61 @@ local function init(colors, Group, groups, styles, palette)
 
     -- TreeSitter
 
-    Group.new("TSError"          , groups.Error                    , groups.Error     , styles.bold)
-    Group.new("TSPunctDelimiter" , colors.fg_main                  , colors.none)
-    Group.new("TSPunctBracket"   , colors.fg_main                  , colors.none)
-    Group.new("TSConstant"       , groups.Constant                 , groups.Constant  , groups.Constant)
-    Group.new("TSConstBuiltin"   , groups.Constant                 , groups.Constant  , groups.Constant)
-    Group.new("TSConstMacro"     , groups.Constant                 , groups.Constant  , groups.Constant)
-    Group.new("TSString"         , groups.String                   , groups.String    , groups.String)
-    Group.new("TSStringRegex"    , colors.fg_escape_char_construct , colors.none)
-    Group.new("TSStringEscape"   , colors.fg_escape_char_backslash , colors.none)
-    Group.new("TSCharacter"      , groups.Character                , groups.Character , groups.Character)
-    Group.new("TSNumber"         , groups.Number                   , groups.Number    , groups.Number)
-    Group.new("TSBoolean"        , groups.Boolean                  , groups.Boolean   , groups.Boolean)
-    Group.new("TSFloat"          , groups.Number                   , groups.Number    , groups.Number)
-    Group.new("TSFunction"       , groups.Function                 , groups.Function  , groups.Function)
-    Group.new("TSFuncBuiltin"    , groups.Function                 , groups.Function  , groups.Function)
-    Group.new("TSFuncMacro"      , groups.Function                 , groups.Function  , groups.Function)
+    Group.new("TSAnnotation"         , colors.blue_nuanced_bg          , colors.none)
+    Group.new("TSBoolean"            , groups.Boolean                  , groups.Boolean     , groups.Boolean)
+    Group.new("TSCharacter"          , groups.Character                , groups.Character   , groups.Character)
+    Group.new("TSComment"            , groups.Comment                  , groups.Comment     , groups.Comment)
+    Group.new("TSConditional"        , groups.Conditional              , groups.Conditional , groups.Conditional)
+    Group.new("TSConstant"           , groups.Constant                 , groups.Constant    , groups.Constant)
+    Group.new("TSConstBuiltin"       , groups.Constant                 , groups.Constant    , groups.Constant)
+    Group.new("TSConstMacro"         , groups.Constant                 , groups.Constant    , groups.Constant)
+    Group.new("TSError"              , groups.Error                    , groups.Error       , styles.bold)
+    Group.new("TSException"          , groups.Exception                , groups.Exception   , groups.Exception)
+    Group.new("TSField"              , groups.Identifier               , groups.Identifier  , groups.Identifier)
+    Group.new("TSFloat"              , groups.Number                   , groups.Number      , groups.Number)
+    Group.new("TSFunction"           , groups.Function                 , groups.Function    , groups.Function)
+    Group.new("TSFuncBuiltin"        , groups.Function                 , groups.Function    , groups.Function)
+    Group.new("TSFuncMacro"          , groups.Function                 , groups.Function    , groups.Function)
+    Group.new("TSInclude"            , groups.Include                  , groups.Include     , groups.Include)
+    Group.new("TSKeyword"            , groups.Keyword                  , groups.Keyword     , groups.Keyword)
+    Group.new("TSLabel"              , groups.Label                    , groups.Label       , groups.Label)
+    Group.new("TSMethod"             , groups.Function                 , groups.Function    , groups.Function)
+    Group.new("TSNamespace"          , groups.Include                  , groups.Include     , groups.Include)
+    Group.new("TSNumber"             , groups.Number                   , groups.Number      , groups.Number)
+    Group.new("TSOperator"           , groups.Operator                 , groups.Operator    , groups.Operator)
+    Group.new("TSParameterReference" , groups.Identifier               , groups.Identifier  , groups.Identifier)
+    Group.new("TSProperty"           , groups.Identifier               , groups.Identifier  , groups.Identifier)
+    Group.new("TSPunctDelimiter"     , colors.fg_main                  , colors.none)
+    Group.new("TSPunctBracket"       , colors.fg_main                  , colors.none)
+    Group.new("TSPunctSpecial"       , colors.fg_main                  , colors.none)
+    Group.new("TSRepeat"             , groups.Repeat                   , groups.Repeat      , groups.Repeat)
+    Group.new("TSString"             , groups.String                   , groups.String      , groups.String)
+    Group.new("TSStringRegex"        , colors.fg_escape_char_construct , colors.none)
+    Group.new("TSStringEscape"       , colors.fg_escape_char_backslash , colors.none)
+    Group.new("TSStrong"             , colors.fg_main                  , colors.bg_main     , styles.bold)
 
     if faint == 0 then
-        Group.new("TSParameter"       , colors.cyan              , colors.none  , styles.none)
-        Group.new("TSConstructor"     , colors.magenta_alt       , colors.none)
-        Group.new("TSKeywordFunction" , colors.magenta_alt       , colors.none  , styles.none)
-        Group.new("TSLiteral"         , colors.blue_alt          , colors.none  , styles.bold)
-        Group.new("TSVariable"        , colors.cyan              , colors.none  , styles.none)
-        Group.new("TSVariableBuiltin" , colors.magenta_alt_other , colors.none  , styles.none)
+        Group.new("TSConstructor"     , colors.magenta_alt              , colors.none)
+        Group.new("TSKeywordFunction" , colors.magenta_alt              , colors.none        , styles.none)
+        Group.new("TSLiteral"         , colors.blue_alt                 , colors.none        , styles.bold)
+        Group.new("TSParameter"       , colors.cyan                     , colors.none        , styles.none)
+        Group.new("TSVariable"        , colors.cyan                     , colors.none        , styles.none)
+        Group.new("TSVariableBuiltin" , colors.magenta_alt_other        , colors.none        , styles.none)
     else
-        Group.new("TSParameter"       , colors.cyan_faint              , colors.none  , styles.none)
-        Group.new("TSConstructor"     , colors.magenta_alt_faint       , colors.none)
-        Group.new("TSKeywordFunction" , colors.magenta_alt_faint       , colors.none  , styles.none)
-        Group.new("TSLiteral"         , colors.blue_alt_faint          , colors.none  , styles.bold)
-        Group.new("TSVariable"        , colors.cyan_faint              , colors.none  , styles.none)
-        Group.new("TSVariableBuiltin" , colors.magenta_alt_other_faint , colors.none  , styles.none)
+        Group.new("TSConstructor"     , colors.magenta_alt_faint        , colors.none)
+        Group.new("TSKeywordFunction" , colors.magenta_alt_faint        , colors.none        , styles.none)
+        Group.new("TSLiteral"         , colors.blue_alt_faint           , colors.none        , styles.bold)
+        Group.new("TSParameter"       , colors.cyan_faint               , colors.none        , styles.none)
+        Group.new("TSVariable"        , colors.cyan_faint               , colors.none        , styles.none)
+        Group.new("TSVariableBuiltin" , colors.magenta_alt_other_faint  , colors.none        , styles.none)
     end
 
-    Group.new("TSParameterReference" , groups.TSParameter     , groups.TSParameter , groups.TSParameter)
-    Group.new("TSMethod"             , groups.Function        , groups.Function    , groups.Function)
-    Group.new("TSConditional"        , groups.Conditional     , groups.Conditional , groups.Conditional)
-    Group.new("TSRepeat"             , groups.Repeat          , groups.Repeat      , groups.Repeat)
-    Group.new("TSLabel"              , groups.Label           , groups.Label       , groups.Label)
-    Group.new("TSOperator"           , groups.Operator        , groups.Operator    , groups.Operator)
-    Group.new("TSKeyword"            , groups.Keyword         , groups.Keyword     , groups.Keyword)
-    Group.new("TSException"          , groups.Exception       , groups.Exception   , groups.Exception)
-    Group.new("TSType"               , groups.Type            , groups.Type        , styles.none)
-    Group.new("TSTypeBuiltin"        , groups.Type            , groups.Type        , styles.none)
-    Group.new("TSStructure"          , groups.Structure       , groups.Structure   , groups.Structure)
-    Group.new("TSInclude"            , groups.Include         , groups.Include     , groups.Include)
-    Group.new("TSAnnotation"         , colors.blue_nuanced_bg , colors.none)
-    Group.new("TSStrong"             , colors.fg_main         , colors.bg_main     , styles.bold)
-    Group.new("TSTitle"              , colors.cyan_nuanced    , colors.none)
-
+    Group.new("TSTag"          , groups.Label        , groups.Label   , groups.Label)
+    Group.new("TSTagDelimiter" , groups.Label        , groups.Label   , groups.Label)
+    Group.new("TSTitle"        , colors.cyan_nuanced , colors.none)
+    Group.new("TSType"         , groups.Type         , groups.Type    , styles.none)
+    Group.new("TSTypeBuiltin"  , groups.Type         , groups.Type    , styles.none)
+    Group.new("TSEmphasis"     , colors.fg_main      , colors.bg_main , styles.italic)
 
     -- Telescope
     Group.new("TelescopeMatching" , colors.fg_main , colors.green_intense_bg , styles.bold)
