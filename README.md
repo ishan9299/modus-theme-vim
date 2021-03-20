@@ -14,20 +14,21 @@ modus-vivendi ( the dark theme )
 Getting Started
 ---------------
 
-You have to make sure you install [`tjdevries/colorbuddy.nvim`](https://github.com/tjdevries/colorbuddy.vim)
+If you are using the stable neovim install  [`tjdevries/colorbuddy.nvim`](https://github.com/tjdevries/colorbuddy.vim)
+and use the stable branch of this theme.
 Also make sure to enable termguicolors
 
 ### Vim Plug
 
 ```viml
-Plug 'tjdevries/colorbuddy.nvim'
+Plug 'ishan9299/modus-theme-vim'  -- if using nightly neovim
 Plug 'ishan9299/modus-theme-vim', {'branch': 'stable'} -- only if you are not using nightly
 ```
 
 ### Minpac
 
 ```viml
-call minpac#add('tjdevries/colorbuddy.nvim')
+call minpac#add('ishan9299/modus-theme-vim') -- if using nightly neovim
 call minpac#add('ishan9299/modus-theme-vim', {'branch': 'stable'}) -- only if you are not using nightly
 ```
 
@@ -37,29 +38,16 @@ In the terminal execute this command. Read `:h packages`
 ```sh
 cd ~/.config/nvim
 mkdir -p pack/packages/{opt,start}
-git submodule add --name colorbuddy https://github.com/tjdevries/colorbuddy.nvim pack/packages/opt/colorbuddy.nvim
-git submodule add --name modus-theme-vim https://github.com/ishan9299/modus-theme-vim pack/packages/opt/modus-theme-vim
+git submodule add --name modus-theme-vim https://github.com/ishan9299/modus-theme-vim pack/packages/start/modus-theme-vim
 ```
-In your `init.lua` add the following
-```lua
--- if using nightly
-vim.cmd(packadd! colorbuddy)
-vim.cmd(packadd! modus-theme-vim)
--- if using stable
-lua vim.api.nvim_command(packadd! colorbuddy)
-lua vim.api.nvim_command(packadd! modus-theme-vim)
-```
-If you are using stable remember to switch to the branch if you use the vim package manager.
-
 ### Packer.nvim
 ``` lua
-  use 'tjdevries/colorbuddy.nvim'
-  use '~/.config/nvim/modus-theme-vim'
+  use 'ishan9299/modus-theme-vim'
 ```
 
 ### To set the current theme.
 ```lua
-require('colorbuddy').colorscheme('modus-operandi')
+vim.cmd('colorscheme modus-vivendi')
 ```
 
 Plugins Explicitly Configured
@@ -78,7 +66,6 @@ Configuration
 The theme has a faint syntax options which dims the colors if you find the default distracting.
 ```lua
 vim.g.modus_faint_syntax = 1
-lua require('colorbuddy').colorscheme('modus-operandi')
 ```
   
 ![modus-faint-operandi](./screenshots/modus-operandi-faint.png)
@@ -94,6 +81,13 @@ or
 let g:modus_moody_enable = 1
 ```
 
+There are additional options also
+```lua
+vim.g.modus_yellow_comments = 1
+vim.g.modus_green_strings = 1
+```
+
+All these options are disabled by default.
 
 Syntax Highlighting Configured for these languages
 --------------------------------------------------
