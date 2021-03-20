@@ -145,7 +145,7 @@ function M.load_syntax()
         vimLet = {fg=faint_syntax('magenta_alt_other') , bg=colors.bg_main , style='NONE'},
         vimFuncVar = {fg=faint_syntax('blue_alt_other') , bg=colors.bg_main , style='NONE'},
         vimCommentTitle = {fg=faint_syntax('red_alt_other') , bg=colors.bg_main , style='NONE'},
-        vimIsCommand = {fg=colors.bg_main , bg=colors.bg_main , style='NONE'},
+        vimIsCommand = {fg=colors.fg_main , bg=colors.bg_main , style='NONE'},
         vimFuncSID = {fg=colors.fg_main , bg=colors.bg_main , style='NONE'},
         vimCommentString = {fg=yellow_comments() , bg=colors.bg_main , style='NONE'},
         vimMapModKey = {fg=colors.fg_main , bg=colors.bg_main , style='NONE'},
@@ -507,7 +507,6 @@ function M.set_statusline()
             highlight = {colors.fg_active,colors.bg_active}
         }
     }
-
 end
 
 M.load_syntax()

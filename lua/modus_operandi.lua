@@ -1,7 +1,6 @@
 local M = {}
 
 function M.setup()
-    vim.o.bg = 'light'
     local my_colors = {
         bg_main = "#ffffff",
         fg_main = "#000000",
