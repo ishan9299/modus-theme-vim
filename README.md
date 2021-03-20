@@ -11,6 +11,10 @@ modus-operandi ( the light theme )
 ![modus-vivendi](./screenshots/modus-vivendi.png)
 modus-vivendi ( the dark theme )
 
+NOTE
+----
+The master branch of the theme no longer depends on colorbuddy.
+
 Getting Started
 ---------------
 
