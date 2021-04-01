@@ -6,9 +6,9 @@ local o = vim.o
 cmd('hi clear')
 
 if o.bg == 'dark' then
-    colors = require('modus_vivendi').setup()
+    colors = require('modus-themes.modus_vivendi').setup()
 else
-    colors = require('modus_operandi').setup()
+    colors = require('modus-themes.modus_operandi').setup()
 end
 
 local settings = {

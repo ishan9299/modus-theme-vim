@@ -1,3 +1,3 @@
 lua vim.o.bg = 'dark'
-lua require('highlights')
-lua package.loaded['highlights'] = nil
+lua require('modus-themes.highlights')
+lua package.loaded['modus-themes.highlights'] = nil
