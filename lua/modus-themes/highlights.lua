@@ -2,6 +2,7 @@ local M = {}
 local cmd = vim.cmd
 local g = vim.g
 local o = vim.o
+local fn = vim.fn
 
 cmd('hi clear')
 
@@ -9,6 +10,10 @@ if o.bg == 'dark' then
     colors = require('modus-themes.modus_vivendi').setup()
 else
     colors = require('modus-themes.modus_operandi').setup()
+end
+
+if fn.exists("syntax_on") then
+    cmd('syntax reset')
 end
 
 local settings = {
