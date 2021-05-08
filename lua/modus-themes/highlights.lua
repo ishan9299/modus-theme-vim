@@ -18,7 +18,7 @@ end
 
 local settings = {
 	modus_faint_syntax = 0,
-	modus_moody_line = 0,
+	modus_moody_enable = 0,
 	modus_yellow_comments = 0,
 	modus_green_strings = 0
 }
@@ -519,7 +519,7 @@ end
 M.load_syntax()
 M.set_terminal()
 
-if vim.g.modus_moody_line == 1 then
+if vim.g.modus_moody_enable == 1 then
 	M.set_statusline()
 end
 
