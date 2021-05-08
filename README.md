@@ -87,7 +87,7 @@ let g:modus_moody_enable = 1
 
 There are additional options also
 ```lua
-vim.g.modus_yellow_comments = 1
+vim.g.modus_yellow_comments = 1 -- also enable the faint syntax
 vim.g.modus_green_strings = 1
 ```
 
