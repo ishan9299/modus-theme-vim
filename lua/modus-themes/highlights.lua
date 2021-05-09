@@ -546,6 +546,7 @@ M.language_highlights()
 M.plugin_highlights()
 M.set_terminal()
 
+
 if g.modus_moody_enable == 1 then
 	M.set_statusline()
 end
