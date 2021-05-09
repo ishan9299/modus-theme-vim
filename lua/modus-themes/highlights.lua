@@ -31,14 +31,14 @@ for key,val in pairs(settings) do
 end
 
 local yellow_comments = function()
-	if vim.g.modus_faint_syntax == 0 then
+	if g.modus_faint_syntax == 0 then
 		return colors.fg_alt
 	end
 	return colors.yellow_faint
 end
 
 local green_strings = function()
-	if vim.g.modus_green_strings == 0 then
+	if g.modus_green_strings == 0 then
 		return colors.blue_alt
 	end
 	return colors.green_alt
@@ -88,7 +88,7 @@ function M.core_highlights()
 	highlight('TabLineFill', colors.bg_main, colors.bg_tab_bar, 'none')
 	highlight('Search', colors.fg_main, colors.green_intense_bg, 'none')
 	highlight('EndOfBuffer', colors.fg_inactive, colors.bg_main, 'none')
-	if vim.g.modus_faint_syntax == 1 then
+	if g.modus_faint_syntax == 1 then
 		highlight('Function', colors.magenta_faint, colors.bg_main, 'none')
 		highlight('Warning', colors.yellow_alt_faint, colors.bg_main, 'none')
 		highlight('Boolean', colors.blue_faint, colors.bg_main, 'bold')
@@ -159,7 +159,7 @@ function M.language_highlights()
 	link('luaTodo', 'Todo')
 	link('luaVarName', 'Label')
 	link('luaFunc', 'Function')
-	if vim.g.modus_faint_syntax == 1 then
+	if g.modus_faint_syntax == 1 then
 		highlight('luaTableConstructor', colors.magenta_alt_faint, colors.bg_main, 'none')
 	else
 		highlight('luaTableConstructor', colors.magenta_alt, colors.bg_main, 'none')
@@ -267,7 +267,7 @@ function M.plugin_highlights()
 	highlight('tsstrong', colors.fg_main, colors.bg_main, 'bold')
 	link('tsconstructor', 'Type')
 	link('tskeywordfunction', 'Type')
-	if vim.g.modus_faint_syntax == 1 then
+	if g.modus_faint_syntax == 1 then
 		highlight('tsliteral', colors.blue_alt_faint, colors.bg_main, 'bold')
 	else
 		highlight('tsliteral', colors.blue_alt, colors.bg_main, 'bold')
