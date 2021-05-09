@@ -20,7 +20,7 @@ Getting Started
 
 If you are using the stable neovim install  [`tjdevries/colorbuddy.nvim`](https://github.com/tjdevries/colorbuddy.vim)
 and use the stable branch of this theme.
-Also make sure to enable termguicolors
+Also make sure to enable termguicolors (the theme also includes 256 colors though)
 
 ### Vim Plug
 
