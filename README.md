@@ -14,13 +14,17 @@ modus-vivendi ( the dark theme )
 NOTE
 ----
 The master branch of the theme no longer depends on colorbuddy.
+The theme also support 256 colors now(In the master branch).
+
+To covert the hexcolor codes to the nearest 256 color I used this javascript [code](https://gist.github.com/ishan9299/d87713b43dc04d49fa060711fdc7dd6d).
+
 
 Getting Started
 ---------------
 
 If you are using the stable neovim install  [`tjdevries/colorbuddy.nvim`](https://github.com/tjdevries/colorbuddy.vim)
 and use the stable branch of this theme.
-Also make sure to enable termguicolors (the theme also includes 256 colors though)
+Also make sure to enable termguicolors.
 
 ### Vim Plug
 
