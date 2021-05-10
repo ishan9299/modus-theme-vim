@@ -157,7 +157,7 @@ function M.setup()
 		fg_window_divider_outer = {"#585858",88},
 		fg_unfocused = {"#56576d",87},
 		fg_docstring = {"#2a486a",48},
-		fg_comment_yellow = {"#5f4400",89},
+		fg_comment_yellow = {"#749319",208},
 		bg_header = {"#e5e5e5",230},
 		fg_header = {"#2a2a2a",42},
 		bg_whitespace = {"#f5efef",245},
