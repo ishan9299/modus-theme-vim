@@ -37,7 +37,7 @@ local highlighter = function(group, color)
 	local c_background = color.bg[2]
 	local g_foreground = color.fg[1]
 	local c_foreground = color.fg[2]
-	local style = colors.style or 'none'
+	style = color.style or 'none'
 	cmd(string.format(
 	'hi %s guifg=%s guibg=%s gui=%s ctermfg=%s ctermbg=%s cterm=%s',
 	group, g_foreground, g_background, style, c_foreground, c_background, style
