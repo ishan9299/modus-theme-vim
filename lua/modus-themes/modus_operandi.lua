@@ -195,7 +195,7 @@ function M.setup()
 		-- bg_mark_alt = {"#f5d88f",240},
 		-- fg_mark_alt = {"#782900",107}
 	}
-	return my_colors
+	return colors
 end
 
 return M
