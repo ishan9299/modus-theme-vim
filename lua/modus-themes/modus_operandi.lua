@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-	local my_colors = {
+	local colors = {
 		none = {"none", "none"},
 		bg_main = {"#ffffff",255},        
 		fg_main = {"#000000",0},
@@ -71,36 +71,36 @@ function M.setup()
 		blue_active = {"#0030b4",10},
 		magenta_active = {"#5c2092",85},
 		cyan_active = {"#003f8a",12},
-		red_subtle_bg = {"#f2b0a2",232},
+		-- red_subtle_bg = {"#f2b0a2",232},
 		red_intense_bg = {"#ff8892",237},
-		green_subtle_bg = {"#aecf90",179},
+		-- green_subtle_bg = {"#aecf90",179},
 		green_intense_bg = {"#5ada88",109},
-		yellow_subtle_bg = {"#e4c340",221},
+		-- yellow_subtle_bg = {"#e4c340",221},
 		yellow_intense_bg = {"#f5df23",238},
-		blue_subtle_bg = {"#b5d0ff",187},
+		-- blue_subtle_bg = {"#b5d0ff",187},
 		blue_intense_bg = {"#6aaeff",119},
-		magenta_subtle_bg = {"#f0d3ff",238},
+		-- magenta_subtle_bg = {"#f0d3ff",238},
 		magenta_intense_bg = {"#d5baff",211},
-		cyan_subtle_bg = {"#c0efff",201},
+		-- cyan_subtle_bg = {"#c0efff",201},
 		cyan_intense_bg = {"#42cbd4",89},
-		red_fringe_bg = {"#f08290",224},
-		green_fringe_bg = {"#62c86a",113},
-		yellow_fringe_bg = {"#dbba3f",212},
-		blue_fringe_bg = {"#82afff",140},
-		magenta_fringe_bg = {"#e0a3ff",217},
-		cyan_fringe_bg = {"#2fcddf",73},
-		red_graph_0_bg = {"#ef6f79",220},
-		red_graph_1_bg = {"#ff9f9f",241},
-		green_graph_0_bg = {"#49d239",92},
-		green_graph_1_bg = {"#6dec6d",127},
-		yellow_graph_0_bg = {"#efec08",235},
-		yellow_graph_1_bg = {"#dbff4e",222},
-		blue_graph_0_bg = {"#55a2f0",100},
-		blue_graph_1_bg = {"#7fcfff",142},
-		magenta_graph_0_bg = {"#ba86ef",181},
-		magenta_graph_1_bg = {"#e7afff",225},
-		cyan_graph_0_bg = {"#30d3f0",75},
-		cyan_graph_1_bg = {"#6fefff",133},
+		-- red_fringe_bg = {"#f08290",224},
+		-- green_fringe_bg = {"#62c86a",113},
+		-- yellow_fringe_bg = {"#dbba3f",212},
+		-- blue_fringe_bg = {"#82afff",140},
+		-- magenta_fringe_bg = {"#e0a3ff",217},
+		-- cyan_fringe_bg = {"#2fcddf",73},
+		-- red_graph_0_bg = {"#ef6f79",220},
+		-- red_graph_1_bg = {"#ff9f9f",241},
+		-- green_graph_0_bg = {"#49d239",92},
+		-- green_graph_1_bg = {"#6dec6d",127},
+		-- yellow_graph_0_bg = {"#efec08",235},
+		-- yellow_graph_1_bg = {"#dbff4e",222},
+		-- blue_graph_0_bg = {"#55a2f0",100},
+		-- blue_graph_1_bg = {"#7fcfff",142},
+		-- magenta_graph_0_bg = {"#ba86ef",181},
+		-- magenta_graph_1_bg = {"#e7afff",225},
+		-- cyan_graph_0_bg = {"#30d3f0",75},
+		-- cyan_graph_1_bg = {"#6fefff",133},
 		red_refine_bg = {"#ffcccc",248},
 		red_refine_fg = {"#780000",101},
 		green_refine_bg = {"#aceaac",182},
@@ -137,14 +137,14 @@ function M.setup()
 		bg_tab_inactive = {"#bdbdbd",190},
 		bg_tab_inactive_alt = {"#999999",154},
 		fg_tab_accent = {"#30169e",47},
-		red_tab = {"#680000",87},
-		green_tab = {"#003900",8},
-		yellow_tab = {"#393000",54},
-		orange_tab = {"#502300",72},
-		blue_tab = {"#000080",3},
-		cyan_tab = {"#052f60",13},
-		magenta_tab = {"#5f004d",81},
-		purple_tab = {"#400487",57},
+		-- red_tab = {"#680000",87},
+		-- green_tab = {"#003900",8},
+		-- yellow_tab = {"#393000",54},
+		-- orange_tab = {"#502300",72},
+		-- blue_tab = {"#000080",3},
+		-- cyan_tab = {"#052f60",13},
+		-- magenta_tab = {"#5f004d",81},
+		-- purple_tab = {"#400487",57},
 		fg_escape_char_construct = {"#8b1030",120},
 		fg_escape_char_backslash = {"#654d0f",96},
 		fg_lang_error = {"#9f004f",136},
@@ -172,221 +172,30 @@ function M.setup()
 		fg_diff_changed = {"#524200",78},
 		bg_diff_removed = {"#ffe8ef",253},
 		fg_diff_removed = {"#691616",92},
-		bg_diff_refine_added = {"#94cf94",157},
-		fg_diff_refine_added = {"#002a00",5},
-		bg_diff_refine_added_deuteran = {"#77c0ef",133},
-		fg_diff_refine_added_deuteran = {"#000035",1},
-		bg_diff_refine_changed = {"#cccf8f",204},
-		fg_diff_refine_changed = {"#302010",45},
-		bg_diff_refine_removed = {"#daa2b0",210},
-		fg_diff_refine_removed = {"#400000",54},
-		bg_diff_focus_added = {"#bbeabb",195},
-		fg_diff_focus_added = {"#002c00",6},
-		bg_diff_focus_added_deuteran = {"#bacfff",192},
-		fg_diff_focus_added_deuteran = {"#001755",5},
-		bg_diff_focus_changed = {"#ecdfbf",234},
-		fg_diff_focus_changed = {"#392900",53},
-		bg_diff_focus_removed = {"#efcbcf",235},
-		fg_diff_focus_removed = {"#4a0000",62},
-		bg_mark_sel = {"#a0f0cf",173},
-		fg_mark_sel = {"#005040",12},
-		bg_mark_del = {"#ffccbb",248},
-		fg_mark_del = {"#840040",112},
-		bg_mark_alt = {"#f5d88f",240},
-		fg_mark_alt = {"#782900",107}
+		-- bg_diff_refine_added = {"#94cf94",157},
+		-- fg_diff_refine_added = {"#002a00",5},
+		-- bg_diff_refine_added_deuteran = {"#77c0ef",133},
+		-- fg_diff_refine_added_deuteran = {"#000035",1},
+		-- bg_diff_refine_changed = {"#cccf8f",204},
+		-- fg_diff_refine_changed = {"#302010",45},
+		-- bg_diff_refine_removed = {"#daa2b0",210},
+		-- fg_diff_refine_removed = {"#400000",54},
+		-- bg_diff_focus_added = {"#bbeabb",195},
+		-- fg_diff_focus_added = {"#002c00",6},
+		-- bg_diff_focus_added_deuteran = {"#bacfff",192},
+		-- fg_diff_focus_added_deuteran = {"#001755",5},
+		-- bg_diff_focus_changed = {"#ecdfbf",234},
+		-- fg_diff_focus_changed = {"#392900",53},
+		-- bg_diff_focus_removed = {"#efcbcf",235},
+		-- fg_diff_focus_removed = {"#4a0000",62},
+		-- bg_mark_sel = {"#a0f0cf",173},
+		-- fg_mark_sel = {"#005040",12},
+		-- bg_mark_del = {"#ffccbb",248},
+		-- fg_mark_del = {"#840040",112},
+		-- bg_mark_alt = {"#f5d88f",240},
+		-- fg_mark_alt = {"#782900",107}
 	}
 	return my_colors
 end
 
 return M
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
