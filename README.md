@@ -108,3 +108,6 @@ TreeSitter is supported if there is a language that isn't properly highlighted p
     + [modus-vivendi](https://github.com/ishan9299/Nixos/blob/d4bbb7536be95b59466bb9cca4d671be46e04e81/user/kitty/themes/modus-vivendi.conf#L1-L48)
   + [Alacritty](https://github.com/ishan9299/Nixos/blob/d4bbb7536be95b59466bb9cca4d671be46e04e81/user/alacritty/alacritty.yml#L30-L118)
 - To covert the hexcolor codes to the nearest 256 color I used this javascript [code](https://gist.github.com/ishan9299/d87713b43dc04d49fa060711fdc7dd6d).
+
+## Maybe Checkout
+1. [nvim-solarized-lua](https://github.com/ishan9299/nvim-solarized-lua)
