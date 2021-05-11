@@ -346,7 +346,7 @@ function M.set_statusline()
 	gls.left[1] = {
 		FirstElement = {
 			provider = function() return '▋' end,
-			highlight = {colors.bg_active, colors.bg_active}
+			highlight = {colors.bg_active[1], colors.bg_active[1]}
 		}
 	}
 
@@ -354,16 +354,16 @@ function M.set_statusline()
 		ViMode = {
 			provider = function()
 				local mode_color = {
-					n      = colors.magenta_active,
-					i      = colors.green_active,
-					v      = colors.cyan_active,
-					[''] = colors.cyan_active,
-					V      = colors.cyan_active,
-					c      = colors.red_active,
-					R      = colors.red_active,
-					Rv     = colors.red_active,
-					t      = colors.blue_active,
-					['!']  = colors.blue_active,
+					n      = colors.magenta_active[1],
+					i      = colors.green_active[1],
+					v      = colors.cyan_active[1],
+					[''] = colors.cyan_active[1],
+					V      = colors.cyan_active[1],
+					c      = colors.red_active[1],
+					R      = colors.red_active[1],
+					Rv     = colors.red_active[1],
+					t      = colors.blue_active[1],
+					['!']  = colors.blue_active[1],
 				}
 				local alias = {
 					n      = 'NORMAL',
@@ -381,13 +381,13 @@ function M.set_statusline()
 				return alias[vim.fn.mode()]
 			end,
 			separator = '',
-			separator_highlight = {colors.bg_active,function()
+			separator_highlight = {colors.bg_active[1],function()
 				if not buffer_not_empty() then
-					return colors.bg_main
+					return colors.bg_main[1]
 				end
-				return colors.bg_main
+				return colors.bg_main[1]
 			end},
-			highlight = {colors.fg_active,colors.bg_active,'bold'},
+			highlight = {colors.fg_active[1],colors.bg_active[1],'bold'},
 		},
 	}
 
@@ -395,7 +395,7 @@ function M.set_statusline()
 		FileIcon = {
 			provider = 'FileIcon',
 			condition = buffer_not_empty,
-			highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg_main},
+			highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg_main[1]},
 		},
 	}
 
@@ -404,8 +404,8 @@ function M.set_statusline()
 			provider = {'FileName','FileSize'},
 			condition = buffer_not_empty,
 			separator = '',
-			separator_highlight = {colors.bg_active,colors.bg_main},
-			highlight = {colors.fg_active,colors.bg_main,'bold'}
+			separator_highlight = {colors.bg_active[1],colors.bg_main[1]},
+			highlight = {colors.fg_active[1],colors.bg_main[1],'bold'}
 		}
 	}
 
@@ -413,14 +413,14 @@ function M.set_statusline()
 		GitIcon = {
 			provider = function() return '  ' end,
 			condition = buffer_not_empty,
-			highlight = {colors.fg_active,colors.bg_active},
+			highlight = {colors.fg_active[1],colors.bg_active[1]},
 		}
 	}
 	gls.left[6] = {
 		GitBranch = {
 			provider = 'GitBranch',
 			condition = buffer_not_empty,
-			highlight = {colors.fg_active,colors.bg_active},
+			highlight = {colors.fg_active[1],colors.bg_active[1]},
 		}
 	}
 
@@ -437,7 +437,7 @@ function M.set_statusline()
 			provider = 'DiffAdd',
 			condition = checkwidth,
 			icon = ' ',
-			highlight = {colors.green_active,colors.bg_active},
+			highlight = {colors.green_active[1],colors.bg_active[1]},
 		}
 	}
 	gls.left[8] = {
@@ -445,7 +445,7 @@ function M.set_statusline()
 			provider = 'DiffModified',
 			condition = checkwidth,
 			icon = ' ',
-			highlight = {colors.yellow_active,colors.bg_active},
+			highlight = {colors.yellow_active[1],colors.bg_active[1]},
 		}
 	}
 	gls.left[9] = {
@@ -453,21 +453,21 @@ function M.set_statusline()
 			provider = 'DiffRemove',
 			condition = checkwidth,
 			icon = ' ',
-			highlight = {colors.red_active,colors.bg_active},
+			highlight = {colors.red_active[1],colors.bg_active[1]},
 		}
 	}
 	gls.left[10] = {
 		LeftEnd = {
 			provider = function() return '' end,
 			condition = buffer_not_empty,
-			highlight = {colors.bg_active,colors.bg_main}
+			highlight = {colors.bg_active[1],colors.bg_main[1]}
 		}
 	}
 	gls.left[11] = {
 		DiagnosticError = {
 			provider = 'DiagnosticError',
 			icon = '  ',
-			highlight = {colors.red_active,colors.bg_main}
+			highlight = {colors.red_active[1],colors.bg_main[1]}
 		}
 	}
 	gls.left[12] = {
@@ -479,7 +479,7 @@ function M.set_statusline()
 		DiagnosticWarn = {
 			provider = 'DiagnosticWarn',
 			icon = '  ',
-			highlight = {colors.yellow_active,colors.bg_main},
+			highlight = {colors.yellow_active[1],colors.bg_main[1]},
 		}
 	}
 
@@ -487,30 +487,30 @@ function M.set_statusline()
 		FileFormat = {
 			provider = 'FileFormat',
 			separator = '',
-			separator_highlight = {colors.bg_main,colors.bg_active},
-			highlight = {colors.fg_active,colors.bg_active},
+			separator_highlight = {colors.bg_main[1],colors.bg_active[1]},
+			highlight = {colors.fg_active[1],colors.bg_active[1]},
 		}
 	}
 	gls.right[2] = {
 		LineInfo = {
 			provider = 'LineColumn',
 			separator = ' | ',
-			separator_highlight = {colors.fg_active,colors.bg_active},
-			highlight = {colors.fg_active,colors.bg_active},
+			separator_highlight = {colors.fg_active[1],colors.bg_active[1]},
+			highlight = {colors.fg_active[1],colors.bg_active[1]},
 		},
 	}
 	gls.right[3] = {
 		PerCent = {
 			provider = 'LinePercent',
 			separator = '',
-			separator_highlight = {colors.bg_main,colors.bg_active},
-			highlight = {colors.fg_active,colors.bg_main},
+			separator_highlight = {colors.bg_main[1],colors.bg_active[1]},
+			highlight = {colors.fg_active[1],colors.bg_main[1]},
 		}
 	}
 	gls.right[4] = {
 		ScrollBar = {
 			provider = 'ScrollBar',
-			highlight = {colors.fg_active,colors.bg_main},
+			highlight = {colors.fg_active[1],colors.bg_main[1]},
 		}
 	}
 
@@ -518,8 +518,8 @@ function M.set_statusline()
 		BufferType = {
 			provider = { 'FileName' },
 			separator = '',
-			separator_highlight = {colors.bg_active,colors.bg_main},
-			highlight = {colors.fg_active,colors.bg_active}
+			separator_highlight = {colors.bg_active[1],colors.bg_main[1]},
+			highlight = {colors.fg_active[1],colors.bg_active[1]}
 		}
 	}
 
@@ -527,8 +527,8 @@ function M.set_statusline()
 		BufferIcon = {
 			provider= 'BufferIcon',
 			separator = '',
-			separator_highlight = {colors.bg_active,colors.bg_main},
-			highlight = {colors.fg_active,colors.bg_active}
+			separator_highlight = {colors.bg_active[1],colors.bg_main[1]},
+			highlight = {colors.fg_active[1],colors.bg_active[1]}
 		}
 	}
 end
@@ -537,7 +537,7 @@ end
 M.core_highlights()
 M.set_terminal()
 
-if g.modus_moody_enable == 1 then
+if g.modus_moody_enable == 1 and o.termguicolors == true then
 	M.set_statusline()
 end
 
