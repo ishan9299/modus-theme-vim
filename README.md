@@ -1,7 +1,7 @@
 Modus Color Schemes
 =====================
 
-This is a color scheme developed by *Protesilaos Stavrou* for emacs. I have attempted to port it to neovim using lua.
+This is a color scheme developed by *Protesilaos Stavrou* for emacs. This theme conforms to the highest color contrast between background and foreground values (WCAG AAA). I have attempted to port it to neovim using lua.
 
 NOTICE
 ------
@@ -77,6 +77,13 @@ To do the same in viml.
 - `let g:modus_faint_syntax`
 
 All these options are disabled by default. To enable them set the value 1.
+
+### Screenshots
+![Screenshot from 2021-05-11 12-43-02](https://user-images.githubusercontent.com/47824004/117776670-71710d80-b259-11eb-9241-bf9dad56a35c.png)
+
+The right side has all the options enabled.
+The statusbar on the left is expressline.
+The font is Victor Mono.
 
 Plugins Explicitly Configured
 -----------------------------
