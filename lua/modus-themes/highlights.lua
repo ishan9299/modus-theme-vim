@@ -305,6 +305,11 @@ function M.core_highlights()
 	syntax['rainbowcol6'] = {fg=colors.green_alt}
 	syntax['rainbowcol7'] = {fg=colors.magenta_alt_other}
 
+	-- gitsigns
+	syntax['GitSignsAdd'] = syntax['DiffAdd']
+	syntax['GitSignsChange'] = syntax['DiffChange']
+	syntax['GitSignsDelete'] = syntax['DiffDelete']
+
 	for group, colors in pairs(syntax) do
 		highlighter(group, colors)
 	end
