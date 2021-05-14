@@ -9,7 +9,8 @@ local settings = {
 	modus_faint_syntax = 0,
 	modus_moody_enable = 0,
 	modus_yellow_comments = 0,
-	modus_green_strings = 0
+	modus_green_strings = 0,
+	modus_termtrans_enable = 0,
 }
 
 for key,val in pairs(settings) do
@@ -46,10 +47,21 @@ end
 
 function M.core_highlights()
 	local syntax = {}
-	syntax['Normal'] = {fg=colors.fg_main}
+	if vim.g.modus_termtrans_enable == 1 then
+		syntax['Normal'] = {fg=colors.fg_main}
+		syntax['Folded'] = {fg=colors.fg_special_mild}
+		syntax['LineNr'] = {fg=colors.fg_alt}
+		syntax['CursorLineNr'] = {fg=colors.fg_active, style='bold'}
+		syntax['SignColumn'] = {fg=colors.bg_main}
+	else
+		syntax['Normal'] = {fg=colors.fg_main, bg=colors.bg_main}
+		syntax['Folded'] = {fg=colors.fg_special_mild, bg=colors.bg_special_mild}
+		syntax['LineNr'] = {fg=colors.fg_alt, bg=colors.bg_dim}
+		syntax['CursorLineNr'] = {fg=colors.fg_active, bg=colors.bg_active, style='bold'}
+		syntax['SignColumn'] = {fg=colors.bg_main, bg=colors.bg_inactive}
+	end
 	syntax['NonText'] = {fg=colors.fg_alt}
 	syntax['NormalNC'] = {fg=colors.fg_inactive, bg=colors.bg_inactive}
-	syntax['Folded'] = {fg=colors.fg_special_mild, bg=colors.bg_special_mild}
 	syntax['Error'] = {fg=colors.fg_main, bg=colors.red_intense_bg}
 	syntax['ErrorMsg'] = syntax['Error']
 	if g.modus_yellow_comments == 1 then
