@@ -32,11 +32,11 @@ end
 
 -- this will apply the highlights
 local highlighter = function(group, color)
-	color.bg = color.bg or colors.bg_main
-	local g_background = color.bg[1]
-	local c_background = color.bg[2]
-	local g_foreground = color.fg[1]
-	local c_foreground = color.fg[2]
+	color.bg = color.bg or colors.none
+	local g_background = color.bg[1] -- gui color
+	local c_background = color.bg[2] -- cterm color
+	local g_foreground = color.fg[1] -- gui color
+	local c_foreground = color.fg[2] -- cterm color
 	style = color.style or 'none'
 	cmd(string.format(
 	'hi %s guifg=%s guibg=%s gui=%s ctermfg=%s ctermbg=%s cterm=%s',
@@ -63,10 +63,10 @@ function M.core_highlights()
 	syntax['CursorIM'] = syntax['Cursor']
 	syntax['ColorColumn'] = {fg=colors.bg_main, bg=colors.bg_active}
 	syntax['CursorLine'] = {fg=colors.none, bg=colors.bg_hl_line}
-	syntax['Define'] = syntax['Normal']
-	syntax['Delimiter'] = syntax['Normal']
-	syntax['Float'] = syntax['Normal']
-	syntax['Special'] = syntax['Normal']
+	syntax['Define'] = {fg=colors.fg_main}
+	syntax['Delimiter'] = {fg=colors.fg_main}
+	syntax['Float'] = {fg=colors.fg_main}
+	syntax['Special'] = {fg=colors.fg_main}
 	syntax['SpecialComment'] = syntax['Comment']
 	syntax['Title'] = {fg=colors.fg_special_cold, style='bold'}
 	syntax['Visual'] = {fg=colors.fg_main, bg=colors.magenta_intense_bg}
@@ -119,17 +119,14 @@ function M.core_highlights()
 	syntax['Typedef'] = syntax['Type']
 	syntax['Underlined'] = {fg=colors.fg_main, style='underline'}
 	syntax['MatchParen'] = {fg=colors.fg_main, bg=colors.bg_paren_match}
-	syntax['Number'] = syntax['Normal']
-	syntax['Operator'] = syntax['Normal']
+	syntax['Number'] = {fg=colors.fg_main}
+	syntax['Operator'] = {fg=colors.fg_main}
 	syntax['Pmenu'] = {fg=colors.fg_active, bg=colors.bg_active}
 	syntax['PmenuSel'] = {fg=colors.fg_dim, bg=colors.bg_dim}
 	syntax['PmenuSbar'] = {fg=colors.bg_main, bg=colors.bg_inactive}
 	syntax['PmenuThumb'] = syntax['Cursor']
 	syntax['StatusLine'] = {fg=colors.bg_main, bg=colors.blue_active}
 	syntax['StatusLineNC'] = {fg=colors.fg_inactive}
-	syntax['LineNr'] = {fg=colors.fg_alt, bg=colors.bg_dim}
-	syntax['CursorLineNr'] = {fg=colors.fg_active, bg=colors.bg_active, style='bold'}
-	syntax['SignColumn'] = {fg=colors.bg_main, bg=colors.bg_inactive}
 	syntax['VertSplit'] = syntax['Normal']
 	syntax['DiffAdd'] = {fg=colors.fg_diff_added, bg=colors.bg_diff_added}
 	syntax['DiffChange'] = {fg=colors.fg_diff_changed, bg=colors.bg_diff_changed}
@@ -155,7 +152,7 @@ function M.core_highlights()
 	end
 
 	-- python
-	syntax['pythonoperator'] = syntax['Normal']
+	syntax['pythonoperator'] = {fg=colors.fg_main}
 
 	-- css
 	syntax['cssVendor'] = syntax['Statement']
@@ -165,13 +162,13 @@ function M.core_highlights()
 	syntax['vimLet'] = syntax['Conditional']
 	syntax['vimFuncVar'] = syntax['Constant']
 	syntax['vimCommentTitle'] = syntax['Include']
-	syntax['vimIsCommand'] = syntax['Normal']
-	syntax['vimFuncSID'] = syntax['Normal']
+	syntax['vimIsCommand'] = {fg=colors.fg_main}
+	syntax['vimFuncSID'] = {fg=colors.fg_main}
 	syntax['vimCommentString'] = syntax['Comment']
-	syntax['vimMapModKey'] = syntax['Normal']
+	syntax['vimMapModKey'] = {fg=colors.fg_main}
 	syntax['vimMapLhs'] = {fg=colors.bg_main}
-	syntax['vimNotation'] = syntax['Normal']
-	syntax['vimBracket'] = syntax['Normal']
+	syntax['vimNotation'] = {fg=colors.fg_main}
+	syntax['vimBracket'] = {fg=colors.fg_main}
 	syntax['vimmap'] = syntax['Conditional']
 	syntax['vimnotfunc'] = syntax['Conditional']
 	syntax['nvimmap'] = syntax['Conditional']
@@ -231,7 +228,7 @@ function M.core_highlights()
 	syntax['tserror'] = {fg=colors.fg_main, bg=colors.red_intense_bg, style='bold'}
 	syntax['tsexception'] = syntax['Conditional']
 	syntax['tsfield'] = syntax['Constant']
-	syntax['tsfloat'] = syntax['Normal']
+	syntax['tsfloat'] = {fg=colors.fg_main}
 	syntax['tsfunction'] = syntax['Function']
 	syntax['tsfuncbuiltin'] = syntax['Function']
 	syntax['tsfuncmacro'] = syntax['Function']
@@ -240,13 +237,13 @@ function M.core_highlights()
 	syntax['tslabel'] = syntax['Label']
 	syntax['tsmethod'] = syntax['Function']
 	syntax['tsnamespace'] = syntax['Include']
-	syntax['tsnumber'] = syntax['Normal']
-	syntax['tsoperator'] = syntax['Normal']
+	syntax['tsnumber'] = {fg=colors.fg_main}
+	syntax['tsoperator'] = {fg=colors.fg_main}
 	syntax['tsparameterreference'] = syntax['Constant']
 	syntax['tsproperty'] = syntax['Constant']
-	syntax['tspunctdelimiter'] = syntax['Normal']
-	syntax['tspunctbracket'] = syntax['Normal']
-	syntax['tspunctspecial'] = syntax['Normal']
+	syntax['tspunctdelimiter'] = {fg=colors.fg_main}
+	syntax['tspunctbracket'] = {fg=colors.fg_main}
+	syntax['tspunctspecial'] = {fg=colors.fg_main}
 	syntax['tsrepeat'] = syntax['Conditional']
 	syntax['tsstring'] = syntax['String']
 	syntax['tsstringregex'] = {fg=colors.fg_escape_char_construct}
@@ -274,10 +271,10 @@ function M.core_highlights()
 	syntax['startifyheader'] = syntax['Title']
 	syntax['startifyspecial'] = {fg=colors.fg_special_warm, style='bold'}
 	syntax['startifysection'] = {fg=colors.fg_special_warm, style='bold'}
-	syntax['startifypath'] = syntax['Normal']
-	syntax['startifyfile'] = syntax['Normal']
-	syntax['startifybracket'] = syntax['Normal']
-	syntax['startifyslash'] = syntax['Normal']
+	syntax['startifypath'] = {fg=colors.fg_main}
+	syntax['startifyfile'] = {fg=colors.fg_main}
+	syntax['startifybracket'] = {fg=colors.fg_main}
+	syntax['startifyslash'] = {fg=colors.fg_main}
 	syntax['startifyfooter'] = {fg=colors.fg_special_mild}
 
 	syntax['nvimtreefoldericon'] = {fg=colors.blue}
