@@ -11,6 +11,7 @@ local settings = {
 	modus_yellow_comments = 0,
 	modus_green_strings = 0,
 	modus_termtrans_enable = 0,
+	modus_cursorline_intense = 0,
 }
 
 for key,val in pairs(settings) do
@@ -74,7 +75,11 @@ function M.core_highlights()
 	syntax['lCursor'] = syntax['Cursor']
 	syntax['CursorIM'] = syntax['Cursor']
 	syntax['ColorColumn'] = {fg=colors.bg_main, bg=colors.bg_active}
-	syntax['CursorLine'] = {fg=colors.none, bg=colors.bg_hl_line}
+	if vim.g.modus_cursorline_intense == 0 then
+		syntax['CursorLine'] = {fg=colors.none, bg=colors.bg_hl_line}
+	else
+		syntax['CursorLine'] = {fg=colors.none, bg=colors.bg_hl_line_intense}
+	end
 	syntax['Define'] = {fg=colors.fg_main}
 	syntax['Delimiter'] = {fg=colors.fg_main}
 	syntax['Float'] = {fg=colors.fg_main}
@@ -188,6 +193,7 @@ function M.core_highlights()
 	syntax['nvimidentifier'] = syntax['Identifier']
 	syntax['vimvar'] = syntax['Label']
 
+	-- TODO some options to highlight headers
 	-- markdown
 	syntax['markdownh1'] = {fg=colors.fg_main, bg=colors.magenta_nuanced_bg, style='bold'}
 	syntax['markdownh2'] = {fg=colors.fg_special_warm, bg=colors.red_nuanced_bg, style='bold'}
@@ -547,6 +553,7 @@ function M.set_statusline()
 	}
 end
 
+-- TODO
 -- now try to use libuv to make it faster.
 M.core_highlights()
 M.set_terminal()
