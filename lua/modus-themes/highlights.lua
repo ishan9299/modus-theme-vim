@@ -39,7 +39,7 @@ local highlighter = function(group, color)
 	local c_background = color.bg[2] -- cterm color
 	local g_foreground = color.fg[1] -- gui color
 	local c_foreground = color.fg[2] -- cterm color
-	style = color.style or 'none'
+	local style = color.style or 'none'
 	cmd(string.format(
 	'hi %s guifg=%s guibg=%s gui=%s ctermfg=%s ctermbg=%s cterm=%s',
 	group, g_foreground, g_background, style, c_foreground, c_background, style
@@ -325,8 +325,8 @@ function M.core_highlights()
 	syntax['GitSignsChange'] = syntax['DiffChange']
 	syntax['GitSignsDelete'] = syntax['DiffDelete']
 
-	for group, colors in pairs(syntax) do
-		highlighter(group, colors)
+	for group, highlights in pairs(syntax) do
+		highlighter(group, highlights)
 	end
 end
 
