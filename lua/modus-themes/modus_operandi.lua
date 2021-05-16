@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
 	local colors = {
 		none = {"none", "none"},
-		bg_main = {"#ffffff",255},        
+		bg_main = {"#ffffff",255},
 		fg_main = {"#000000",0},
 		bg_dim = {"#f8f8f8",249},
 		fg_dim = {"#282828",40},

@@ -12,6 +12,7 @@ local settings = {
 	modus_green_strings = 0,
 	modus_termtrans_enable = 0,
 	modus_cursorline_intense = 0,
+	modus_italic_strings = 0,
 }
 
 for key,val in pairs(settings) do
@@ -128,9 +129,17 @@ function M.core_highlights()
 	syntax['Statement'] = syntax['Conditional']
 	syntax['StorageClass'] = syntax['Conditional']
 	if g.modus_green_strings == 1 then
-		syntax['String'] = {fg=colors.green_alt}
+		if g.modus_italic_strings == 1 then
+			syntax['String'] = {fg=colors.green_alt, style='italic'}
+		else
+			syntax['String'] = {fg=colors.green_alt}
+		end
 	else
-		syntax['String'] = {fg=colors.blue_alt}
+		if g.modus_italic_strings == 1 then
+			syntax['String'] = {fg=colors.blue_alt, style='italic'}
+		else
+			syntax['String'] = {fg=colors.blue_alt}
+		end
 	end
 	syntax['Structure'] = syntax['Conditional']
 	syntax['Typedef'] = syntax['Type']

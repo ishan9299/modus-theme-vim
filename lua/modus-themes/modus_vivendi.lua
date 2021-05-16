@@ -57,6 +57,8 @@ function M.setup()
 		cyan_faint = {"#90c4ed",154},
 		cyan_alt_faint = {"#a0bfdf",167},
 		cyan_alt_other_faint = {"#a4d0bb",172},
+
+		-- these values should be combined with bg_main
 		red_intense = {"#fe6060",230},
 		orange_intense = {"#fba849",237},
 		green_intense = {"#4fe42f",99},
@@ -71,6 +73,9 @@ function M.setup()
 		blue_active = {"#34cfff",78},
 		magenta_active = {"#d5b1ff",210},
 		cyan_active = {"#00d8b4",34},
+
+		-- subtle should be combined with fg-dim
+		-- and intense with fg_main
 		-- red_subtle_bg = {"#762422",105},
 		red_intense_bg = {"#a4202a",143},
 		-- green_subtle_bg = {"#2f4a00",50},
