@@ -49,6 +49,7 @@ end
 
 function M.core_highlights()
 	local syntax = {}
+	-- ui
 	if vim.g.modus_termtrans_enable == 1 then
 		syntax['Normal'] = {fg=colors.fg_main}
 		syntax['Folded'] = {fg=colors.fg_special_mild}
@@ -181,7 +182,7 @@ function M.core_highlights()
 	-- syntax['Debug'] = {}
 	syntax['Underlined'] = {fg=colors.fg_main, style='underline'}
 	-- syntax['Ignore'] = {}
-	-- syntax['Error'] = {}
+	syntax['Error'] = syntax['ErrorMsg']
 
 	-- languages
 	-- lua
@@ -273,19 +274,19 @@ function M.core_highlights()
 	syntax['tsconditional'] = syntax['Conditional']
 	syntax['tsconstant'] = syntax['Constant']
 	syntax['tsconstbuiltin'] = syntax['Constant']
-	syntax['tsconstmacro'] = syntax['Constant']
+	syntax['tsconstmacro'] = syntax['Macro']
 	syntax['tserror'] = {fg=colors.fg_main, bg=colors.red_intense_bg, style='bold'}
 	syntax['tsexception'] = syntax['Conditional']
-	syntax['tsfield'] = {fg=colors.fg_main}
-	syntax['tsfloat'] = {fg=colors.fg_main}
+	syntax['tsfield'] = syntax['Identifier']
+	syntax['tsfloat'] = syntax['Float']
 	syntax['tsfunction'] = syntax['Function']
 	syntax['tsfuncbuiltin'] = syntax['Function']
 	syntax['tsfuncmacro'] = syntax['Function']
 	syntax['tsinclude'] = syntax['Include']
-	syntax['tskeyword'] = syntax['Conditional']
+	syntax['tskeyword'] = syntax['Keyword']
 	syntax['tslabel'] = syntax['Label']
 	syntax['tsmethod'] = syntax['Function']
-	syntax['tsnamespace'] = syntax['Include']
+	syntax['tsnamespace'] = syntax['Conditional']
 	syntax['tsnumber'] = {fg=colors.fg_main}
 	syntax['tsoperator'] = {fg=colors.fg_main}
 	syntax['tsparameterreference'] = syntax['Constant']
@@ -306,7 +307,7 @@ function M.core_highlights()
 		syntax['tsliteral'] = {fg=colors.blue_alt, style='bold'}
 	end
 	syntax['tsparameter'] = syntax['Label']
-	syntax['tsvariable'] = syntax['Label']
+	syntax['tsvariable'] = syntax['Identifier']
 	syntax['tsvariablebuiltin'] = syntax['Conditional']
 	syntax['tstag'] = syntax['Label']
 	syntax['tstagdelimiter'] = syntax['Label']
