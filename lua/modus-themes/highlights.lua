@@ -192,7 +192,7 @@ function M.core_highlights()
 	syntax['vimFuncSID'] = {fg=colors.fg_main}
 	syntax['vimCommentString'] = syntax['Comment']
 	syntax['vimMapModKey'] = {fg=colors.fg_main}
-	syntax['vimMapLhs'] = {fg=colors.bg_main}
+	syntax['vimMapLhs'] = {fg=colors.fg_main}
 	syntax['vimNotation'] = {fg=colors.fg_main}
 	syntax['vimBracket'] = {fg=colors.fg_main}
 	syntax['vimmap'] = syntax['Conditional']
