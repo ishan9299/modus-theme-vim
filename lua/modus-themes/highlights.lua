@@ -64,28 +64,32 @@ function M.core_highlights()
 	end
 	syntax['NonText'] = {fg=colors.fg_alt}
 	syntax['NormalNC'] = {fg=colors.fg_inactive, bg=colors.bg_inactive}
-	syntax['Error'] = {fg=colors.fg_main, bg=colors.red_intense_bg}
-	syntax['ErrorMsg'] = syntax['Error']
-	if g.modus_yellow_comments == 1 then
-		syntax['Comment'] = {fg=colors.fg_comment_yellow, style='italic'}
-	else
-		syntax['Comment'] = {fg=colors.fg_alt, style='italic'}
-	end
+	syntax['ErrorMsg'] = {fg=colors.fg_main, bg=colors.red_intense_bg}
 	syntax['Conceal'] = {fg=colors.fg_special_warm, bg=colors.bg_dim}
 	syntax['Cursor'] = {fg=colors.bg_main, bg=colors.fg_main}
 	syntax['lCursor'] = syntax['Cursor']
 	syntax['CursorIM'] = syntax['Cursor']
-	syntax['ColorColumn'] = {fg=colors.bg_main, bg=colors.bg_active}
+	syntax['ColorColumn'] = {fg=colors.fg_main, bg=colors.bg_active}
 	if vim.g.modus_cursorline_intense == 0 then
 		syntax['CursorLine'] = {fg=colors.none, bg=colors.bg_hl_line}
 	else
 		syntax['CursorLine'] = {fg=colors.none, bg=colors.bg_hl_line_intense}
 	end
-	syntax['Define'] = {fg=colors.fg_main}
-	syntax['Delimiter'] = {fg=colors.fg_main}
-	syntax['Float'] = {fg=colors.fg_main}
-	syntax['Special'] = {fg=colors.fg_main}
-	syntax['SpecialComment'] = syntax['Comment']
+	syntax['FoldColumn'] = {fg=colors.fg_active, bg=colors.bg_active}
+	syntax['IncSearch'] = syntax['Search']
+	syntax['Substitute'] = syntax['Search']
+	-- syntax['ModeMsg'] = {}
+	-- syntax['MsgArea'] = {}
+	-- syntax['MsgSeparator'] = {}
+	-- syntax['MoreMsg'] = {}
+	-- syntax['NormalFloat'] = {}
+	-- syntax['Question'] = {}
+	-- syntax['QuickFixLine'] = {}
+	-- syntax['SpecialKey'] = {}
+	syntax['Menu'] = syntax['Pmenu']
+	syntax['Scrollbar'] = syntax['PmenuSbar']
+	-- syntax['Tooltip'] = {}
+	syntax['Directory'] = {fg=colors.blue}
 	syntax['Title'] = {fg=colors.fg_special_cold, style='bold'}
 	syntax['Visual'] = {fg=colors.fg_main, bg=colors.magenta_intense_bg}
 	syntax['Whitespace'] = syntax['NonText']
@@ -94,59 +98,7 @@ function M.core_highlights()
 	syntax['TabLineFill'] = {fg=colors.bg_main, bg=colors.bg_tab_bar}
 	syntax['Search'] = {fg=colors.fg_main, bg=colors.green_intense_bg}
 	syntax['EndOfBuffer'] = {fg=colors.fg_inactive}
-	if g.modus_faint_syntax == 1 then
-		syntax['Function'] = {fg=colors.magenta_faint}
-		syntax['Warning'] = {fg=colors.yellow_alt_faint}
-		syntax['Boolean'] = {fg=colors.blue_faint, style='bold'}
-		syntax['Character'] = {fg=colors.blue_alt_faint}
-		syntax['Conditional'] = {fg=colors.magenta_alt_other_faint}
-		syntax['Constant'] = {fg=colors.blue_alt_other_faint}
-		syntax['Directory'] = {fg=colors.blue_faint}
-		syntax['Include'] = {fg=colors.red_alt_other_faint}
-		syntax['Label'] = {fg=colors.cyan_faint}
-		syntax['Todo'] = {fg=colors.magenta_faint, style='bold'}
-		syntax['Type'] = {fg=colors.magenta_alt_faint}
-	else
-		syntax['Function'] = {fg=colors.magenta}
-		syntax['Warning'] = {fg=colors.yellow_alt}
-		syntax['Boolean'] = {fg=colors.blue, style='bold'}
-		syntax['Character'] = {fg=colors.blue_alt}
-		syntax['Conditional'] = {fg=colors.magenta_alt_other}
-		syntax['Constant'] = {fg=colors.blue_alt_other}
-		syntax['Directory'] = {fg=colors.blue}
-		syntax['Include'] = {fg=colors.red_alt_other}
-		syntax['Label'] = {fg=colors.cyan}
-		syntax['Todo'] = {fg=colors.magenta, style='bold'}
-		syntax['Type'] = {fg=colors.magenta_alt}
-	end
-	syntax['Exception'] = syntax['Conditional']
-	syntax['Tag'] = {fg=colors.magenta_active}
-	syntax['Identifier'] = syntax['Constant']
-	syntax['Keyword'] = syntax['Conditional']
-	syntax['PreProc'] = syntax['Include']
-	syntax['Repeat'] = syntax['Conditional']
-	syntax['SpecialChar'] = syntax['Constant']
-	syntax['Statement'] = syntax['Conditional']
-	syntax['StorageClass'] = syntax['Conditional']
-	if g.modus_green_strings == 1 then
-		if g.modus_italic_strings == 1 then
-			syntax['String'] = {fg=colors.green_alt, style='italic'}
-		else
-			syntax['String'] = {fg=colors.green_alt}
-		end
-	else
-		if g.modus_italic_strings == 1 then
-			syntax['String'] = {fg=colors.blue_alt, style='italic'}
-		else
-			syntax['String'] = {fg=colors.blue_alt}
-		end
-	end
-	syntax['Structure'] = syntax['Conditional']
-	syntax['Typedef'] = syntax['Type']
-	syntax['Underlined'] = {fg=colors.fg_main, style='underline'}
 	syntax['MatchParen'] = {fg=colors.fg_main, bg=colors.bg_paren_match}
-	syntax['Number'] = {fg=colors.fg_main}
-	syntax['Operator'] = {fg=colors.fg_main}
 	syntax['Pmenu'] = {fg=colors.fg_active, bg=colors.bg_active}
 	syntax['PmenuSel'] = {fg=colors.fg_dim, bg=colors.bg_dim}
 	syntax['PmenuSbar'] = {fg=colors.bg_main, bg=colors.bg_inactive}
@@ -160,6 +112,76 @@ function M.core_highlights()
 	syntax['DiffText'] = {fg=colors.fg_diff_changed, bg=colors.bg_diff_changed}
 	syntax['SpellBad'] = {fg=colors.fg_lang_error}
 	syntax['SpellCap'] = {fg=colors.fg_lang_error}
+	-- syntax['SpellLocal'] = {}
+	-- syntax['SpellRare'] = {}
+	syntax['WarningMsg'] = {fg=colors.yellow_alt}
+
+	-- syntax
+	if g.modus_yellow_comments == 1 then
+		syntax['Comment'] = {fg=colors.fg_comment_yellow, style='italic'}
+	else
+		syntax['Comment'] = {fg=colors.fg_alt, style='italic'}
+	end
+	if g.modus_green_strings == 1 then
+		if g.modus_italic_strings == 1 then
+			syntax['String'] = {fg=colors.green_alt, style='italic'}
+		else
+			syntax['String'] = {fg=colors.green_alt}
+		end
+	else
+		if g.modus_italic_strings == 1 then
+			syntax['String'] = {fg=colors.blue_alt, style='italic'}
+		else
+			syntax['String'] = {fg=colors.blue_alt}
+		end
+	end
+	syntax['Number'] = {fg=colors.fg_main}
+	syntax['Float'] = {fg=colors.fg_main}
+	syntax['Operator'] = {fg=colors.fg_main}
+	if g.modus_faint_syntax == 1 then
+		syntax['Identifier'] = {fg=colors.cyan_faint}
+		syntax['Function'] = {fg=colors.magenta_faint}
+		syntax['Boolean'] = {fg=colors.blue_faint, style='bold'}
+		syntax['Character'] = {fg=colors.blue_alt_faint}
+		syntax['Conditional'] = {fg=colors.magenta_alt_other_faint}
+		syntax['Constant'] = {fg=colors.blue_alt_other_faint}
+		syntax['Include'] = {fg=colors.red_alt_other_faint}
+		syntax['Label'] = {fg=colors.cyan_faint}
+		syntax['Todo'] = {fg=colors.magenta_faint, style='bold'}
+		syntax['Type'] = {fg=colors.cyan_alt_other_faint}
+	else
+		syntax['Identifier'] = {fg=colors.cyan}
+		syntax['Function'] = {fg=colors.magenta}
+		syntax['Boolean'] = {fg=colors.blue, style='bold'}
+		syntax['Character'] = {fg=colors.blue_alt}
+		syntax['Conditional'] = {fg=colors.magenta_alt_other}
+		syntax['Constant'] = {fg=colors.blue_alt_other}
+		syntax['Include'] = {fg=colors.red_alt_other}
+		syntax['Label'] = {fg=colors.cyan}
+		syntax['Todo'] = {fg=colors.magenta, style='bold'}
+		syntax['Type'] = {fg=colors.cyan_alt_other}
+	end
+
+	syntax['PreCondit'] = syntax['Include']
+	syntax['Statement'] = syntax['Conditional']
+	syntax['Repeat'] = syntax['Conditional']
+	syntax['Keyword'] = syntax['Conditional']
+	syntax['Exception'] = syntax['Conditional']
+	syntax['PreProc'] = syntax['Include']
+	syntax['Define'] = syntax['Include']
+	syntax['Macro'] = syntax['Include']
+	syntax['StorageClass'] = syntax['Conditional']
+	syntax['Structure'] = syntax['Conditional']
+	syntax['Typedef'] = syntax['Type']
+	-- syntax['Special'] = {}
+	-- syntax['SpecialChar'] = {}
+	syntax['Tag'] = {fg=colors.magenta_active}
+	syntax['Delimiter'] = {fg=colors.fg_main}
+	-- syntax['SpecialComment'] = {}
+	-- syntax['Debug'] = {}
+	syntax['Underlined'] = {fg=colors.fg_main, style='underline'}
+	-- syntax['Ignore'] = {}
+	-- syntax['Error'] = {}
 
 	-- languages
 	-- lua
@@ -254,7 +276,7 @@ function M.core_highlights()
 	syntax['tsconstmacro'] = syntax['Constant']
 	syntax['tserror'] = {fg=colors.fg_main, bg=colors.red_intense_bg, style='bold'}
 	syntax['tsexception'] = syntax['Conditional']
-	syntax['tsfield'] = syntax['Constant']
+	syntax['tsfield'] = {fg=colors.fg_main}
 	syntax['tsfloat'] = {fg=colors.fg_main}
 	syntax['tsfunction'] = syntax['Function']
 	syntax['tsfuncbuiltin'] = syntax['Function']
@@ -267,7 +289,7 @@ function M.core_highlights()
 	syntax['tsnumber'] = {fg=colors.fg_main}
 	syntax['tsoperator'] = {fg=colors.fg_main}
 	syntax['tsparameterreference'] = syntax['Constant']
-	syntax['tsproperty'] = syntax['Constant']
+	syntax['tsproperty'] = syntax['tsfield']
 	syntax['tspunctdelimiter'] = {fg=colors.fg_main}
 	syntax['tspunctbracket'] = {fg=colors.fg_main}
 	syntax['tspunctspecial'] = {fg=colors.fg_main}
