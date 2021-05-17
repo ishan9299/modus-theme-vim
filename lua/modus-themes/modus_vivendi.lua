@@ -3,16 +3,26 @@ local M = {}
 function M.setup()
 	local colors = {
 		none = {'none','none'},
+		-- base values
 		bg_main = {"#000000",0},
 		fg_main = {"#ffffff",255},
 		bg_dim = {"#100f10",15},
 		fg_dim = {"#e0e6f0",226},
 		bg_alt = {"#191a1b",25},
 		fg_alt = {"#a8a8a8",169},
+    -- specifically for on/off states and must be combined with
+    -- themselves, though the backgrounds are also meant to be used with
+    -- other "active" values, defined further below; bg-active-accent
+    -- can work as a substitute for bg-active
 		bg_active = {"#323232",50},
 		fg_active = {"#f4f4f4",245},
 		bg_inactive = {"#1e1e1e",30},
 		fg_inactive = {"#bfc0c4",192},
+    -- these special values are intended as alternatives to the base
+    -- values for cases where we need to avoid confusion between the
+    -- highlighted constructs; they must either be used as pairs based
+    -- on their name or each can be combined with {fg,bg}-{main,alt,dim}
+    -- always in accordance with their role as background or foreground
 		bg_special_cold = {"#203448",36},
 		fg_special_cold = {"#c6eaff",205},
 		bg_special_mild = {"#00322e",8},
@@ -21,6 +31,7 @@ function M.setup()
 		fg_special_warm = {"#f8dec0",244},
 		bg_special_calm = {"#392a48",55},
 		fg_special_calm = {"#fbd6f4",247},
+    -- foregrounds that can be combined with bg-main, bg-dim, bg-alt
 		red = {"#ff8059",235},
 		red_alt = {"#f4923b",227},
 		red_alt_other = {"#ff9977",239},
@@ -57,8 +68,8 @@ function M.setup()
 		cyan_faint = {"#90c4ed",154},
 		cyan_alt_faint = {"#a0bfdf",167},
 		cyan_alt_other_faint = {"#a4d0bb",172},
-
-		-- these values should be combined with bg_main
+    -- these foreground values can only be combined with bg-main and are
+    -- thus not suitable for general purpose highlighting
 		red_intense = {"#fe6060",230},
 		orange_intense = {"#fba849",237},
 		green_intense = {"#4fe42f",99},
@@ -67,13 +78,13 @@ function M.setup()
 		magenta_intense = {"#ff62d4",233},
 		purple_intense = {"#9f80ff",158},
 		cyan_intense = {"#3fdfd0",89},
+    -- those foregrounds are meant exclusively for bg-active, bg-inactive
 		red_active = {"#ffa7ba",243},
 		green_active = {"#70d73f",126},
 		yellow_active = {"#dbbe5f",213},
 		blue_active = {"#34cfff",78},
 		magenta_active = {"#d5b1ff",210},
 		cyan_active = {"#00d8b4",34},
-
 		-- subtle should be combined with fg-dim
 		-- and intense with fg_main
 		-- red_subtle_bg = {"#762422",105},
