@@ -357,6 +357,11 @@ function M.core_highlights()
 	syntax['GitSignsChange'] = syntax['DiffChange']
 	syntax['GitSignsDelete'] = syntax['DiffDelete']
 
+	-- vgit
+	syntax['VGitSignAdd'] = syntax['DiffAdd']
+	syntax['VgitSignChange'] = syntax['DiffChange']
+	syntax['VGitSignRemove'] = syntax['DiffDelete']
+
 	for group, highlights in pairs(syntax) do
 		highlighter(group, highlights)
 	end
