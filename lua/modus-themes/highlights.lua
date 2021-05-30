@@ -136,31 +136,33 @@ function M.core_highlights()
 			syntax['String'] = {fg=colors.blue_alt}
 		end
 	end
-	syntax['Number'] = {fg=colors.fg_main}
-	syntax['Float'] = {fg=colors.fg_main}
-	syntax['Operator'] = {fg=colors.fg_main}
+	syntax['Float'] = syntax['Number']
 	if g.modus_faint_syntax == 1 then
-		syntax['Identifier'] = {fg=colors.cyan_faint}
-		syntax['Function'] = {fg=colors.magenta_faint}
 		syntax['Boolean'] = {fg=colors.blue_faint, style='bold'}
 		syntax['Character'] = {fg=colors.blue_alt_faint}
 		syntax['Conditional'] = {fg=colors.magenta_alt_other_faint}
 		syntax['Constant'] = {fg=colors.blue_alt_other_faint}
+		syntax['Function'] = {fg=colors.blue_alt_other_faint}
+		syntax['Identifier'] = {fg=colors.cyan_faint}
 		syntax['Include'] = {fg=colors.red_alt_other_faint}
 		syntax['Label'] = {fg=colors.cyan_faint}
 		syntax['Todo'] = {fg=colors.magenta_faint, style='bold'}
-		syntax['Type'] = {fg=colors.cyan_alt_other_faint}
+		syntax['Type'] = {fg=colors.magenta_alt_faint}
+	  syntax['Number'] = {fg=colors.blue_alt_other_faint}
+	  syntax['Operator'] = {fg=colors.magenta_alt_other_faint}
 	else
-		syntax['Identifier'] = {fg=colors.cyan}
-		syntax['Function'] = {fg=colors.magenta}
 		syntax['Boolean'] = {fg=colors.blue, style='bold'}
 		syntax['Character'] = {fg=colors.blue_alt}
 		syntax['Conditional'] = {fg=colors.magenta_alt_other}
 		syntax['Constant'] = {fg=colors.blue_alt_other}
+		syntax['Function'] = {fg=colors.blue_alt_other}
+		syntax['Identifier'] = {fg=colors.cyan}
 		syntax['Include'] = {fg=colors.red_alt_other}
 		syntax['Label'] = {fg=colors.cyan}
 		syntax['Todo'] = {fg=colors.magenta, style='bold'}
-		syntax['Type'] = {fg=colors.cyan_alt_other}
+		syntax['Type'] = {fg=colors.magenta_alt}
+	  syntax['Number'] = {fg=colors.blue_alt_other_faint}
+	  syntax['Operator'] = {fg=colors.magenta_alt_other}
 	end
 
 	syntax['PreCondit'] = syntax['Include']
@@ -287,8 +289,8 @@ function M.core_highlights()
 	syntax['tslabel'] = syntax['Label']
 	syntax['tsmethod'] = syntax['Function']
 	syntax['tsnamespace'] = syntax['Conditional']
-	syntax['tsnumber'] = {fg=colors.fg_main}
-	syntax['tsoperator'] = {fg=colors.fg_main}
+	syntax['tsnumber'] = syntax['Number']
+	syntax['tsoperator'] = syntax['Operator']
 	syntax['tsparameterreference'] = syntax['Constant']
 	syntax['tsproperty'] = syntax['tsfield']
 	syntax['tspunctdelimiter'] = {fg=colors.fg_main}
@@ -307,7 +309,7 @@ function M.core_highlights()
 		syntax['tsliteral'] = {fg=colors.blue_alt, style='bold'}
 	end
 	syntax['tsparameter'] = syntax['Label']
-	syntax['tsvariable'] = syntax['Identifier']
+	-- syntax['tsvariable'] = syntax['Identifier']
 	syntax['tsvariablebuiltin'] = syntax['Conditional']
 	syntax['tstag'] = syntax['Label']
 	syntax['tstagdelimiter'] = syntax['Label']
