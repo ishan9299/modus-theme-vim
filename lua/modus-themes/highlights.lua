@@ -47,6 +47,8 @@ local highlighter = function(group, color)
 	))
 end
 
+-- local
+
 function M.core_highlights()
 	local syntax = {}
 	-- ui
@@ -63,6 +65,11 @@ function M.core_highlights()
 		syntax['CursorLineNr'] = {fg=colors.fg_active, bg=colors.bg_active, style='bold'}
 		syntax['SignColumn'] = {fg=colors.bg_main, bg=colors.bg_inactive}
 	end
+	if vim.g.modus_cursorline_intense == 0 then
+		syntax['CursorLine'] = {fg=colors.none, bg=colors.bg_hl_line}
+	else
+		syntax['CursorLine'] = {fg=colors.none, bg=colors.bg_hl_line_intense}
+	end
 	syntax['NonText'] = {fg=colors.fg_alt}
 	syntax['NormalNC'] = {fg=colors.fg_inactive, bg=colors.bg_inactive}
 	syntax['ErrorMsg'] = {fg=colors.fg_main, bg=colors.red_intense_bg}
@@ -71,11 +78,6 @@ function M.core_highlights()
 	syntax['lCursor'] = syntax['Cursor']
 	syntax['CursorIM'] = syntax['Cursor']
 	syntax['ColorColumn'] = {fg=colors.fg_main, bg=colors.bg_active}
-	if vim.g.modus_cursorline_intense == 0 then
-		syntax['CursorLine'] = {fg=colors.none, bg=colors.bg_hl_line}
-	else
-		syntax['CursorLine'] = {fg=colors.none, bg=colors.bg_hl_line_intense}
-	end
 	syntax['FoldColumn'] = {fg=colors.fg_active, bg=colors.bg_active}
 	syntax['IncSearch'] = syntax['Search']
 	syntax['Substitute'] = syntax['Search']
@@ -136,7 +138,6 @@ function M.core_highlights()
 			syntax['String'] = {fg=colors.blue_alt}
 		end
 	end
-	syntax['Float'] = syntax['Number']
 	if g.modus_faint_syntax == 1 then
 		syntax['Boolean'] = {fg=colors.blue_faint, style='bold'}
 		syntax['Character'] = {fg=colors.blue_alt_faint}
@@ -165,6 +166,7 @@ function M.core_highlights()
 	  syntax['Operator'] = {fg=colors.magenta_alt_other}
 	end
 
+	syntax['Float'] = syntax['Number']
 	syntax['PreCondit'] = syntax['Include']
 	syntax['Statement'] = syntax['Conditional']
 	syntax['Repeat'] = syntax['Conditional']
@@ -188,6 +190,11 @@ function M.core_highlights()
 
 	-- languages
 	-- lua
+	if g.modus_faint_syntax == 1 then
+		syntax['luaTableConstructor'] = {fg=colors.magenta_alt_faint}
+	else
+		syntax['luaTableConstructor'] = {fg=colors.magenta_alt}
+	end
 	syntax['luaConstant'] = {fg=colors.blue_alt_other, style='bold'}
 	syntax['luaComment'] = syntax['Comment']
 	syntax['luaStatement'] = syntax['Statement']
@@ -196,11 +203,6 @@ function M.core_highlights()
 	syntax['luaTodo'] = syntax['Todo']
 	syntax['luaVarName'] = syntax['Label']
 	syntax['luaFunc'] = syntax['Function']
-	if g.modus_faint_syntax == 1 then
-		syntax['luaTableConstructor'] = {fg=colors.magenta_alt_faint}
-	else
-		syntax['luaTableConstructor'] = {fg=colors.magenta_alt}
-	end
 
 	-- python
 	syntax['pythonoperator'] = {fg=colors.fg_main}
@@ -209,46 +211,46 @@ function M.core_highlights()
 	syntax['cssVendor'] = syntax['Statement']
 
 	-- vim
-	syntax['vimcommand'] = syntax['Conditional']
-	syntax['vimLet'] = syntax['Conditional']
-	syntax['vimFuncVar'] = syntax['Constant']
-	syntax['vimCommentTitle'] = syntax['Include']
-	syntax['vimIsCommand'] = {fg=colors.fg_main}
-	syntax['vimFuncSID'] = {fg=colors.fg_main}
-	syntax['vimCommentString'] = syntax['Comment']
-	syntax['vimMapModKey'] = {fg=colors.fg_main}
-	syntax['vimMapLhs'] = {fg=colors.fg_main}
-	syntax['vimNotation'] = {fg=colors.fg_main}
-	syntax['vimBracket'] = {fg=colors.fg_main}
-	syntax['vimmap'] = syntax['Conditional']
-	syntax['vimnotfunc'] = syntax['Conditional']
+	syntax['nvimidentifier'] = syntax['Identifier']
 	syntax['nvimmap'] = syntax['Conditional']
 	syntax['nvimplainassignment'] = syntax['Type']
-	syntax['nvimidentifier'] = syntax['Identifier']
+	syntax['vimBracket'] = {fg=colors.fg_main}
+	syntax['vimCommentString'] = syntax['Comment']
+	syntax['vimCommentTitle'] = syntax['Include']
+	syntax['vimFuncSID'] = {fg=colors.fg_main}
+	syntax['vimFuncVar'] = syntax['Constant']
+	syntax['vimIsCommand'] = {fg=colors.fg_main}
+	syntax['vimLet'] = syntax['Conditional']
+	syntax['vimMapLhs'] = {fg=colors.fg_main}
+	syntax['vimMapModKey'] = {fg=colors.fg_main}
+	syntax['vimNotation'] = {fg=colors.fg_main}
+	syntax['vimcommand'] = syntax['Conditional']
+	syntax['vimmap'] = syntax['Conditional']
+	syntax['vimnotfunc'] = syntax['Conditional']
 	syntax['vimvar'] = syntax['Label']
 
 	-- TODO some options to highlight headers
 	-- markdown
+	syntax['markdownblockquote'] = {fg=colors.magenta_faint, style='bold'}
+	syntax['markdownbold'] = {fg=colors.fg_main, style='bold'}
+	syntax['markdownbolditalic'] = {fg=colors.fg_main, style='bold'}
+	syntax['markdowncode'] = {fg=colors.fg_special_mild, bg=colors.bg_dim}
+	syntax['markdowncodeblock'] = {fg=colors.fg_special_mild, bg=colors.bg_dim}
+	syntax['markdowncodedelimiter'] = {fg=colors.green_alt_other, style='bold'}
+	syntax['markdownfootnote'] = {fg=colors.cyan_alt_faint, style='italic'}
+	syntax['markdownfootnotedefinition'] = {fg=colors.fg_main, style='italic'}
 	syntax['markdownh1'] = {fg=colors.fg_main, bg=colors.magenta_nuanced_bg, style='bold'}
 	syntax['markdownh2'] = {fg=colors.fg_special_warm, bg=colors.red_nuanced_bg, style='bold'}
 	syntax['markdownh3'] = {fg=colors.fg_special_cold, bg=colors.blue_nuanced_bg, style='bold'}
 	syntax['markdownh4'] = {fg=colors.fg_special_mild, bg=colors.cyan_nuanced_bg, style='bold'}
 	syntax['markdownh5'] = {fg=colors.fg_special_calm, style='bold'}
 	syntax['markdownh6'] = {fg=colors.yellow_nuanced_fg, style='bold'}
-	syntax['markdownrule'] = {fg=colors.fg_special_warm, style='bold'}
 	syntax['markdownitalic'] = {fg=colors.fg_special_cold, style='italic'}
-	syntax['markdownbold'] = {fg=colors.fg_main, style='bold'}
-	syntax['markdownbolditalic'] = {fg=colors.fg_main, style='bold'}
-	syntax['markdowncodedelimiter'] = {fg=colors.green_alt_other, style='bold'}
-	syntax['markdowncode'] = {fg=colors.fg_special_mild, bg=colors.bg_dim}
-	syntax['markdowncodeblock'] = {fg=colors.fg_special_mild, bg=colors.bg_dim}
-	syntax['markdownfootnotedefinition'] = {fg=colors.fg_main, style='italic'}
-	syntax['markdownlistmarker'] = {fg=colors.fg_alt, style='bold'}
 	syntax['markdownlinebreak'] = {fg=colors.cyan_refine_fg, bg=colors.cyan_refine_bg, style='underline'}
-	syntax['markdownurl'] = {fg=colors.blue_faint}
-	syntax['markdownfootnote'] = {fg=colors.cyan_alt_faint, style='italic'}
-	syntax['markdownblockquote'] = {fg=colors.magenta_faint, style='bold'}
 	syntax['markdownlinktext'] = {fg=colors.blue_faint, style='italic'}
+	syntax['markdownlistmarker'] = {fg=colors.fg_alt, style='bold'}
+	syntax['markdownrule'] = {fg=colors.fg_special_warm, style='bold'}
+	syntax['markdownurl'] = {fg=colors.blue_faint}
 
 	-- nix
 	syntax['nixattributedefinition'] = {fg=colors.cyan}
@@ -258,17 +260,22 @@ function M.core_highlights()
 	-- plugins
 	-- lsp
 	syntax['lspdiagnosticssignerror'] = {fg=colors.red_active, bg=colors.bg_active, style='bold'}
-	syntax['lspdiagnosticsvirtualtexterror'] = {fg=colors.red_active, style='bold'}
-	syntax['lspdiagnosticsunderlineerror'] = {fg=colors.red_active, style='underline'}
-	syntax['lspdiagnosticssignwarning'] = {fg=colors.yellow_active, bg=colors.bg_active, style='bold'}
-	syntax['lspdiagnosticsvirtualtextwarning'] = {fg=colors.yellow_active, style='bold'}
-	syntax['lspdiagnosticsunderlinewarning'] = {fg=colors.yellow_active, style='underline'}
 	syntax['lspdiagnosticssignhint'] = {fg=colors.green_active, bg=colors.bg_active, style='bold'}
 	syntax['lspdiagnosticssigninformation'] = {fg=colors.green_active, bg=colors.bg_active, style='bold'}
-	syntax['lspdiagnosticsvirtualtexthint'] = {fg=colors.green_active, bg=colors.bg_active, style='bold'}
+	syntax['lspdiagnosticssignwarning'] = {fg=colors.yellow_active, bg=colors.bg_active, style='bold'}
+	syntax['lspdiagnosticsunderlineerror'] = {fg=colors.red_active, style='underline'}
 	syntax['lspdiagnosticsunderlineinformation'] = {fg=colors.green_active, style='underline'}
+	syntax['lspdiagnosticsunderlinewarning'] = {fg=colors.yellow_active, style='underline'}
+	syntax['lspdiagnosticsvirtualtexterror'] = {fg=colors.red_active, style='bold'}
+	syntax['lspdiagnosticsvirtualtexthint'] = {fg=colors.green_active, bg=colors.bg_active, style='bold'}
+	syntax['lspdiagnosticsvirtualtextwarning'] = {fg=colors.yellow_active, style='bold'}
 
 	-- treesitter
+	if g.modus_faint_syntax == 1 then
+		syntax['tsliteral'] = {fg=colors.blue_alt_faint, style='bold'}
+	else
+		syntax['tsliteral'] = {fg=colors.blue_alt, style='bold'}
+	end
 	syntax['tsannotation'] = {fg=colors.blue_nuanced_bg}
 	syntax['tsboolean'] = syntax['Boolean']
 	syntax['tscharacter'] = syntax['Character']
@@ -303,11 +310,6 @@ function M.core_highlights()
 	syntax['tsstrong'] = {fg=colors.fg_main, style='bold'}
 	syntax['tsconstructor'] = syntax['Type']
 	syntax['tskeywordfunction'] = syntax['Type']
-	if g.modus_faint_syntax == 1 then
-		syntax['tsliteral'] = {fg=colors.blue_alt_faint, style='bold'}
-	else
-		syntax['tsliteral'] = {fg=colors.blue_alt, style='bold'}
-	end
 	syntax['tsparameter'] = syntax['Label']
 	-- syntax['tsvariable'] = syntax['Identifier']
 	syntax['tsvariablebuiltin'] = syntax['Conditional']
@@ -320,14 +322,14 @@ function M.core_highlights()
 	syntax['telescopematching'] = {fg=colors.fg_main, bg=colors.green_intense_bg, style='bold'}
 
 	-- startify
-	syntax['startifyheader'] = syntax['Title']
-	syntax['startifyspecial'] = {fg=colors.fg_special_warm, style='bold'}
-	syntax['startifysection'] = {fg=colors.fg_special_warm, style='bold'}
-	syntax['startifypath'] = {fg=colors.fg_main}
-	syntax['startifyfile'] = {fg=colors.fg_main}
 	syntax['startifybracket'] = {fg=colors.fg_main}
-	syntax['startifyslash'] = {fg=colors.fg_main}
+	syntax['startifyfile'] = {fg=colors.fg_main}
 	syntax['startifyfooter'] = {fg=colors.fg_special_mild}
+	syntax['startifyheader'] = syntax['Title']
+	syntax['startifypath'] = {fg=colors.fg_main}
+	syntax['startifysection'] = {fg=colors.fg_special_warm, style='bold'}
+	syntax['startifyslash'] = {fg=colors.fg_main}
+	syntax['startifyspecial'] = {fg=colors.fg_special_warm, style='bold'}
 
 	syntax['nvimtreefoldericon'] = {fg=colors.blue}
 
@@ -336,14 +338,14 @@ function M.core_highlights()
 	syntax['buffercurrentmod'] = {fg=colors.yellow_active, bg=colors.bg_tab_active}
 	syntax['buffercurrentsign'] = {fg=colors.fg_tab_accent, bg=colors.bg_tab_active, style='bold'}
 	syntax['buffercurrenttarget'] = {fg=colors.magenta_active, bg=colors.bg_tab_active, style='bold'}
-	syntax['buffervisible'] = {fg=colors.fg_main, bg=colors.bg_tab_active}
-	syntax['buffervisiblemod'] = {fg=colors.green_active, bg=colors.bg_tab_active}
-	syntax['buffervisiblesign'] = {fg=colors.fg_tab_accent, bg=colors.bg_tab_active, style='bold'}
-	syntax['buffervisibletarget'] = {fg=colors.magenta_active, bg=colors.bg_tab_active, style='bold'}
 	syntax['bufferinactive'] = {fg=colors.fg_main, bg=colors.bg_tab_inactive}
 	syntax['bufferinactivemod'] = {fg=colors.green_active, bg=colors.bg_tab_inactive}
 	syntax['bufferinactivesign'] = {fg=colors.fg_tab_accent, bg=colors.bg_tab_inactive, style='bold'}
 	syntax['bufferinactivetarget'] = {fg=colors.magenta_active, bg=colors.bg_tab_inactive, style='bold'}
+	syntax['buffervisible'] = {fg=colors.fg_main, bg=colors.bg_tab_active}
+	syntax['buffervisiblemod'] = {fg=colors.green_active, bg=colors.bg_tab_active}
+	syntax['buffervisiblesign'] = {fg=colors.fg_tab_accent, bg=colors.bg_tab_active, style='bold'}
+	syntax['buffervisibletarget'] = {fg=colors.magenta_active, bg=colors.bg_tab_active, style='bold'}
 
 	-- rainbow parens
 	syntax['rainbowcol1'] = {fg=colors.green_alt_other}
@@ -363,6 +365,17 @@ function M.core_highlights()
 	syntax['VGitSignAdd'] = syntax['DiffAdd']
 	syntax['VgitSignChange'] = syntax['DiffChange']
 	syntax['VGitSignRemove'] = syntax['DiffDelete']
+
+	-- neogit
+	syntax['NeogitDiffAddRegion'] = syntax['DiffAdd']
+	syntax['NeogitDiffAddHighlight'] = {fg=colors.fg_diff_refine_added, bg=colors.bg_diff_refine_added}
+	syntax['NeogitDiffDeleteRegion'] = syntax['DiffDelete']
+	syntax['NeogitDiffDeleteHighlight'] = {fg=colors.fg_diff_refine_removed, bg=colors.bg_diff_refine_removed}
+	syntax['NeogitUnstagedchanges'] = {fg=colors.cyan}
+	syntax['NeogitUnstagedchangesRegion'] = {fg=colors.cyan}
+	syntax['NeogitDiffContextHighlight'] = {fg=colors.fg_inactive, bg=colors.bg_inactive}
+	syntax['NeogitHunkHeader'] = {fg=colors.cyan, bg=colors.bg_alt}
+	syntax['NeogitHunkHeaderHighlight'] = {fg=colors.fg_diff_heading, bg=colors.bg_diff_heading}
 
 	for group, highlights in pairs(syntax) do
 		highlighter(group, highlights)
