@@ -106,8 +106,8 @@ function M.core_highlights()
 	syntax['PmenuSel'] = {fg=colors.fg_dim, bg=colors.bg_dim}
 	syntax['PmenuSbar'] = {fg=colors.bg_main, bg=colors.bg_inactive}
 	syntax['PmenuThumb'] = syntax['Cursor']
-	syntax['StatusLine'] = {fg=colors.bg_main, bg=colors.blue_active}
-	syntax['StatusLineNC'] = {fg=colors.fg_inactive}
+	syntax['StatusLine'] = {fg=colors.fg_active, bg=colors.bg_active}
+	syntax['StatusLineNC'] = {fg=colors.fg_inactive, bg=colors.bg_inactive}
 	syntax['VertSplit'] = syntax['Normal']
 	syntax['DiffAdd'] = {fg=colors.fg_diff_added, bg=colors.bg_diff_added}
 	syntax['DiffChange'] = {fg=colors.fg_diff_changed, bg=colors.bg_diff_changed}
