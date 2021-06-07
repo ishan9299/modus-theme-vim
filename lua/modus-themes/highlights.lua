@@ -377,6 +377,9 @@ function M.core_highlights()
 	syntax['NeogitHunkHeader'] = {fg=colors.cyan, bg=colors.bg_alt}
 	syntax['NeogitHunkHeaderHighlight'] = {fg=colors.fg_diff_heading, bg=colors.bg_diff_heading}
 
+	-- lir
+	syntax['LirDir'] = syntax['Directory']
+
 	for group, highlights in pairs(syntax) do
 		highlighter(group, highlights)
 	end
