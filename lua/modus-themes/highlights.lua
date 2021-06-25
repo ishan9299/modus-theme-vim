@@ -26,8 +26,6 @@ if fn.exists('syntax_on') then
 	cmd('syntax reset')
 end
 
--- local
-
 function M.core_highlights(colors)
 
 	-- this will apply the highlights
@@ -324,7 +322,7 @@ function M.core_highlights(colors)
 	-- lir
 	syntax['LirDir'] = syntax['Directory']
 
-	if vim.g.modus_termtrans_enable == 1 then
+	if g.modus_termtrans_enable == 1 then
 		syntax.Normal.bg = colors.none
 		syntax.Folded.bg = colors.none
 		syntax.LineNr.bg = colors.none
@@ -332,7 +330,7 @@ function M.core_highlights(colors)
 		syntax.SignColumn.bg = colors.none
 	end
 
-	if vim.g.modus_cursorline_intense == 1 then
+	if g.modus_cursorline_intense == 1 then
 		syntax.CursorLine.bg = colors.bg_hl_line_intense
 	end
 
@@ -347,8 +345,8 @@ function M.core_highlights(colors)
 		syntax.Label.fg = colors.cyan_faint
 		syntax.Todo.fg = colors.magenta_faint
 		syntax.Type.fg = colors.magenta_alt_faint
-	  syntax.Number.fg = colors.blue_alt_other_faint
-	  syntax.Operator.fg = colors.magenta_alt_other_faint
+		syntax.Number.fg = colors.blue_alt_other_faint
+		syntax.Operator.fg = colors.magenta_alt_other_faint
 		syntax.luaTableConstructor.fg = colors.magenta_alt_faint
 		syntax.tsliteral.fg = colors.blue_alt_faint
 	end
@@ -358,7 +356,7 @@ function M.core_highlights(colors)
 	end
 
 	if g.modus_green_strings == 1 then
-			syntax.String.fg = colors.green_alt
+		syntax.String.fg = colors.green_alt
 	end
 
 	if g.modus_italic_strings == 1 then
