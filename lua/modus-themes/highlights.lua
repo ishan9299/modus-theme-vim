@@ -3,7 +3,6 @@ local cmd = vim.cmd
 local g = vim.g
 local o = vim.o
 local fn = vim.fn
-local colors
 
 local settings = {
 	modus_faint_syntax = 0,
@@ -23,53 +22,36 @@ end
 
 cmd('hi clear')
 
-if o.bg == 'dark' then
-	colors = require('modus-themes.modus_vivendi').setup()
-else
-	colors = require('modus-themes.modus_operandi').setup()
-end
-
 if fn.exists('syntax_on') then
 	cmd('syntax reset')
 end
 
--- this will apply the highlights
-local highlighter = function(group, color)
-	color.bg = color.bg or colors.none
-	local g_background = color.bg[1] -- gui color
-	local c_background = color.bg[2] -- cterm color
-	local g_foreground = color.fg[1] -- gui color
-	local c_foreground = color.fg[2] -- cterm color
-	local style = color.style or 'none'
-	cmd(string.format(
-	'hi %s guifg=%s guibg=%s gui=%s ctermfg=%s ctermbg=%s cterm=%s',
-	group, g_foreground, g_background, style, c_foreground, c_background, style
-	))
-end
-
 -- local
 
-function M.core_highlights()
+function M.core_highlights(colors)
+
+	-- this will apply the highlights
+	local highlighter = function(group, color)
+		color.bg = color.bg or {'none', 'none'}
+		local g_background = color.bg[1] -- gui color
+		local c_background = color.bg[2] -- cterm color
+		local g_foreground = color.fg[1] -- gui color
+		local c_foreground = color.fg[2] -- cterm color
+		local style = color.style or 'none'
+		cmd(string.format(
+		'hi %s guifg=%s guibg=%s gui=%s ctermfg=%s ctermbg=%s cterm=%s',
+		group, g_foreground, g_background, style, c_foreground, c_background, style
+		))
+	end
+
 	local syntax = {}
 	-- ui
-	if vim.g.modus_termtrans_enable == 1 then
-		syntax['Normal'] = {fg=colors.fg_main}
-		syntax['Folded'] = {fg=colors.fg_special_mild}
-		syntax['LineNr'] = {fg=colors.fg_alt}
-		syntax['CursorLineNr'] = {fg=colors.fg_active, style='bold'}
-		syntax['SignColumn'] = {fg=colors.bg_main}
-	else
-		syntax['Normal'] = {fg=colors.fg_main, bg=colors.bg_main}
-		syntax['Folded'] = {fg=colors.fg_special_mild, bg=colors.bg_special_mild}
-		syntax['LineNr'] = {fg=colors.fg_alt, bg=colors.bg_dim}
-		syntax['CursorLineNr'] = {fg=colors.fg_active, bg=colors.bg_active, style='bold'}
-		syntax['SignColumn'] = {fg=colors.bg_main, bg=colors.bg_inactive}
-	end
-	if vim.g.modus_cursorline_intense == 0 then
-		syntax['CursorLine'] = {fg=colors.none, bg=colors.bg_hl_line}
-	else
-		syntax['CursorLine'] = {fg=colors.none, bg=colors.bg_hl_line_intense}
-	end
+	syntax['Normal'] = {fg=colors.fg_main, bg=colors.bg_main}
+	syntax['Folded'] = {fg=colors.fg_special_mild, bg=colors.bg_special_mild}
+	syntax['LineNr'] = {fg=colors.fg_alt, bg=colors.bg_dim}
+	syntax['CursorLineNr'] = {fg=colors.fg_active, bg=colors.bg_active, style='bold'}
+	syntax['SignColumn'] = {fg=colors.bg_main, bg=colors.bg_inactive}
+	syntax['CursorLine'] = {fg=colors.none, bg=colors.bg_hl_line}
 	syntax['NonText'] = {fg=colors.fg_alt}
 	syntax['NormalNC'] = {fg=colors.fg_inactive, bg=colors.bg_inactive}
 	syntax['ErrorMsg'] = {fg=colors.fg_main, bg=colors.red_intense_bg}
@@ -120,51 +102,20 @@ function M.core_highlights()
 	syntax['WarningMsg'] = {fg=colors.yellow_alt}
 
 	-- syntax
-	if g.modus_yellow_comments == 1 then
-		syntax['Comment'] = {fg=colors.fg_comment_yellow, style='italic'}
-	else
-		syntax['Comment'] = {fg=colors.fg_alt, style='italic'}
-	end
-	if g.modus_green_strings == 1 then
-		if g.modus_italic_strings == 1 then
-			syntax['String'] = {fg=colors.green_alt, style='italic'}
-		else
-			syntax['String'] = {fg=colors.green_alt}
-		end
-	else
-		if g.modus_italic_strings == 1 then
-			syntax['String'] = {fg=colors.blue_alt, style='italic'}
-		else
-			syntax['String'] = {fg=colors.blue_alt}
-		end
-	end
-	if g.modus_faint_syntax == 1 then
-		syntax['Boolean'] = {fg=colors.blue_faint, style='bold'}
-		syntax['Character'] = {fg=colors.blue_alt_faint}
-		syntax['Conditional'] = {fg=colors.magenta_alt_other_faint}
-		syntax['Constant'] = {fg=colors.blue_alt_other_faint}
-		syntax['Function'] = {fg=colors.blue_alt_other_faint}
-		syntax['Identifier'] = {fg=colors.cyan_faint}
-		syntax['Include'] = {fg=colors.red_alt_other_faint}
-		syntax['Label'] = {fg=colors.cyan_faint}
-		syntax['Todo'] = {fg=colors.magenta_faint, style='bold'}
-		syntax['Type'] = {fg=colors.magenta_alt_faint}
-	  syntax['Number'] = {fg=colors.blue_alt_other_faint}
-	  syntax['Operator'] = {fg=colors.magenta_alt_other_faint}
-	else
-		syntax['Boolean'] = {fg=colors.blue, style='bold'}
-		syntax['Character'] = {fg=colors.blue_alt}
-		syntax['Conditional'] = {fg=colors.magenta_alt_other}
-		syntax['Constant'] = {fg=colors.blue_alt_other}
-		syntax['Function'] = {fg=colors.blue_alt_other}
-		syntax['Identifier'] = {fg=colors.cyan}
-		syntax['Include'] = {fg=colors.red_alt_other}
-		syntax['Label'] = {fg=colors.cyan}
-		syntax['Todo'] = {fg=colors.magenta, style='bold'}
-		syntax['Type'] = {fg=colors.magenta_alt}
-	  syntax['Number'] = {fg=colors.blue_alt_other_faint}
-	  syntax['Operator'] = {fg=colors.magenta_alt_other}
-	end
+	syntax['Comment'] = {fg=colors.fg_alt, style='italic'}
+	syntax['String'] = {fg=colors.blue_alt}
+	syntax['Boolean'] = {fg=colors.blue, style='bold'}
+	syntax['Character'] = {fg=colors.blue_alt}
+	syntax['Conditional'] = {fg=colors.magenta_alt_other}
+	syntax['Constant'] = {fg=colors.blue_alt_other}
+	syntax['Function'] = {fg=colors.blue_alt_other}
+	syntax['Identifier'] = {fg=colors.cyan}
+	syntax['Include'] = {fg=colors.red_alt_other}
+	syntax['Label'] = {fg=colors.cyan}
+	syntax['Todo'] = {fg=colors.magenta, style='bold'}
+	syntax['Type'] = {fg=colors.magenta_alt}
+	syntax['Number'] = {fg=colors.blue_alt_other_faint}
+	syntax['Operator'] = {fg=colors.magenta_alt_other}
 
 	syntax['Float'] = syntax['Number']
 	syntax['PreCondit'] = syntax['Include']
@@ -190,11 +141,7 @@ function M.core_highlights()
 
 	-- languages
 	-- lua
-	if g.modus_faint_syntax == 1 then
-		syntax['luaTableConstructor'] = {fg=colors.magenta_alt_faint}
-	else
-		syntax['luaTableConstructor'] = {fg=colors.magenta_alt}
-	end
+	syntax['luaTableConstructor'] = {fg=colors.magenta_alt}
 	syntax['luaConstant'] = {fg=colors.blue_alt_other, style='bold'}
 	syntax['luaComment'] = syntax['Comment']
 	syntax['luaStatement'] = syntax['Statement']
@@ -271,11 +218,7 @@ function M.core_highlights()
 	syntax['lspdiagnosticsvirtualtextwarning'] = {fg=colors.yellow_active, style='bold'}
 
 	-- treesitter
-	if g.modus_faint_syntax == 1 then
-		syntax['tsliteral'] = {fg=colors.blue_alt_faint, style='bold'}
-	else
-		syntax['tsliteral'] = {fg=colors.blue_alt, style='bold'}
-	end
+	syntax['tsliteral'] = {fg=colors.blue_alt, style='bold'}
 	syntax['tsannotation'] = {fg=colors.blue_nuanced_bg}
 	syntax['tsboolean'] = syntax['Boolean']
 	syntax['tscharacter'] = syntax['Character']
@@ -331,6 +274,7 @@ function M.core_highlights()
 	syntax['startifyslash'] = {fg=colors.fg_main}
 	syntax['startifyspecial'] = {fg=colors.fg_special_warm, style='bold'}
 
+	-- nvim tree
 	syntax['nvimtreefoldericon'] = {fg=colors.blue}
 
 	-- bufferline
@@ -380,12 +324,54 @@ function M.core_highlights()
 	-- lir
 	syntax['LirDir'] = syntax['Directory']
 
+	if vim.g.modus_termtrans_enable == 1 then
+		syntax.Normal.bg = colors.none
+		syntax.Folded.bg = colors.none
+		syntax.LineNr.bg = colors.none
+		syntax.CursorLineNr.bg = colors.none
+		syntax.SignColumn.bg = colors.none
+	end
+
+	if vim.g.modus_cursorline_intense == 1 then
+		syntax.CursorLine.bg = colors.bg_hl_line_intense
+	end
+
+	if g.modus_faint_syntax == 1 then
+		syntax.Boolean.fg = colors.blue_faint
+		syntax.Character.fg = colors.blue_alt_faint
+		syntax.Conditional.fg = colors.magenta_alt_other_faint
+		syntax.Constant.fg = colors.blue_alt_other_faint
+		syntax.Function.fg = colors.blue_alt_other_faint
+		syntax.Identifier.fg = colors.cyan_faint
+		syntax.Include.fg = colors.red_alt_other_faint
+		syntax.Label.fg = colors.cyan_faint
+		syntax.Todo.fg = colors.magenta_faint
+		syntax.Type.fg = colors.magenta_alt_faint
+	  syntax.Number.fg = colors.blue_alt_other_faint
+	  syntax.Operator.fg = colors.magenta_alt_other_faint
+		syntax.luaTableConstructor.fg = colors.magenta_alt_faint
+		syntax.tsliteral.fg = colors.blue_alt_faint
+	end
+
+	if g.modus_yellow_comments == 1 then
+		syntax.Comment.fg = colors.fg_comment_yellow
+	end
+
+	if g.modus_green_strings == 1 then
+			syntax.String.fg = colors.green_alt
+	end
+
+	if g.modus_italic_strings == 1 then
+		syntax.String.style = 'italic'
+	end
+
 	for group, highlights in pairs(syntax) do
 		highlighter(group, highlights)
 	end
+
 end
 
-function M.set_terminal()
+function M.set_terminal(colors)
 	g.terminal_color_0  = "#555555"
 	g.terminal_color_8  = "#222222"
 	g.terminal_color_1  = colors.red_faint
@@ -402,219 +388,6 @@ function M.set_terminal()
 	g.terminal_color_14 = colors.cyan_intense
 	g.terminal_color_7  = "#ffffff"
 	g.terminal_color_15 = "#dddddd"
-end
-
-
-
-function M.set_statusline()
-	local gl = require('galaxyline')
-	local gls = gl.section
-	gl.short_line_list = {'LuaTree','vista','dbui'}
-
-	local buffer_not_empty = function()
-		if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
-			return true
-		end
-		return false
-	end
-
-	gls.left[1] = {
-		FirstElement = {
-			provider = function() return '▋' end,
-			highlight = {colors.bg_active[1], colors.bg_active[1]}
-		}
-	}
-
-	gls.left[2] = {
-		ViMode = {
-			provider = function()
-				local mode_color = {
-					n      = colors.magenta_active[1],
-					i      = colors.green_active[1],
-					v      = colors.cyan_active[1],
-					[''] = colors.cyan_active[1],
-					V      = colors.cyan_active[1],
-					c      = colors.red_active[1],
-					R      = colors.red_active[1],
-					Rv     = colors.red_active[1],
-					t      = colors.blue_active[1],
-					['!']  = colors.blue_active[1],
-				}
-				local alias = {
-					n      = 'NORMAL',
-					i      = 'INSERT',
-					v      = 'VISUAL',
-					[''] = 'V·BLOCK',
-					V      = 'V·LINE',
-					c      = 'COMMAND',
-					R      = 'REPLACE',
-					Rv     = 'V·REPLACE',
-					t      =  'TERM',
-					['!']  =  'SHELL'
-				}
-				cmd('hi GalaxyViMode guifg='..mode_color[vim.fn.mode()])
-				return alias[vim.fn.mode()]
-			end,
-			separator = '',
-			separator_highlight = {colors.bg_active[1],function()
-				if not buffer_not_empty() then
-					return colors.bg_main[1]
-				end
-				return colors.bg_main[1]
-			end},
-			highlight = {colors.fg_active[1],colors.bg_active[1],'bold'},
-		},
-	}
-
-	gls.left[3] ={
-		FileIcon = {
-			provider = 'FileIcon',
-			condition = buffer_not_empty,
-			highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg_main[1]},
-		},
-	}
-
-	gls.left[4] = {
-		FileName = {
-			provider = {'FileName','FileSize'},
-			condition = buffer_not_empty,
-			separator = '',
-			separator_highlight = {colors.bg_active[1],colors.bg_main[1]},
-			highlight = {colors.fg_active[1],colors.bg_main[1],'bold'}
-		}
-	}
-
-	gls.left[5] = {
-		GitIcon = {
-			provider = function() return '  ' end,
-			condition = buffer_not_empty,
-			highlight = {colors.fg_active[1],colors.bg_active[1]},
-		}
-	}
-	gls.left[6] = {
-		GitBranch = {
-			provider = 'GitBranch',
-			condition = buffer_not_empty,
-			highlight = {colors.fg_active[1],colors.bg_active[1]},
-		}
-	}
-
-	local checkwidth = function()
-		local squeeze_width  = vim.fn.winwidth(0) / 2
-		if squeeze_width > 40 then
-			return true
-		end
-		return false
-	end
-
-	gls.left[7] = {
-		DiffAdd = {
-			provider = 'DiffAdd',
-			condition = checkwidth,
-			icon = ' ',
-			highlight = {colors.green_active[1],colors.bg_active[1]},
-		}
-	}
-	gls.left[8] = {
-		DiffModified = {
-			provider = 'DiffModified',
-			condition = checkwidth,
-			icon = ' ',
-			highlight = {colors.yellow_active[1],colors.bg_active[1]},
-		}
-	}
-	gls.left[9] = {
-		DiffRemove = {
-			provider = 'DiffRemove',
-			condition = checkwidth,
-			icon = ' ',
-			highlight = {colors.red_active[1],colors.bg_active[1]},
-		}
-	}
-	gls.left[10] = {
-		LeftEnd = {
-			provider = function() return '' end,
-			condition = buffer_not_empty,
-			highlight = {colors.bg_active[1],colors.bg_main[1]}
-		}
-	}
-	gls.left[11] = {
-		DiagnosticError = {
-			provider = 'DiagnosticError',
-			icon = '  ',
-			highlight = {colors.red_active[1],colors.bg_main[1]}
-		}
-	}
-	gls.left[12] = {
-		Space = {
-			provider = function () return ' ' end
-		}
-	}
-	gls.left[13] = {
-		DiagnosticWarn = {
-			provider = 'DiagnosticWarn',
-			icon = '  ',
-			highlight = {colors.yellow_active[1],colors.bg_main[1]},
-		}
-	}
-
-	gls.right[1]= {
-		FileFormat = {
-			provider = 'FileFormat',
-			separator = '',
-			separator_highlight = {colors.bg_main[1],colors.bg_active[1]},
-			highlight = {colors.fg_active[1],colors.bg_active[1]},
-		}
-	}
-	gls.right[2] = {
-		LineInfo = {
-			provider = 'LineColumn',
-			separator = ' | ',
-			separator_highlight = {colors.fg_active[1],colors.bg_active[1]},
-			highlight = {colors.fg_active[1],colors.bg_active[1]},
-		},
-	}
-	gls.right[3] = {
-		PerCent = {
-			provider = 'LinePercent',
-			separator = '',
-			separator_highlight = {colors.bg_main[1],colors.bg_active[1]},
-			highlight = {colors.fg_active[1],colors.bg_main[1]},
-		}
-	}
-	gls.right[4] = {
-		ScrollBar = {
-			provider = 'ScrollBar',
-			highlight = {colors.fg_active[1],colors.bg_main[1]},
-		}
-	}
-
-	gls.short_line_left[1] = {
-		BufferType = {
-			provider = { 'FileName' },
-			separator = '',
-			separator_highlight = {colors.bg_active[1],colors.bg_main[1]},
-			highlight = {colors.fg_active[1],colors.bg_active[1]}
-		}
-	}
-
-	gls.short_line_right[1] = {
-		BufferIcon = {
-			provider= 'BufferIcon',
-			separator = '',
-			separator_highlight = {colors.bg_active[1],colors.bg_main[1]},
-			highlight = {colors.fg_active[1],colors.bg_active[1]}
-		}
-	}
-end
-
--- TODO
--- now try to use libuv to make it faster.
-M.core_highlights()
-M.set_terminal()
-
-if g.modus_moody_enable == 1 and o.termguicolors == true then
-	M.set_statusline()
 end
 
 return M
