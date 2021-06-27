@@ -194,8 +194,10 @@ local colors = {
 	-- bg_mark_alt = {"#f5d88f",240},
 	-- fg_mark_alt = {"#782900",107}
 }
-require('modus-themes.highlights').core_highlights(colors)
-require('modus-themes.highlights').set_terminal(colors)
+
+local modus_themes = require('modus-themes.highlights')
+modus_themes.core_highlights(colors)
+modus_themes.set_terminal(colors)
 
 if vim.g.modus_moody_enable == 1 then
 	require('modus-themes.galaxyline').set_statusline(colors)
