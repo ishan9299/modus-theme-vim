@@ -372,18 +372,18 @@ end
 function M.set_terminal(colors)
 	g.terminal_color_0  = "#555555"
 	g.terminal_color_8  = "#222222"
-	g.terminal_color_1  = colors.red_faint
-	g.terminal_color_9  = colors.red_intense
-	g.terminal_color_2  = colors.green_faint
-	g.terminal_color_10 = colors.green_intense
-	g.terminal_color_3  = colors.yellow_faint
-	g.terminal_color_11 = colors.yellow_intense
-	g.terminal_color_4  = colors.blue_faint
-	g.terminal_color_12 = colors.blue_intense
-	g.terminal_color_5  = colors.magenta_faint
-	g.terminal_color_13 = colors.magenta_intense
-	g.terminal_color_6  = colors.cyan_faint
-	g.terminal_color_14 = colors.cyan_intense
+	g.terminal_color_1  = colors.red_faint[1]
+	g.terminal_color_9  = colors.red_intense[1]
+	g.terminal_color_2  = colors.green_faint[1]
+	g.terminal_color_10 = colors.green_intense[1]
+	g.terminal_color_3  = colors.yellow_faint[1]
+	g.terminal_color_11 = colors.yellow_intense[1]
+	g.terminal_color_4  = colors.blue_faint[1]
+	g.terminal_color_12 = colors.blue_intense[1]
+	g.terminal_color_5  = colors.magenta_faint[1]
+	g.terminal_color_13 = colors.magenta_intense[1]
+	g.terminal_color_6  = colors.cyan_faint[1]
+	g.terminal_color_14 = colors.cyan_intense[1]
 	g.terminal_color_7  = "#ffffff"
 	g.terminal_color_15 = "#dddddd"
 end
