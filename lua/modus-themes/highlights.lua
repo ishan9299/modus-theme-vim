@@ -214,6 +214,10 @@ function M.core_highlights(colors)
 	syntax['lspdiagnosticsvirtualtexterror'] = {fg=colors.red_active, style='bold'}
 	syntax['lspdiagnosticsvirtualtexthint'] = {fg=colors.green_active, bg=colors.bg_active, style='bold'}
 	syntax['lspdiagnosticsvirtualtextwarning'] = {fg=colors.yellow_active, style='bold'}
+	syntax['lspdiagnosticsfloatingerror'] = {fg=colors.red_active, bg=colors.bg_active}
+	syntax['lspdiagnosticsfloatingwarning'] = {fg=colors.yellow_active, bg=colors.bg_active}
+	syntax['lspdiagnosticsfloatinginformation'] = {fg=colors.green_active, bg=colors.bg_active}
+	syntax['lspdiagnosticsfloatinghint'] = {fg=colors.green_active, bg=colors.bg_active}
 
 	-- treesitter
 	syntax['tsliteral'] = {fg=colors.blue_alt, style='bold'}
