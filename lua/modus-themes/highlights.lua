@@ -106,12 +106,12 @@ function M.core_highlights(colors)
 	syntax['Character'] = {fg=colors.blue_alt}
 	syntax['Conditional'] = {fg=colors.magenta_alt_other}
 	syntax['Constant'] = {fg=colors.blue_alt_other}
-	syntax['Function'] = {fg=colors.blue_alt_other}
+	syntax['Function'] = {fg=colors.magenta}
 	syntax['Identifier'] = {fg=colors.cyan}
 	syntax['Include'] = {fg=colors.red_alt_other}
 	syntax['Label'] = {fg=colors.cyan}
 	syntax['Todo'] = {fg=colors.magenta, style='bold'}
-	syntax['Type'] = {fg=colors.magenta_alt}
+	syntax['Type'] = {fg=colors.cyan_alt_other}
 	syntax['Number'] = {fg=colors.blue_alt_other_faint}
 	syntax['Operator'] = {fg=colors.magenta_alt_other}
 
