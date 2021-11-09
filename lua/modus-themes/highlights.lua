@@ -229,7 +229,7 @@ function M.core_highlights(colors)
 	syntax['tsconstant'] = syntax['Constant']
 	syntax['tsconstbuiltin'] = syntax['Constant']
 	syntax['tsconstmacro'] = syntax['Macro']
-	syntax['tserror'] = {fg=colors.fg_main, bg=colors.red_intense_bg, style='bold'}
+	syntax['tserror'] = {fg=colors.fg_main, bg=colors.none, style='bold'}
 	syntax['tsexception'] = syntax['Conditional']
 	syntax['tsfield'] = syntax['Identifier']
 	syntax['tsfloat'] = syntax['Float']
@@ -256,6 +256,7 @@ function M.core_highlights(colors)
 	syntax['tsconstructor'] = syntax['Type']
 	syntax['tskeywordfunction'] = syntax['Type']
 	syntax['tsparameter'] = syntax['Label']
+  syntax['luaTSVariable'] = {fg=colors.fg_main}
 	-- syntax['tsvariable'] = syntax['Identifier']
 	syntax['tsvariablebuiltin'] = syntax['Conditional']
 	syntax['tstag'] = syntax['Label']
