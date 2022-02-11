@@ -199,6 +199,7 @@ function M.core_highlights(colors)
 
 	-- Specific green for Diagnostichint
 	syntax['diagnostichint'] = {fg=colors.green_alt}
+	syntax['diagnosticinfo'] = {fg=colors.blue_alt}
 
 	-- nix
 	syntax['nixattributedefinition'] = {fg=colors.cyan}
@@ -259,7 +260,7 @@ function M.core_highlights(colors)
 	syntax['tsconstructor'] = syntax['Type']
 	syntax['tskeywordfunction'] = syntax['Type']
 	syntax['tsparameter'] = syntax['Label']
-  syntax['luaTSVariable'] = {fg=colors.fg_main}
+    syntax['luaTSVariable'] = {fg=colors.fg_main}
 	-- syntax['tsvariable'] = syntax['Identifier']
 	syntax['tsvariablebuiltin'] = syntax['Conditional']
 	syntax['tstag'] = syntax['Label']
