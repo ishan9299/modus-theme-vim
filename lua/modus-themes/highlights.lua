@@ -197,6 +197,9 @@ function M.core_highlights(colors)
 	syntax['markdownrule'] = {fg=colors.fg_special_warm, style='bold'}
 	syntax['markdownurl'] = {fg=colors.blue_faint}
 
+	-- Specific green for Diagnostichint
+	syntax['diagnostichint'] = {fg=colors.green_alt}
+
 	-- nix
 	syntax['nixattributedefinition'] = {fg=colors.cyan}
 	syntax['nixattribute'] = {fg=colors.blue_alt_other}
