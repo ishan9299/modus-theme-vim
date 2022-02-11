@@ -200,6 +200,7 @@ function M.core_highlights(colors)
 	-- Specific green for Diagnostichint
 	syntax['diagnostichint'] = {fg=colors.green_alt}
 	syntax['diagnosticinfo'] = {fg=colors.blue_alt}
+	syntax['diagnosticwarn'] = {fg=colors.yellow_alt}
 
 	-- nix
 	syntax['nixattributedefinition'] = {fg=colors.cyan}
