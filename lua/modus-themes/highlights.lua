@@ -67,7 +67,7 @@ function M.core_highlights(colors)
 	-- syntax['MoreMsg'] = {}
 	-- syntax['NormalFloat'] = {}
 	-- syntax['Question'] = {}
-	-- syntax['QuickFixLine'] = {}
+	syntax['QuickFixLine'] = {fg=colors.fg_main, bg=colors.bg_main}
 	-- syntax['SpecialKey'] = {}
 	syntax['Menu'] = syntax['Pmenu']
 	syntax['Scrollbar'] = syntax['PmenuSbar']
