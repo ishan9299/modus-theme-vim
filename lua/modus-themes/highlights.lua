@@ -12,6 +12,7 @@ local settings = {
 	modus_termtrans_enable = 0,
 	modus_cursorline_intense = 0,
 	modus_italic_strings = 0,
+	modus_dim_inactive_window  = 1
 }
 
 for key,val in pairs(settings) do
@@ -51,7 +52,7 @@ function M.core_highlights(colors)
 	syntax['SignColumn'] = {fg=colors.bg_main, bg=colors.bg_inactive}
 	syntax['CursorLine'] = {fg=colors.none, bg=colors.bg_hl_line}
 	syntax['NonText'] = {fg=colors.fg_alt}
-	syntax['NormalNC'] = {fg=colors.fg_inactive, bg=colors.bg_inactive}
+	syntax['NormalNC'] = {fg=colors.fg_inactive, bg=colors.bg_main}
 	syntax['ErrorMsg'] = {fg=colors.fg_main, bg=colors.red_intense_bg}
 	syntax['Conceal'] = {fg=colors.fg_special_warm, bg=colors.bg_dim}
 	syntax['Cursor'] = {fg=colors.bg_main, bg=colors.fg_main}
@@ -372,7 +373,11 @@ function M.core_highlights(colors)
 	if g.modus_italic_strings == 1 then
 		syntax.String.style = 'italic'
 	end
-
+  
+	if g.modus_dim_inactive_window  == 1 then
+		syntax.NormalNC.bg = colors.bg_inactive
+	end
+  
 	for group, highlights in pairs(syntax) do
 		highlighter(group, highlights)
 	end
