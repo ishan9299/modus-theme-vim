@@ -71,6 +71,7 @@ The theme has multiple configuration options.
 - `vim.g.modus_faint_syntax`
 - `vim.g.modus_cursorline_intense`
 - `vim.g.modus_termtrans_enable` (use this if you want a transperent background)
+- `vim.g.modus_dim_inactive_window` (default 1, set to 0 to disable)
 
 To do the same in viml.
 - `let g:modus_moody_enable`
@@ -79,6 +80,7 @@ To do the same in viml.
 - `let g:modus_faint_syntax`
 - `let g:modus_cursorline_intense`
 - `let g:modus_termtrans_enable`
+- `let g:modus_dim_inactive_window` (default 1, set to 0 to disable)
 
 All these options are disabled by default. To enable them set the value 1.
 
