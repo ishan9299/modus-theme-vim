@@ -84,6 +84,12 @@ To do the same in viml.
 
 All these options are disabled by default. To enable them set the value 1.
 
+### Extras
+
+- Also included are [modus-vivendi](extras/wezterm/modus-vivendi.toml) and
+  [modus-operandi](extras/wezterm/modus-operandi.toml) for
+  [wezterm](https://wezfurlong.org/wezterm/) terminal.
+
 ### Screenshots
 ![Screenshot from 2021-05-11 12-43-02](https://user-images.githubusercontent.com/47824004/117776670-71710d80-b259-11eb-9241-bf9dad56a35c.png)
 

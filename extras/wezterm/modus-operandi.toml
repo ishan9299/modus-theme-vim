@@ -1,0 +1,12 @@
+# Modus Operandi
+[colors]
+foreground = "#000000"
+background = "#ffffff"
+cursor_bg = "#bbbbbb"
+cursor_border = "#bbbbbb"
+cursor_fg = "#ffffff"
+selection_bg = "#bcbcbc"
+selection_fg = "#000000"
+
+ansi = ["#000000","#a60000","#005e00","#813e00","#0031a9","#721045","#00538b","#bfbfbf"]
+brights = ["#595959","#972500","#315b00","#70480f","#2544bb","#5317ac","#005a5f","#ffffff"]
