@@ -1,0 +1,12 @@
+# Modus Vivendi
+[colors]
+foreground = "#ffffff"
+background = "#000000"
+cursor_bg = "#bbbbbb"
+cursor_border = "#bbbbbb"
+cursor_fg = "#ffffff"
+selection_bg = "#3c3c3c"
+selection_fg = "#ffffff"
+
+ansi = ["#000000","#ff8059","#44bc44","#d0bc00","#2fafff","#feacd0","#00d3d0","#bfbfbf"]
+brights = ["#595959","#ef8b50","#70b900","#c0c530","#79a8ff","#b6a0ff","#6ae4b9","#ffffff"]
