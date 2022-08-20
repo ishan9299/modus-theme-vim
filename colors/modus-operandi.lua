@@ -198,6 +198,7 @@ local colors = {
 local modus_themes = require('modus-themes.highlights')
 modus_themes.core_highlights(colors)
 modus_themes.set_terminal(colors)
+vim.g.colors_name = 'modus-operandi'
 
 if vim.g.modus_moody_enable == 1 then
 	require('modus-themes.galaxyline').set_statusline(colors)
