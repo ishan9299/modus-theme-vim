@@ -125,7 +125,7 @@ TreeSitter is supported if there is a language that isn't properly highlighted p
   + Kitty
     + [modus-operandi](https://github.com/ishan9299/Nixos/blob/d4bbb7536be95b59466bb9cca4d671be46e04e81/user/kitty/themes/modus-operandi.conf#L1-L47)
     + [modus-vivendi](https://github.com/ishan9299/Nixos/blob/d4bbb7536be95b59466bb9cca4d671be46e04e81/user/kitty/themes/modus-vivendi.conf#L1-L48)
-  + [Alacritty](https://github.com/ishan9299/Nixos/blob/d4bbb7536be95b59466bb9cca4d671be46e04e81/user/alacritty/alacritty.yml#L30-L118)
+  + [Alacritty](https://github.com/protesilaos/dotfiles/blob/master/alacritty/.config/alacritty/modus-vivendi.yml)
 - To covert the hexcolor codes to the nearest 256 color I used this javascript [code](https://gist.github.com/ishan9299/d87713b43dc04d49fa060711fdc7dd6d).
 
 ## Maybe Checkout
